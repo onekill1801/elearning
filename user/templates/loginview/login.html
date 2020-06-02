@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Log-in</h1>
+	{% if messge %}
+		<div>{{ messge }}</div>
+	{% endif %}
+	{# enctype="multipart/form-data" #}
+	<form method="post">
+		{# {{ register_form.as_p }} #}
+		{% csrf_token %}
+		<p><label for="id_title">Username</label> <input type="text" name="user_name" required id="id_title"></p>
+		<p><label for="id_file">Password</label> <input type="text" name="pass_word" required id="id_file"></p>
+		
+		<button type="submit">Login</button>
+		
+	</form>
+{% endblock content %}
