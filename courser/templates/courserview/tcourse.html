@@ -3,4 +3,22 @@
 {% block content %}
 	<h1>Teacher Course Page</h1>
 	<h2>Create, Edit, Delete to Subject, Courses, Module </h2>
+
+	<h1>Create Subject</h1>
+	<form method="post">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<button type="submit">Create</button>
+		
+	</form>
+	<h1>List Courses</h1>
+	{% for d in data %}
+		<div> {{ d.title }} </div>
+		<div> {{ d.slug }} </div>
+		<a href="{% url "course_del" d.id %}">del</a>
+		<a href="{% url "course_edit" d.id %}">edit</a>
+		<a href="{% url "course_module" d.id %}">create module</a>
+		<br>
+		<br>
+	{% endfor %}
 {% endblock content %}

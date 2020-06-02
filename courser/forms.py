@@ -1,6 +1,10 @@
 from django import forms
 from .models import Subject
 
+class SubjectForm(forms.Form):
+	title = forms.CharField(required=True)
+	slug = forms.SlugField(required=True)
+
 class CourseForm(forms.Form):
 	title = forms.CharField(required=True)
 	slug = forms.SlugField(required=True)

@@ -3,16 +3,12 @@
 {% block content %}
 	<h1>Create Courser</h1>
 	<form method="post">
-		{{ form.as_p }}
-		{% csrf_token %}
 		<p><label for="id_subject">Subject:</label> 
 		<select name="subject" required id="id_subject">
-			<option value="" selected>---------</option>
-			{% for d in data %}
-				<option value="{{d.id}}">{{d.title}} 1</option>
-			{% endfor %}
+			<option value="{{data.id}}">{{data.title}}</option>
 		</select></p>
+		{{ form.as_p }}
+		{% csrf_token %}
 		<button type="submit">Create</button>
-		
 	</form>
 {% endblock content %}

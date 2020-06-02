@@ -5,7 +5,10 @@
 	{% for d in data %}
 		<div> {{ d.title }} </div>
 		<div> {{ d.slug }} </div>
-		<a href="">{{ d.title }}</a>
+		<a href="{% url "course_del" d.id %}">del</a>
+		<a href="{% url "course_del" d.id %}">edit</a>
+		<a href="{% url "course_del" d.id %}">create module</a>
+		<br>
 		<br>
 	{% endfor %}
 {% endblock content %}
