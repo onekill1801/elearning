@@ -43,11 +43,28 @@ class CreateSubjectView(View):
 		# return render(request, 'courserview/tcourse.html', {'form': form1})
 
 class CreateModuleView(View):
-	def get(self, request, pk):
-		return HttpResponse('get request'+ pk)
+	def get(self, request, module_id):
+		data = Course.objects.filter(id=module_id)[0]
+		form = ModuleForm()
+		content = {
+			'form': form,
+			'data' : data
+		}
+		return render(request, 'courserview/module_create.html', content)
+		# return HttpResponse('get request')
 		
-	def post(self, request, pk):
-		return HttpResponse('post request')
+	def post(self, request, module_id):
+		data = Course.objects.filter(id=module_id)[0]
+		form = ModuleForm(request.POST)
+		form1 = ModuleForm()
+		if form.is_valid():
+			m_data = Module()
+			m_data.course = data
+			m_data.title = request.POST.get('title', '')
+			m_data.description = request.POST.get('description', '')
+			m_data.save()
+		return render(request, 'courserview/module_create.html', {'form': form1, 'data': []})
+		# return HttpResponse('post request')
 
 class CreateCourserView(View):
 	def get(self, request, pk):
@@ -70,7 +87,7 @@ class CreateCourserView(View):
 			subject_form.slug = request.POST.get('slug', '')
 			subject_form.overview = request.POST.get('title', '') +  request.POST.get('slug', '')
 			subject_form.save()
-			d_courses= Course.objects.all()
+			d_courses= Course.objects.filter(subject=Subject.objects.filter(id=pk)[0])
 		return render(request, 'courserview/course_create.html', {'data': d_courses})
 		# return HttpResponse('subject_form save')
 
@@ -151,12 +168,26 @@ class CreateModulerView(View):
 
 class HomeView(View):
 	def get(self,request):
-		return render(request, 'courserview/home.html')
+		url = 'courserview/home.html'
+		return render(request, url)
+		# return HttpResponse('Home View')
+
+class OpenCourserView(View):
+	def get(self,request, pk):
+		url = 'courserview/home.html'
+		return render(request, url)
+		# return HttpResponse('Home View')
+class OpenModuleView(View):
+	def get(self,request, pk):
+		url = 'courserview/home.html'
+		return render(request, url)
 		# return HttpResponse('Home View')
 
 class SCourserView(View):
 	def get(self, request):
-		return render(request, 'courserview/scourse.html')
+		d_courses= Course.objects.all()
+		return render(request, 'courserview/course_create.html', {'data': d_courses})
+		# return render(request, 'courserview/scourse.html')
 
 class TCourserView(View):
 	def get(self, request):

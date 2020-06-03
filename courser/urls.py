@@ -10,7 +10,9 @@ from courser.views import (
 	CreateSubjectView,
 	DelSubjectView,
 	EditSubjectView,
-	CreateModuleView
+	CreateModuleView,
+	OpenCourserView,
+	OpenModuleView
 )
 
 urlpatterns = [
@@ -26,4 +28,12 @@ urlpatterns = [
 	path('<pk>/del/', DelSubjectView.as_view(),name='course_del'),
 	path('<pk>/edit/', EditSubjectView.as_view(),name='course_edit'),
 	path('<pk>/module/', CreateCourserView.as_view(),name='course_module'),
+
+	path('<pk>/open/', OpenCourserView.as_view(),name='open_course'),
+	path('<pk>/open/', OpenModuleView.as_view(),name='open_module'),
+
+	path('module/<str:module_id>/',
+		CreateModuleView.as_view(),
+		name='module_content_create'),
+
 ]

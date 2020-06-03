@@ -11,10 +11,11 @@
 		<button type="submit">Create</button>
 		
 	</form>
-	<h1>List Courses</h1>
+	<h1>List Subject</h1>
 	{% for d in data %}
 		<div> {{ d.title }} </div>
 		<div> {{ d.slug }} </div>
+		<a href="{% url "course_del" d.id %}">Open</a>
 		<a href="{% url "course_del" d.id %}">del</a>
 		<a href="{% url "course_edit" d.id %}">edit</a>
 		<a href="{% url "course_module" d.id %}">create module</a>

@@ -12,5 +12,4 @@ class CourseForm(forms.Form):
 class ModuleForm(forms.Form):   
 	# subject = forms.CharField(required=True). 
 	title = forms.CharField(required=True)
-	slug = forms.SlugField(required=True)
-	overview = forms.CharField()
+	description = forms.CharField()
