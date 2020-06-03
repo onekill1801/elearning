@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
+	<h1>Create Subject</h1>
+	<form action="{% url 'create-subject' %}" method="post">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<button type="submit">Create Subject</button>
+	</form>
+	
 	<h1>List Subject</h1>
+	{% for d in data %}
+		<div> {{ d.title }} </div>
+		<div> {{ d.slug }} </div>
+		<a href="{% url "open_course" d.id %}">Open</a>
+		<a href="{% url "del_subject" d.id %}">Del</a>
+		<a href="{% url "edit_subject" d.id %}">Edit</a>
+		<a href="{% url "create-course" d.id %}">Create Course</a>
+		<br>
+		<br>
+	{% endfor %}
 {% endblock content %}

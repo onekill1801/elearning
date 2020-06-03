@@ -22,5 +22,5 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home-view'),
     path('index/', HomeView.as_view(), name='home-view'),
     path('user/', include('user.urls'), name='login-view'),
-    path('courser/', include('courser.urls'), name='courser-view'),
+    path('course/', include('courser.urls'), name='courser-view'),
 ]

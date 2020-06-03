@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+	<h1>Create module</h1>
+	<form action="{% url 'create-module' pk pk1 %}" method="post">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<button type="submit">Create module</button>
+	</form>
 	<h1>List Module</h1>
+	{% for d in data %}
+		<div> {{ d.title }} </div>
+		<div> {{ d.description }} </div>
+		{# <a href="{% url "open_module" pk pk1 d.id %}">Open</a> #}
+		<a href="{% url "del_module" pk pk1 d.id %}">del</a>
+		<a href="{% url "edit_module" pk pk1 d.id %}">edit</a>
+		{# <a href="{% url "create-module" pk d.id %}">Create Details Module</a> #}
+		<br>
+		<br>
+	{% endfor %}
 {% endblock content %}

@@ -1,39 +1,23 @@
 from django.urls import path, include
-from courser.views import (
-	CourserView,
-	CreateCourserView,
-	HomeView,
-	EditCourserView,
-	CreateModulerView,
-	SCourserView,
-	TCourserView,
-	CreateSubjectView,
-	DelSubjectView,
-	EditSubjectView,
-	CreateModuleView,
-	OpenCourserView,
-	OpenModuleView
-)
+from courser.views import *
 
 urlpatterns = [
-    # path('home/', HomeView.as_view(), name='home-view'),
-    path('', CourserView.as_view(), name='courser-view'),
-    path('listcourses/', CourserView.as_view(), name='courser-view'),
-    path('scourses/', SCourserView.as_view(), name='scourses-view'),
-    path('tcourses/', CreateSubjectView.as_view(), name='tcourses-view'),
-    path('create/', CreateCourserView.as_view(), name='create-view'),
-    path('createmodule/', CreateModulerView.as_view(), name='createmodule-view'),
-    path('edit/', EditCourserView.as_view(), name='edit-view'),
-    # path('delete/', DeleteCourserView.as_view(), name='del-view'),
-	path('<pk>/del/', DelSubjectView.as_view(),name='course_del'),
-	path('<pk>/edit/', EditSubjectView.as_view(),name='course_edit'),
-	path('<pk>/module/', CreateCourserView.as_view(),name='course_module'),
+    path('home/', HomeView.as_view(), name='home-view'),
 
-	path('<pk>/open/', OpenCourserView.as_view(),name='open_course'),
-	path('<pk>/open/', OpenModuleView.as_view(),name='open_module'),
+	path('open/', OpenSubjectView.as_view(),name='open_subject'),
+	path('open/<int:pk>/', OpenCourserView.as_view(),name='open_course'),
+	path('open/<int:pk>/<int:pk1>/', OpenModuleView.as_view(),name='open_module'),
 
-	path('module/<str:module_id>/',
-		CreateModuleView.as_view(),
-		name='module_content_create'),
+    path('create/', CreateSubjectView.as_view(), name='create-subject'),
+    path('create/<int:pk>/', CreateCourserView.as_view(), name='create-course'),
+    path('create/<int:pk>/<int:pk1>/', CreateModuleView.as_view(), name='create-module'),
+
+	path('edit/<int:pk>/', EditSubjectView.as_view(),name='edit_subject'),
+	path('edit/<int:pk>/<int:pk1>/', EditCourserView.as_view(),name='edit_course'),
+	path('edit/<int:pk>/<int:pk1>/<int:pk2>/', EditModuleView.as_view(),name='edit_module'),
+
+	path('del/<int:pk>/', DelSubjectView.as_view(),name='del_subject'),
+	path('del/<int:pk>/<int:pk1>', DelCourseView.as_view(),name='del_course'),
+	path('del/<int:pk>/<int:pk1>/<int:pk2>/', DelModuleView.as_view(),name='del_module'),
 
 ]
