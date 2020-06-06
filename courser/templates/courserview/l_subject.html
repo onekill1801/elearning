@@ -1,22 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Create Subject</h1>
-	<form action="{% url 'create-subject' %}" method="post">
-		{{ form.as_p }}
-		{% csrf_token %}
-		<button type="submit">Create Subject</button>
-	</form>
 	
-	<h1>List Subject</h1>
-	{% for d in data %}
-		<div> {{ d.title }} </div>
-		<div> {{ d.slug }} </div>
-		<a href="{% url "open_course" d.id %}">Open</a>
-		<a href="{% url "del_subject" d.id %}">Del</a>
-		<a href="{% url "edit_subject" d.id %}">Edit</a>
-		<a href="{% url "create-course" d.id %}">Create Course</a>
-		<br>
-		<br>
-	{% endfor %}
+	<div class="featured-content">
+            <div class="substrate">
+               <img src="" class="fullwidth" alt="" />         
+            </div>
+            <div class="row">
+               <div class="page-title">
+                  <h1 class="nomargin">Courses</h1>
+               </div>
+               <!-- /page title -->          
+            </div>
+         </div>
+         <!-- /featured -->
+         <div class="main-content">
+            <div class="row">
+               <div class="fullwidth-section">
+                  <div class="courses-listing clearfix">
+                  	
+                  	{% for d in data %}
+                     <div class="column threecol ">
+                        <div class="course-preview premium-course">
+                           <div class="course-image">
+                              <a href=""><img width="420" height="420" src="" class="attachment-normal wp-post-image" alt="image_45" /></a>
+                              <div class="course-price product-price">
+                                 <div class="price-text"><span class="amount">&#36;128</span></div>
+                                 <div class="corner-wrap">
+                                    <div class="corner"></div>
+                                    <div class="corner-background"></div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="course-meta">
+                              <header class="course-header">
+                                 <h5 class="nomargin"><a href="">{{ d.title }}</a></h5>
+                                 <a href="../profile/admin.html" class="author">{{ d.slug }}</a>
+                              </header>
+                              <footer class="course-footer clearfix">
+                                 <div class="course-users left">
+                                    12       
+                                 </div>
+                                 <div class="course-rating rating-form">
+                                    <div data-score="4" data-readonly="true"></div>
+                                 </div>
+                              </footer>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                     <div class="clear"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
 {% endblock content %}

@@ -3,8 +3,8 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 class Subject(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=200,  unique=True)
+    slug = models.SlugField(max_length=200)
 
     class Meta:
         abstract = False
@@ -16,8 +16,8 @@ class Course(models.Model):
     subject = models.ForeignKey(Subject,
                                 related_name='courses',
                                 on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200)
     overview = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
 
@@ -31,7 +31,7 @@ class Module(models.Model):
     course = models.ForeignKey(Course,
                                related_name='modules',
                                on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     description = models.TextField(blank=True)
 
     def __str__(self):

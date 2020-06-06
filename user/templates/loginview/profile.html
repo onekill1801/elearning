@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="featured-content">
+            <div class="substrate">
+               <img src="https://demo.themex.co/academy/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			
+            </div>
+            <div class="row">
+               <div class="page-title">
+                  <h1 class="nomargin">Profile</h1>
+               </div>
+               <!-- /page title -->				
+            </div>
+         </div>
+         <!-- /featured -->
+         <div class="main-content">
+            <div class="row">
+               <div class="sevencol column">
+                  <div class="user-profile">
+                     <div class="user-image">
+                        <div class="bordered-image thick-border">
+                           <img src="https://demo.themex.co/academy/wp-content/uploads/2020/05/image-1-200x200.jpg" class="avatar" width="200" alt="" />	
+                        </div>
+                        <div class="user-image-uploader">
+                           <form action="https://demo.themex.co:443/academy/profile/demo" enctype="multipart/form-data" method="POST">
+                              <label for="avatar" class="button"><span class="button-icon upload"></span>Upload</label>
+                              <input type="file" class="shifted" id="avatar" name="avatar" />
+                              <input type="hidden" name="user_action" value="update_avatar" />
+                              <input type="hidden" name="nonce" value="938a87799f" />
+                           </form>
+                        </div>
+                     </div>
+                     <div class="user-description">
+                        <form action="https://demo.themex.co:443/academy/profile/demo" class="formatted-form" method="POST">
+                           <div class="message">
+                           </div>
+                           <div class="sixcol column">
+                              <div class="field-wrapper">
+                                 <input type="text" name="first_name" size="30" value="Denisse" placeholder="First Name" />
+                              </div>
+                           </div>
+                           <div class="sixcol column last">
+                              <div class="field-wrapper">
+                                 <input type="text" name="last_name" size="30" value="Alcaraz" placeholder="Last Name" />
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="field-wrapper">
+                              <input type="text" name="signature" value="yesyes" placeholder="Signature" />
+                           </div>
+                           <div class="user-fields">
+                           </div>
+                           <div id="wp-description-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
+                              <link rel='stylesheet' id='dashicons-css'  href='https://demo.themex.co/academy/wp-includes/css/dashicons.min.css?ver=4.0.30' type='text/css' media='all' />
+                              <link rel='stylesheet' id='editor-buttons-css'  href='https://demo.themex.co/academy/wp-includes/css/editor.min.css?ver=4.0.30' type='text/css' media='all' />
+                              <div id="wp-description-editor-container" class="wp-editor-container">
+                                 <textarea class="wp-editor-area" rows="10" autocomplete="off" cols="40" name="description" id="description"><p>astrofisica</p>
+                                 </textarea>
+                              </div>
+                           </div>
+                           <div class="sixcol column">
+                              <div class="field-wrapper">
+                                 <input type="text" name="facebook" value="" placeholder="Facebook" />
+                              </div>
+                           </div>
+                           <div class="sixcol column last">
+                              <div class="field-wrapper">
+                                 <input type="text" name="twitter" value="" placeholder="Twitter" />
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="sixcol column">
+                              <div class="field-wrapper">
+                                 <input type="text" name="google" value="" placeholder="Google +" />
+                              </div>
+                           </div>
+                           <div class="sixcol column last">
+                              <div class="field-wrapper">
+                                 <input type="text" name="tumblr" value="" placeholder="Tumblr" />
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="sixcol column">
+                              <div class="field-wrapper">
+                                 <input type="text" name="linkedin" value="" placeholder="LinkedIn" />
+                              </div>
+                           </div>
+                           <div class="sixcol column last">
+                              <div class="field-wrapper">
+                                 <input type="text" name="flickr" value="" placeholder="Flickr" />
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <div class="sixcol column">
+                              <div class="field-wrapper">
+                                 <input type="text" name="youtube" value="" placeholder="YouTube" />
+                              </div>
+                           </div>
+                           <div class="sixcol column last">
+                              <div class="field-wrapper">
+                                 <input type="text" name="vimeo" value="" placeholder="Vimeo" />
+                              </div>
+                           </div>
+                           <div class="clear"></div>
+                           <a href="#" class="button submit-button"><span class="button-icon save"></span>Save Changes</a>
+                           <input type="hidden" name="user_action" value="update_profile" />
+                           <input type="hidden" name="nonce" value="938a87799f" />
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <div class="fivecol column last">
+                  <div class="user-courses-listing">
+                     <div class="course-item started">
+                        <div class="course-title">
+                           <h4 class="nomargin"><a href="https://demo.themex.co/academy/course/home-fitness-training">Home Fitness Training</a></h4>
+                           <div class="course-progress">
+                              <span style="width:80%;"></span>
+                           </div>
+                        </div>
+                        <div class="course-meta">
+                           <div class="course-rating rating-form">
+                              <div data-score="4" data-readonly="true"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="course-item started">
+                        <div class="course-title">
+                           <h4 class="nomargin"><a href="https://demo.themex.co/academy/course/home-yoga-practice">Home Yoga Practice</a></h4>
+                           <div class="course-progress">
+                              <span style="width:60%;"></span>
+                           </div>
+                        </div>
+                        <div class="course-meta">
+                           <div class="course-rating rating-form">
+                              <div data-score="3" data-readonly="true"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+{% endblock content %}

@@ -1,37 +1,149 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Page Demo</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-	<ul class="nav justify-content-end">
-		<li class="nav-item">
-			<a class="nav-link active" href="{% url 'home-view' %}">Home</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'open_subject' %}">Courses</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'open_subject' %}">MyCourses for Student</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'open_subject' %}">MyCourses for Teacher</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="{% url 'login-view' %}">Login</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link disabled" href="{% url 'register-view' %}">Logout</a>
-		</li>
-	</ul>
-<!--	<iframe width="320" height="320" src="https://www.youtube.com/embed/bmurGIqiPgg?list=PLbAFXJC0J5GaVjPNNw_i-oLNKc7bVQcFk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-	{% block content %}{% endblock content %}
+<html lang="en-US">
+   <!-- Mirrored from demo.themex.co/academy/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 May 2020 00:25:40 GMT -->
+   <!-- Added by HTTrack -->
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <!-- /Added by HTTrack -->
+   <head>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Academy &#8211; Learning Management Theme</title>
+      <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://demo.themex.co/academy/wp-content/themes/academy/js/html5.js"></script>
+      <![endif]-->
+      <link rel="alternate" type="application/rss+xml" title="Academy - Learning Management Theme &raquo; Feed" href="feed" />
+      <link rel="alternate" type="application/rss+xml" title="Academy - Learning Management Theme &raquo; Comments Feed" href="course/home-fitness-training.html" />
+      <link rel="alternate" type="application/rss+xml" title="Academy - Learning Management Theme &raquo; Home Comments Feed" href="home/feed" />
+      <link rel='stylesheet' id='woocommerce-layout-css'  href="{% static 'css/woocommerce-layout3cae.css' %}" type='text/css' media='all' />
+      <link rel='stylesheet' id='woocommerce-smallscreen-css'  href="{% static 'css/woocommerce-smallscreen3cae.css' %}" type='text/css' media='only screen and (max-width: 768px)' />
+      <link rel='stylesheet' id='woocommerce-general-css'  href='{% static "css/woocommerce3cae.css" %}' type='text/css' media='all' />
+      <link rel='stylesheet' id='general-css'  href='{% static "wp-content/themes/academy/style9c30.css" %}' type='text/css' media='all' />
+      <script type='text/javascript' src='{% static "wp-includes/js/jquery/jquery90f9.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-includes/js/jquery/jquery-migrate.min1576.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/jquery.hoverIntent.min9c30.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/jquery.placeholder.min9c30.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/jplayer/jquery.jplayer.min9c30.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/jquery.themexSlider9c30.js" %}'></script>
+      <script type='text/javascript'>
+         /* <![CDATA[ */
+         var options = {"templateDirectory":"https:\/\/demo.themex.co\/academy\/wp-content\/themes\/academy\/"};
+         /* ]]> */
+      </script>
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/jquery.raty.min9c30.js" %}'></script>
+      
+      <script type='text/javascript' src='{% static "wp-content/themes/academy/js/general9c30.js" %}'></script>
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+      <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" />
+      <meta name="generator" content="WordPress 4.0.30" />
+      <meta name="generator" content="WooCommerce 2.2.7" />
+      <link rel='canonical' href='index.html' />
+      <link rel='shortlink' href='index.html' />
+      <link rel="shortcut icon" href="{% static 'wp-content/themes/academy/framework/assets/images/favicon.ico' %}" />
 
-	{# {% block courses %}{% endblock courses %} #}
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+   </head>
+   <body class="home page page-id-2 page-template-default">
+      <div class="site-wrap">
+         <div class="header-wrap">
+            <header class="site-header">
+               <div class="row">
+                  <div class="site-logo left">
+                     <a href="index.html" rel="home">
+                     <img src="{% static 'wp-content/themes/academy/images/logo.png' %}" alt="Academy &#8211; Learning Management Theme" />
+                     </a>
+                  </div>
+                  <!-- /logo -->
+                  <div class="header-options right clearfix">
+                     <div class="login-options right">
+                        <div class="button-wrap left login-button">
+                           <a href="{% url 'login-view' %}" class="button dark"><span class="button-icon login"></span>Sign In</a>
+                        </div>
+                        <div class="button-wrap left">
+                           <a href="{% url 'register-view' %}" class="button">
+                           <span class="button-icon register"></span>Register                      </a>
+                        </div>
+                     </div>
+                     <!-- /login options -->                            
+                     <div class="search-form right">
+                        <form role="search" method="GET" action="https://demo.themex.co/academy/">
+                           <input type="text" value="" name="s" />
+                        </form>
+                     </div>
+                     <!-- /search form -->
+                     <div class="button-wrap share-button tooltip right">
+                        <a href="#" class="button dark"><span class="button-icon plus nomargin"></span></a>
+                        <div class="tooltip-wrap">
+                           <div class="corner"></div>
+                           <div class="tooltip-text">
+                              <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+                              <div class="fb-like" data-href="https://demo.themex.co/academy/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false" style="margin-top:2px;"></div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- /share button -->
+                  </div>
+                  <!-- /header options -->
+                  <div class="mobile-search-form">
+                     <form role="search" method="GET" action="https://demo.themex.co/academy/">
+                        <input type="text" value="" name="s" />
+                     </form>
+                  </div>
+                  <!-- /mobile search form -->
+                  <nav class="header-navigation right">
+                     <div class="menu">
+                        <ul id="menu-main-menu" class="menu">
+                           <li id="menu-item-187" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-187">
+                              <a href="{% url 'home-view' %}">Home</a>
+                           </li>
+                           <li id="menu-item-238" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-238"><a href="{% url 'open_subject' %}">Courses</a></li>
+                           <li id="menu-item-2114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2114"><a href="{% url 'open_subject'  %}">My Courses</a></li>
+                           
+                           <li id="menu-item-184" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-184"><a href="{% url 'open_subject' %}">Teacher Course</a></li>
+                           <li id="menu-item-603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-603"><a href="{% url 'open_subject' %}">Support</a></li>
+                        </ul>
+                     </div>
+                     <!--/ select menu-->
+                  </nav>
+                  <!-- /navigation -->                
+               </div>
+            </header>
+            <!-- /header -->
+         </div>
+         {% block content %}
+            
+         {% endblock content %}
+         <!-- /content -->
+         <div class="footer-wrap">
+            <footer class="site-footer">
+               <div class="row">
+                  <div class="copyright left">
+                     Academy Theme &copy; 2020                 
+                  </div>
+                  <nav class="footer-navigation right">
+                     <div class="menu-footer-menu-container">
+                        <ul id="menu-footer-menu" class="menu">
+                           <li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-193"><a href="{% url 'open_subject' %}">Home</a></li>
+                           <li id="menu-item-237" class="menu-item menu-item-type-taxonomy menu-item-object-course_category menu-item-237"><a href="{% url 'open_subject' %}">Courses</a></li>
+                           <li id="menu-item-190" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="{% url 'open_subject' %}">My Courses</a></li>
+                           <li id="menu-item-191" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-191"><a href="">Teacher Course</a></li>
+                           <li id="menu-item-740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-740"><a href="">Support</a></li>
+                        </ul>
+                     </div>
+                  </nav>
+                  <!-- /navigation -->          
+               </div>
+            </footer>
+         </div>
+         <!-- /footer -->        
+      </div>
+      <!-- /site wrap -->
+      <script type='text/javascript' src='{% static "wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min3cae.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.minc8cb.js" %}'></script>
+      
+      <script type='text/javascript' src='{% static "wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min3cae.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.mine7f0.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min3cae.js" %}'></script>
+      <script type='text/javascript' src='{% static "wp-includes/js/comment-reply.min9c30.js" %}'></script>
+   </body>
+   <!-- Mirrored from demo.themex.co/academy/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 May 2020 00:26:06 GMT -->
 </html>

@@ -1,18 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Log-in</h1>
-	{% if messge %}
-		<div>{{ messge }}</div>
-	{% endif %}
-	{# enctype="multipart/form-data" #}
-	<form method="post">
-		{# {{ register_form.as_p }} #}
-		{% csrf_token %}
-		<p><label for="id_title">Username</label> <input type="text" name="user_name" required id="id_title"></p>
-		<p><label for="id_file">Password</label> <input type="text" name="pass_word" required id="id_file"></p>
-		
-		<button type="submit">Login</button>
-		
-	</form>
+<div class="main-content" >
+<div class="fourcol column last">
+      <h1>Sign In</h1>
+      <form class="ajax-form formatted-form" action="https://demo.themex.co/academy/wp-admin/admin-ajax.php" method="POST">
+         <div class="message"></div>
+         <div class="field-wrapper">
+            <input type="text" name="user_login" value="Demo" />
+         </div>
+         <div class="field-wrapper">
+            <input type="password" name="user_password" value="Demo" />
+         </div>
+         <a href="#" class="button submit-button left"><span class="button-icon login"></span>Sign In</a>
+         <a href="#" class="button submit-button left"><span class="button-icon register"></span>Register</a>
+         <div class="form-loader"></div>
+         <input type="hidden" name="user_action" value="login_user" />
+         <input type="hidden" name="user_redirect" value="" />
+         <input type="hidden" name="nonce" class="nonce" value="243d9224f0" />
+         <input type="hidden" name="action" class="action" value="themex_update_user" />
+      </form>
+   </div>
+   <div class="clear"></div>
+</div>
+</div>
 {% endblock content %}

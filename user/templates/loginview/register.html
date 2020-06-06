@@ -1,21 +1,73 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Register</h1>
-	{% if messge %}
-		<div>{{ messge }}</div>
-	{% endif %}
-	<form method="post">
-		{# {{ register_form.as_p }} #}
-		{% csrf_token %}
-		<p><label for="id_title">Title:</label> <input type="text" name="user_name" required id="id_title"></p>
-		<p><label for="id_file">File:</label> <input type="text" name="pass_word" required id="id_file"></p>
-
-		<input type="radio" id="teacher" name="type_user" value="1">
-		<label for="teacher">Teacher</label><br>
-		<input type="radio" id="student" name="type_user" value="0">
-		<label for="student">Student</label>
-
-		<button type="submit">Register</button>
-	</form>
+	<div class="featured-content">
+            <div class="substrate">
+               <img src="https://demo.themex.co/academy/wp-content/themes/academy/images/bgs/site_bg.jpg" class="fullwidth" alt="" />			
+            </div>
+            <div class="row">
+               <div class="page-title">
+                  <h1 class="nomargin">Registration</h1>
+               </div>
+               <!-- /page title -->				
+            </div>
+         </div>
+         <!-- /featured -->
+         <div class="main-content">
+            <div class="row">
+               <div class="eightcol column">
+                  <h1>Register</h1>
+                  <form class="ajax-form formatted-form" action="{% url 'register-view' %}" method="POST">
+                     <div class="message"></div>
+                     <div class="sixcol column">
+                        <div class="field-wrapper">
+                           <input type="text" name="user_login" placeholder="Username" />
+                        </div>
+                     </div>
+                     <div class="sixcol column last">
+                        <div class="field-wrapper">
+                           <input type="text" name="user_email" placeholder="Email" />
+                        </div>
+                     </div>
+                     <div class="clear"></div>
+                     <div class="sixcol column">
+                        <div class="field-wrapper">
+                           <input type="password" name="user_password" placeholder="Password" />
+                        </div>
+                     </div>
+                     <div class="sixcol column last">
+                        <div class="field-wrapper">
+                           <input type="password" name="user_password_repeat" placeholder="Repeat Password" />
+                        </div>
+                     </div>
+                     <div class="clear"></div>
+                     <a href="#" class="button submit-button left"><span class="button-icon register"></span>Register</a>
+                     <div class="form-loader"></div>
+                     <input type="hidden" name="user_action" value="register_user" />
+                     <input type="hidden" name="user_redirect" value="" />
+                     <input type="hidden" name="nonce" class="nonce" value="243d9224f0" />
+                     <input type="hidden" name="action" class="action" value="themex_update_user" />
+                  </form>
+               </div>
+               <div class="fourcol column last">
+                  <h1>Sign In</h1>
+                  <form class="ajax-form formatted-form" action="https://demo.themex.co/academy/wp-admin/admin-ajax.php" method="POST">
+                     <div class="message"></div>
+                     <div class="field-wrapper">
+                        <input type="text" name="user_login" value="Demo" />
+                     </div>
+                     <div class="field-wrapper">
+                        <input type="password" name="user_password" value="Demo" />
+                     </div>
+                     <a href="#" class="button submit-button left"><span class="button-icon login"></span>Sign In</a>
+                     <div class="form-loader"></div>
+                     <input type="hidden" name="user_action" value="login_user" />
+                     <input type="hidden" name="user_redirect" value="" />
+                     <input type="hidden" name="nonce" class="nonce" value="243d9224f0" />
+                     <input type="hidden" name="action" class="action" value="themex_update_user" />
+                  </form>
+               </div>
+               <div class="clear"></div>
+            </div>
+         </div>
 {% endblock content %}

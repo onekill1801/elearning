@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This is Test session</title>
+</head>
+<body>
+	<div>This is Session</div>
+	<p>{{ request.session.username }}</p>
+	<p>{{ request.session.type }}</p>
+	<a href="{% url 'del_session' %}">Del</a>
+	<a href="{% url 'session-view' %}">Create</a>
+</body>
+</html>
