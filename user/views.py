@@ -1,87 +1,194 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.http import HttpResponse
-from user.models import UserModel
-from .forms import LoginForm, RegisterForm
+from user.models import *
+from .forms import *
 # import pdb
 # Create your views here.
 
-def delete_session_data(request):
-	del request.session['username']
-	if request.session['username']:
-		return HttpResponse('session!')
-	else:
-		return render(request, 'loginview/session.html')
-
-def session(request):
-	request.session['username'] = '20'
-	request.session['type'] = '1'
-	# return redirect('/user/')
-	# if request.session.test_cookie_worked():
-		# required=Trueequest.session.delete_test_cookie()
-		# 
-		# request.session['username'] = '20'
-		# print(request.session.get('user_id'))
-		# return HttpResponse('enable cookie' + request.session['username'])
-	# else:
-		# request.session.set_test_cookie()
-		# return HttpResponse('Please enable cookie')
-		# messages.error(request, 'Please enable cookie')
-	return render(request, 'loginview/session.html')
-	# # return render(request, 'home/home.html')
-	# return HttpResponse('session!')
-
+#  Phan tren la demo
+def logout(request):
+	del request.session['id']
+	del request.session['type']
+	return redirect('/')
+	# return HttpResponse("Logout")
 
 class LoginView(View):
 	def get(self, request):
-		return render(request, 'loginview/login.html')
+		return render(request, 'account/login.html')
 		
 	def post(self, request):
 		form = LoginForm(request.POST)
-		import pdb; pdb.set_trace()
 		if form.is_valid():
-			user_name = request.POST.get('user_name', '')
-			user = UserModel.objects.filter(user_name=user_name)
-			# pdb.set_trace()
-			if len(user) == 1:
-				context = {'messge': 'Login Sussess'}
-				return render(request, 'loginview/login.html', context)
+			userT = Teacher.objects.filter(user_name=request.POST.get('user_name'))
+			userS = Student.objects.filter(user_name=request.POST.get('user_name'))
+			import pdb; pdb.set_trace()
+			if userS:
+				id_S = Student.objects.filter(user_name=request.POST.get('user_name'))[0].id
+				passS = Student.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
+				if passS == request.POST.get('pass_word'):
+					request.session['id'] = id_S
+					request.session['type'] = '1'
+					return redirect('/')
+			elif userT:
+				id_T = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].id
+				passT = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
+				if passT == request.POST.get('pass_word'):
+					request.session['id'] = id_T
+					request.session['type'] = '0'
+					return redirect('/')
 			else:
-				context = {'messge': 'Login Fail'}
-				return render(request, 'loginview/login.html', context)
+				content = {'messge_error' : 'User or pass wrong!!!'}
+				return render(request, 'account/login.html', content)
 		else:
-			return HttpResponse('post request')
+			return HttpResponse('500 Internal Server Error')
 
 class RegisterView(View):
 	def get(self, request):
-		return render(request, 'loginview/register.html')
+		return render(request, 'account/register.html')
 
 	def post(self, request):
 		form = RegisterForm(request.POST)
 		if form.is_valid():
-			user = UserModel()
-			user.user_name = request.POST.get('user_name', '')
-			user.pass_word = request.POST.get('pass_word', '')
-			user.type_user = request.POST.get('type_user', '')
-			user.save()
-			context = {'messge': 'Register Sussess'}
-			return render(request, 'loginview/register.html', context)
+			if request.POST.get('password1', '') == request.POST.get('password2', ''):
+				if request.POST.get('type_user', '') == '0':
+					user = Teacher.objects.filter(user_name=request.POST.get('user_name'))
+					user_email = Teacher.objects.filter(email=request.POST.get('email'))
+					if not user:
+						if not user_email:
+							userTeacher = Teacher()
+							userTeacher.user_name = request.POST.get('user_name', '')
+							userTeacher.pass_word = request.POST.get('password1', '')
+							userTeacher.email = request.POST.get('email', '')
+							userTeacher.save()
+							context = {'messge': 'Account Sussess'}
+						else:
+							context = {'messge_error_email': 'Email da ton tai'}
+					else:
+						context = {'messge_error_user': 'User da ton tai'}
+				else:
+					user = Student.objects.filter(user_name=request.POST.get('user_name'))
+					user_email = Student.objects.filter(email=request.POST.get('email'))
+					if not user:
+						if not user_email:
+							userStudent = Student()
+							userStudent.user_name = request.POST.get('user_name', '')
+							userStudent.pass_word = request.POST.get('password1', '')
+							userStudent.email = request.POST.get('email', '')
+							userStudent.save()
+							context = {'messge': 'Account Sussess'}
+						else:
+							context = {'messge_error_email': 'Email da ton tai'}
+					else:
+						context = {'messge_error_user': 'User da ton tai'}
+				return render(request, 'account/register.html', context)
+			else:
+				context = {'messge_error_pass': 'Error Password'}
+				return render(request, 'account/register.html', context)
 		else:
-			return HttpResponse("Post RegisterView")
+			return HttpResponse("500 Internal Server Error ")
+
+class CourseView(View):
+	def get(self, request):
+		# import pdb; pdb.set_trace()
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'loginview/course.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				# return render(request, 'loginview/profile1.html', content)
+				return render(request, 'loginview/course.html', content)
+		except Exception as e:
+			return render(request, '404.html') 
+		# return render(request, 'loginview/course.html')
+
+	def post(self, request):
+		return HttpResponse("Post ProfileView")
 
 class ProfileView(View):
 	def get(self, request):
-		return render(request, 'loginview/profile.html')
+		# import pdb; pdb.set_trace()
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'student/profileS.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				# return render(request, 'loginview/profile1.html', content)
+				return render(request, 'teacher/profileT.html', content)
+		except Exception as e:
+			return render(request, '404.html')
 
 	def post(self, request):
-		# form = RegisterForm(request.POST)
-		# if form.is_valid():
-		# 	user = UserModel()
-		# 	user.user_name = request.POST.get('user_name', '')
-		# 	user.pass_word = request.POST.get('pass_word', '')
-		# 	user.type_user = request.POST.get('type_user', '')
-		# 	user.save()
-		# 	context = {'messge': 'Register Sussess'}
-		# 	return render(request, 'loginview/profile.html', context)
-		# else:
-		return HttpResponse("Post ProfileView")
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				user.fullname = request.POST.get('fullname', '')
+				user.address = request.POST.get('address', '')
+				user.gender = request.POST.get('gender', '')
+				user.birday = request.POST.get('birday', '')
+				user.mobile = request.POST.get('mobile', '')
+				try:
+					user.image = request.FILES['image']
+				except Exception as e:
+					print("request.FILES['image'] is null")
+				user.save()
+				# return render(request, 'loginview/profile1.html')
+				content = {
+					'messge' : 'Cap nhat thanh cong!!!'
+				}
+				return redirect('profile-view')
+				# return render(request, 'student/profileS.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				import pdb; pdb.set_trace()
+				user.fullname = request.POST.get('fullname', '')
+				user.address = request.POST.get('address', '')
+				user.work_years = request.POST.get('work_years', '')
+				user.work_company = request.POST.get('work_company', '')
+				user.work_position = request.POST.get('work_position', '')
+				user.age = request.POST.get('age', '')
+				try:
+					user.image = request.FILES['image']
+				except Exception as e:
+					print("request.FILES['image'] is null")
+				user.save()
+				# return render(request, 'loginview/profile1.html')
+				content = {
+					'messge' : 'Cap nhat thanh cong!!!'
+				}
+				return redirect('profile-view')
+				# return render(request, 'loginview/profile1.html')
+				# return render(request, 'teacher/profileT.html', content)
+		except Exception as e:
+			return render(request, '404.html')
+
+class ResetPassView(View):
+	def get(self, request):
+		return render(request, 'account/reset_pass.html')
+	def post(self, request):
+		return render(request, 'account/reset_pass.html')
+
+class ChangePassView(View):
+	def get(self, request):
+		return HttpResponse("GET ChangePassView")
+		# return render(request, 'account/reset_pass.html')
+	def post(self, request):
+		return render(request, 'account/reset_pass.html')

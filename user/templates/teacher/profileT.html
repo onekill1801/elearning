@@ -1,0 +1,397 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="u-dashboard-top" style="background-image:  url(https://unica.vn/media/img/bg-db.jpg);">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <p>
+               {% if type == '1' %}
+                  {% if  user.fullname %}
+                     Học viên : {{ user.fullname }}
+                  {% else %}
+                     Học viên                                 
+                  {% endif %}
+               {% else %}
+                  {% if  user.fullname %}
+                     Giang vien : {{ user.fullname }}
+                  {% else %}
+                     Giang vien                                 
+                  {% endif %}  
+               {% endif %}
+            </p>
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav nav-tabs" style="border-bottom: 0px !important">
+                  <li class=""><a href="{% url 'courseuser-view' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Khóa học</a></li>
+                  <li class="active"><a href="{% url 'profile-view' %}" class=""><i class="fa fa-user" aria-hidden="true"></i> Hồ sơ cá nhân</a></li>
+                  <li class="btn-group pull-right">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Thêm  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li class=""><a href="/dashboard/user/login-history" class=""> <i class="fa fa-history" aria-hidden="true"></i> Lịch sử đăng nhập</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<main>
+   <div class="container">
+      <div class="right">
+         <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+         <link rel="stylesheet" href="/media/styles/flatpickr.min.css">
+         <style>
+            label {font-weight: normal;}
+            .margin-left {margin-left: 15px;}
+            .color-red {color:red;}
+            .color-green {color:green;}
+            .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display:none;
+            }
+            .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            }
+            .loading:not(:required) {
+            /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+            }
+            .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 1500ms infinite linear;
+            -moz-animation: spinner 1500ms infinite linear;
+            -ms-animation: spinner 1500ms infinite linear;
+            -o-animation: spinner 1500ms infinite linear;
+            animation: spinner 1500ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            }
+            @-webkit-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @-moz-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @-o-keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            @keyframes spinner {
+            0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            }
+            100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            }
+            }
+            #bb {
+            display: none;
+            background-color: rgba(0,0,0,.7);
+            top: 52px;
+            left: 29px;
+            }
+            input[type="file"] {
+            display: none;
+            }
+            .absolute {
+            position: absolute;
+            }
+            .relative {
+            position: relative;
+            margin-bottom: 38px;
+            }
+            .GVb {
+            background: url(https://ssl.gstatic.com/s2/oz/images/sprites/profiles_sr-df78a3bf347b3cdb103b2191751c5d6e.png) no-repeat 0 0;
+            display: inline-block;
+            margin: 8px;
+            width: 24px;
+            height: 20px;
+            }
+            .field-File {
+            margin-bottom: 0px !important;
+            }
+            a.btn.btn-warning.margin-left.pull-right {
+            margin-top: -8px;
+            }
+         </style>
+         <div class="loading">Loading&#8230;</div>
+         <br/>
+         <div id="main-content">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <span style="font-weight: bold;"><i class="fa fa-user" aria-hidden="true"></i> Thông tin cá nhân</span>
+                  <div class="pull-right">
+                     <a href="{% url 'change_pass-view' %}" class="btn btn-xs btn-warning margin-left"><i class="fa fa-refresh"></i> Thay đổi mật khẩu</a>
+                     <a href="#" onclick="return confirm('Bạn xác nhận không còn sử dụng tài khoản Trần Văn Chung?');" class="btn btn-xs btn-default margin-left"><i class="fa fa-lock"></i> Khóa tài khoản</a>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+                     <form id="w0" action="#" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-md-6 col-sm-6">
+                           <div class="form-group" style="margin-bottom: 47px;">
+                              <label style="margin-bottom: 10px;">Chọn ảnh đại diện</label>
+                              <br/>
+                              <img class="show_image" src="{{user.image.url}}" style="width: 100px; height: 100px;" />
+                              <label id="bb" class="absolute">
+                                 <div id="edit-avatar" role="button" class="GVb" style="-webkit-user-select: none;"></div>
+                                 <div class="form-group field-File">
+                                    <input type="hidden" name="image" value="">
+                                    <input type="file" id="File" name="image" value="">
+                                    <p class="help-block help-block-error"></p>
+                                 </div>
+                              </label>
+                              <p style="margin-top:10px;">(Ảnh vuông và <500KB)</p>
+                           </div>
+                           <div class="form-group">
+                              <label>Địa chỉ</label>
+                              <div class="form-group field-muser-address">
+                                 <input type="text" id="muser-address" class="form-control" name="address" value="{{user.address}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label>So Nam Lam Viec</label>
+                              <div class="form-group field-muser-address">
+                                 <input type="text" id="muser-address" class="form-control" name="work_years" value="{{user.work_years}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group" style="padding-top: 19px;">
+                              <button class="btn btn-success"><i class="fa fa-save"></i> Lưu lại</button>
+                           </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                           <div class="form-group">
+                              <label>Họ và tên</label>
+                              <div class="form-group field-muser-fullname required">
+                                 <input type="text" id="muser-fullname" class="form-control" name="fullname" value="{{user.fullname}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group" >
+                              <label><i title="Email chưa xác thực" class="fa fa-envelope color-red"></i> Email <a class="vertify_email" href="javascript:void(0)">[ Xác minh Email ]</a></label>
+                              <div class="form-group field-muser-email required">
+                                 <input type="email" id="muser-email" class="form-control" name="email" value="{{user.email}}" readonly="true">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label>Ten Cong Ty</label>
+                              <div class="form-group field-muser-phone required">
+                                 <input type="text" id="muser-phone" class="form-control" name="work_company" value="{{user.work_company}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label>Tuoi</label>
+                              <div class="form-group field-selector_id">
+                                 <input type="text" id="selector_id" class="form-control" name="age" value="{{user.age}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label>Vi tri Cong Viec</label>
+                              <div class="form-group field-selector_id">
+                                 <input type="text" id="selector_id" class="form-control" name="work_position" value="{{user.work_position}}">
+                                 <p class="help-block help-block-error"></p>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <script src="/media/js/flatpickr.min.js"></script>
+         <script>
+            /* $('#selector_id').flatpickr({
+             dateFormat: "d-m-Y",
+             time_24hr: true,
+             enableTime: false,
+             enableSeconds: false
+             }); */
+            
+            $('#selector_id').mask('99-99-9999', {placeholder: "vd : 01-01-1990"});
+            
+            $('.vertify_email').click(function () {
+                $.ajax({
+                    url: '/create/vtfemail',
+                    type: 'POST',
+                    beforeSend: function () {
+                        $('.loading').show();
+                    },
+                    complete: function () {
+                        $('.loading').hide();
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            location.reload();
+                        }
+                    }
+                });
+            });
+            
+            
+            setTimeout(function () {
+                $('.help-block').hide();
+            }, 10000);
+            
+         </script>
+         <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '410486232859596',
+                    xfbml: true,
+                    version: 'v2.10'
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            
+            function login() {
+                FB.login(function (response) {
+                    if (response.status === 'connected') {
+                        var url = window.location.href;
+                        var arguments = url.split('?');
+                        var ip = $('body').find('input[name=ip]').val();
+                        getInfo(arguments[1], ip);
+                    } else if (response.status === 'not_authorized') {
+                        console.log(response.status);
+                    } else {
+                        console.log(response.status);
+                    }
+            
+                }, {scope: 'email'});
+            }
+            // get user basic info
+            function disconnect() {
+                var cf = confirm("Bạn chắc chắn muốn hủy kết nối đến facebook");
+                if (cf) {
+                    $.ajax({
+                        url: '/create/fbdisconnect',
+                        type: 'post',
+                        success: function (response) {
+                            location.reload();
+                        }
+                    })
+                }
+            }
+            
+            function getInfo(params, ip) {
+                FB.api('/me', 'GET', {fields: 'id, name, email, link, birthday, gender'}, function (response) {
+                    $.ajax({
+                        url: '/create/fbupdate',
+                        type: 'post',
+                        data: {
+                            'id': response['id'],
+                        },
+                        success: function (response) {
+                            location.reload();
+                        }
+                    })
+            
+                });
+            }
+            
+            $(".show_image, #bb").hover(function () {
+                $('#bb').show();
+            }, function () {
+                $('#bb').hide();
+            });
+            console.log("xxxx");
+         </script>
+      </div>
+   </div>
+</main>
+{% endblock content %}

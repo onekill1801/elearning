@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+    <title>Trang quản trị tài khoản </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="https://static.unica.vn/icon/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/datepicker.css' %}">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('{% static 'images/bg-01.jpg' %}')">
+        <script src="../www.google.com/recaptcha/api327f.js?hl=vi"></script>
+<div class="wrap-login100 p-l-110 p-r-110 p-t-20 p-b-13">
+    <form method="POST" class="login100-form validate-form flex-sb flex-w" action="{% url 'register-view' %}">
+        {% csrf_token %}
+        <span class="login100-form-title p-b-10">
+            <img src="{% static 'images/logo.png' %}" />
+        </span>
+        <div class="p-t-10 p-b-10 col-md-12" style="text-align: center;color: #555">
+            <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
+        </div>
+
+        <div class="wrap-input100 validate-input register-input" data-validate = "Yêu cầu nhập Username">
+            <input placeholder="Username" class="input100" type="text" name="user_name" value="" >
+            <span class="focus-input100"></span>
+        </div>
+        {% if messge_error_user %}
+            <div style="color:red;"> {{ messge_error_user }} </div>
+        {% endif %}
+        {% if messge %}
+            <div style="color:blue;"> {{ messge }} </div>
+        {% endif %}
+        <div class="wrap-input100 validate-input register-input" data-validate = "Yêu cầu nhập mật khẩu">
+            <input placeholder="Mật khẩu, lớn hơn 6 ký tự" class="input100" type="password" name="password1" value="">
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input register-input" data-validate = "Yêu cầu nhập lại mật khẩu">
+            <input placeholder="Nhập lại mật khẩu" class="input100" type="password" name="password2" >
+            <span class="focus-input100"></span>
+        </div>
+        {% if messge_error_pass %}
+            <div style="color:red;">{{ messge_error_pass }}</div>
+        {% endif %}
+        
+        <div class="wrap-input100 validate-input register-input" data-validate = "Yêu cầu nhập Email của bạn">
+            <input placeholder="Email" class="input100" type="email" name="email" value="" >
+            <span class="focus-input100"></span>
+        </div>
+        {% if messge_error_email %}
+            <div style="color:red;"> {{ messge_error_email }} </div>
+        {% endif %}
+        <div class="wrap-input100 validate-input register-input">
+            <select name="type_user" class="input100">
+                <option value="1">Student</option>
+                <option value="0">Teacher</option>
+            </select>
+        </div>
+        <div style="margin-top: 15px;">
+            <center>
+                <div class="g-recaptcha" data-sitekey="6LcLsycTAAAAABTE6i9OmvP8VvJ-yqWPFZ0JWQ4l"></div>
+            </center>
+        </div>
+        <div class="container-login100-form-btn m-t-17">
+            <button type="submit" class="login100-form-btn">
+                ĐĂNG KÝ
+            </button>
+        </div>
+        <div class="clearfix"></div>
+        <div class="w-full text-center">
+            <span class="txt2">
+                Bạn có tài khoản?
+            </span>
+            <a href="{% url 'login-view' %}" class="txt2 bo1">
+                Đăng nhập
+            </a>
+        </div>
+    </form>
+</div>
+
+<!--===============================================================================================-->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'js/mainffaf.js' %}"></script>
+</body>
+
+</html>

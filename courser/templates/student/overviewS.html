@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+
+{% block overview %}
+	<a href="kichhoat.html" class="unica-active-course">
+       <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+       <p class="hidden-md hidden-xs hidden-sm">Kích hoạt khóa học</p>
+    </a>
+    <a href="gio-hang.html" class="unica-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="unica-sl-cart"><b>0</b></span></a>
+    <ul class="unica-acc-zone">
+       <li><a class="unica-reg-acc" href="{% url 'demo1-view' %}">Đăng nhập</a></li>
+       <li><a class="unica-log-acc" href="">Đăng ký</a></li>
+    </ul>
+{% endblock overview %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="slider-new">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="menu-new hidden-xs">
+              <ul class="menu">
+                 <li>
+                    <a href="course/ngoai-ngu.html">Ngoại ngữ</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/ngoai-ngu.html">Tất cả Ngoại ngữ</a>
+                             </li>
+                             <li>
+                                <a href="tag/tieng-han.html">Tiếng Hàn</a>
+                             </li>
+                             <li>
+                                <a href="tag/tieng-anh.html">Tiếng Anh</a>
+                             </li>
+                             <li>
+                                <a href="tag/tieng-trung.html">Tiếng Trung</a>
+                             </li>
+                             <li>
+                                <a href="tag/tieng-nhat.html">Tiếng Nhật</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/marketing.html">Marketing</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/marketing.html">Tất cả Marketing</a>
+                             </li>
+                             <li>
+                                <a href="tag/facebook-marketing.html">Facebook Marketing</a>
+                             </li>
+                             <li>
+                                <a href="tag/tu-dong-hoa-marketing.html">Tự động hóa marketing</a>
+                             </li>
+                             <li>
+                                <a href="tag/email-marketing.html">Email Marketing</a>
+                             </li>
+                             <li>
+                                <a href="tag/google-ads.html">Google Ads</a>
+                             </li>
+                             <li>
+                                <a href="tag/seo.html">Seo</a>
+                             </li>
+                             <li>
+                                <a href="tag/branding.html">Branding</a>
+                             </li>
+                             <li>
+                                <a href="tag/video-marketing.html">Video marketing</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/tin-hoc-van-phong.html">Tin học văn phòng</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/tin-hoc-van-phong.html">Tất cả Tin học văn phòng</a>
+                             </li>
+                             <li>
+                                <a href="tag/excel.html">Excel</a>
+                             </li>
+                             <li>
+                                <a href="tag/word.html">Word</a>
+                             </li>
+                             <li>
+                                <a href="tag/ke-toan.html">Kế Toán</a>
+                             </li>
+                             <li>
+                                <a href="tag/powerpoint.html">PowerPoint</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/thiet-ke.html">Thiết kế</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/thiet-ke.html">Tất cả Thiết kế</a>
+                             </li>
+                             <li>
+                                <a href="tag/thiet-ke-web.html">Thiết kế Web</a>
+                             </li>
+                             <li>
+                                <a href="tag/thiet-ke-noi-that.html">Thiết kế nội thất</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/kinh-doanh-khoi-nghiep.html">Kinh doanh - Khởi nghiệp</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/kinh-doanh-khoi-nghiep.html">Tất cả Kinh doanh - Khởi nghiệp</a>
+                             </li>
+                             <li>
+                                <a href="tag/chien-luoc-kinh-doanh.html">Chiến lược kinh doanh</a>
+                             </li>
+                             <li>
+                                <a href="tag/bat-dong-san.html">Bất động sản</a>
+                             </li>
+                             <li>
+                                <a href="tag/crypto.html">Crypto</a>
+                             </li>
+                             <li>
+                                <a href="tag/kinh-doanh-online.html">Kinh doanh Online</a>
+                             </li>
+                             <li>
+                                <a href="tag/startup.html">Startup</a>
+                             </li>
+                             <li>
+                                <a href="tag/kiem-tien-online.html">Kiếm tiền Online</a>
+                             </li>
+                             <li>
+                                <a href="tag/chung-khoan.html">Chứng khoán</a>
+                             </li>
+                             <li>
+                                <a href="tag/dropshipping.html">Dropshipping</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/phat-trien-ca-nhan.html">Phát triển cá nhân</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/phat-trien-ca-nhan.html">Tất cả Phát triển cá nhân</a>
+                             </li>
+                             <li>
+                                <a href="tag/phat-trien-ca-nhan.html">phát triển cá nhân</a>
+                             </li>
+                             <li>
+                                <a href="tag/tai-chinh-ca-nhan.html">Tài chính cá nhân</a>
+                             </li>
+                             <li>
+                                <a href="tag/ky-nang-lanh-dao.html">Kỹ năng lãnh đạo</a>
+                             </li>
+                             <li>
+                                <a href="tag/thuyet-trinh.html">Thuyết trình</a>
+                             </li>
+                             <li>
+                                <a href="tag/ky-nang-giao-tiep.html">Kỹ năng giao tiếp</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/sales-ban-hang.html">Sales, bán hàng</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/sales-ban-hang.html">Tất cả Sales, bán hàng</a>
+                             </li>
+                             <li>
+                                <a href="tag/ban-hang-online.html">Bán hàng Online</a>
+                             </li>
+                             <li>
+                                <a href="tag/livestream.html">Livestream</a>
+                             </li>
+                             <li>
+                                <a href="tag/ky-nang-ban-hang.html">Kỹ năng bán hàng</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/cong-nghe-thong-tin.html">Công nghệ thông tin</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/cong-nghe-thong-tin.html">Tất cả Công nghệ thông tin</a>
+                             </li>
+                             <li>
+                                <a href="tag/lap-trinh.html">Lập trình</a>
+                             </li>
+                             <li>
+                                <a href="tag/lap-trinh-web.html">Lập trình web</a>
+                             </li>
+                             <li>
+                                <a href="tag/lap-trinh-android.html">Lập trình Android</a>
+                             </li>
+                             <li>
+                                <a href="tag/lap-trinh-ios.html">Lập trình ios</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/suc-khoe-gioi-tinh.html">Sức khỏe - Giới tính</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/suc-khoe-gioi-tinh.html">Tất cả Sức khỏe - Giới tính</a>
+                             </li>
+                             <li>
+                                <a href="tag/giam-can.html">Giảm cân</a>
+                             </li>
+                             <li>
+                                <a href="tag/thien.html">Thiền</a>
+                             </li>
+                             <li>
+                                <a href="tag/phong-the.html">Phòng the</a>
+                             </li>
+                             <li>
+                                <a href="tag/tinh-yeu.html">Tình yêu</a>
+                             </li>
+                             <li>
+                                <a href="tag/yoga.html">Yoga</a>
+                             </li>
+                             <li>
+                                <a href="tag/fitness.html">Fitness</a>
+                             </li>
+                             <li>
+                                <a href="tag/massage.html">Massage</a>
+                             </li>
+                             <li>
+                                <a href="tag/dinh-duong.html">Dinh dưỡng</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/phong-cach-song.html">Phong cách sống</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/phong-cach-song.html">Tất cả Phong cách sống</a>
+                             </li>
+                             <li>
+                                <a href="tag/am-thuc.html">Ẩm Thực</a>
+                             </li>
+                             <li>
+                                <a href="tag/lam-dep.html">Làm đẹp</a>
+                             </li>
+                             <li>
+                                <a href="tag/ao-thuat.html">Ảo thuật</a>
+                             </li>
+                             <li>
+                                <a href="tag/am-nhac.html">Âm nhạc</a>
+                             </li>
+                             <li>
+                                <a href="tag/nhay.html">Nhảy</a>
+                             </li>
+                             <li>
+                                <a href="tag/phong-thuy.html">Phong thuỷ</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/nuoi-day-con.html">Nuôi dạy con </a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/nuoi-day-con.html">Tất cả Nuôi dạy con </a>
+                             </li>
+                             <li>
+                                <a href="tag/giao-duc-som.html">Giáo dục sớm</a>
+                             </li>
+                             <li>
+                                <a href="tag/thai-giao.html">Thai giáo</a>
+                             </li>
+                             <li>
+                                <a href="tag/an-dam.html">Ăn dặm</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/hon-nhan-gia-dinh.html">Hôn nhân & Gia đình</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/hon-nhan-gia-dinh.html">Tất cả Hôn nhân & Gia đình</a>
+                             </li>
+                             <li>
+                                <a href="tag/hon-nhan.html">Hôn nhân</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="course/nhiep-anh-dung-phim.html">Nhiếp ảnh, dựng phim</a>
+                    <div class="megadrop">
+                       <div class="col">
+                          <ul>
+                             <li>
+                                <a href="course/nhiep-anh-dung-phim.html">Tất cả Nhiếp ảnh, dựng phim</a>
+                             </li>
+                             <li>
+                                <a href="tag/bien-tap-video.html">Biên tập video</a>
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="unica-learn-today">
+                <h4>Hôm nay bạn muốn học gì ?</h4>
+                <ul class="unica-lt-box">
+                    <li>
+                        <a href="course/ngoai-ngu.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/marketing.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-line-chart" aria-hidden="true"></i> Marketing</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/tin-hoc-van-phong.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-desktop" aria-hidden="true"></i> Tin học văn phòng</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/thiet-ke.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/kinh-doanh-khoi-nghiep.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-rocket" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/phat-trien-ca-nhan.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phát triển cá nhân</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="404.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Sale, bán hàng</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/cong-nghe-thong-tin.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-code" aria-hidden="true"></i> Công nghệ thông tin</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/suc-khoe-gioi-tinh.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-heartbeat" aria-hidden="true"></i> Sức khỏe - Giới tính</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/phong-cach-song.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-cutlery" aria-hidden="true"></i> Phong cách sống</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/nuoi-day-con.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-child" aria-hidden="true"></i> Nuôi dạy con</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course/hon-nhan-gia-dinh.html" class="u-tags-mini">
+                            <p> <i class="fa fa fa-group" aria-hidden="true"></i> Hôn nhân &amp; Gia đình</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

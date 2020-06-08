@@ -2,6 +2,9 @@ from django.urls import path, include
 from courser.views import *
 
 urlpatterns = [
+    path('demo/', demo , name='demo-view'),
+    path('demo1/', demo1 , name='demo1-view'),
+    # Dung demo
     path('home/', HomeView.as_view(), name='home-view'),
 
 	path('open/', OpenSubjectView.as_view(),name='open_subject'),
@@ -19,5 +22,7 @@ urlpatterns = [
 	path('del/<int:pk>/', DelSubjectView.as_view(),name='del_subject'),
 	path('del/<int:pk>/<int:pk1>', DelCourseView.as_view(),name='del_course'),
 	path('del/<int:pk>/<int:pk1>/<int:pk2>/', DelModuleView.as_view(),name='del_module'),
+
+    path('subject/', C_Subject.as_view(), name='c_subject'),
 
 ]

@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="u-dashboard-top" style="background-image:  url(https://unica.vn/media/img/bg-db.jpg);">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <p>
+               {% if type == '1' %}
+                  {% if  user.fullname %}
+                     Học viên : {{ user.fullname }}
+                  {% else %}
+                     Học viên                                 
+                  {% endif %}
+               {% else %}
+                  {% if  user.fullname %}
+                     Giang vien : {{ user.fullname }}
+                  {% else %}
+                     Giang vien                                 
+                  {% endif %}  
+               {% endif %}                                           
+            </p>
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav nav-tabs" style="border-bottom: 0px !important">
+                  <li class="active">
+                     <a href="{% url 'courseuser-view' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Khóa học</a></li>
+                  <li class="">
+                     <a href="{% url 'profile-view' %}" class=""><i class="fa fa-user" aria-hidden="true"></i> Hồ sơ cá nhân</a></li>
+                  <li class="">
+                     <a href="/dashboard/user/wishlist" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Chu de</a></li>
+                  <li class="">
+                     <a href="/dashboard/user/wishlist" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Khoa Hoc</a></li>
+                  <li class="btn-group pull-right">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Thêm  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li class=""><a href="/dashboard/user/login-history" class=""> <i class="fa fa-history" aria-hidden="true"></i> Lịch sử đăng nhập</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<main>
+   <div class="container">
+      <style>
+         .box-search-course {
+         margin-bottom: 30px
+         }
+         .box-search-course .form-group input {
+         width: 100%
+         }
+         .box-search-course .box-input {
+         width: 89%
+         }
+      </style>
+      <main>
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12 col-md-12 col-lg-12" id="mycourses">
+                  <div id="main-content">
+                     <div class="main-inner">
+                        <div class="panel panel-default">
+                           <div class="panel-heading"> 
+                              <span style="font-weight: bold;">
+                                 <i class="fa fa-book" aria-hidden="true"></i> 
+                                 Khoa hoc cua toi </span> 
+                           </div>
+                           <div class="panel-body">
+                              <div class="tab-content">
+                                 <div id="menu1" class="tab-pane fade active in">
+                                    <div class="u-combo-buy">
+                                       <div class="u-combo-course">
+                                          <ul>
+                                             <li>
+                                                <div class="u-combo-usua">
+                                                   <div class="img-combo-favorited"><img class="img-responsive" src="https://static.unica.vn/upload/images/2019/05/facebook-smart-marketing_m_1558083419.jpg" alt="" /></div>
+                                                   <div class="des-combo">
+                                                      <a href="/facebook-smart-marketing-a-z">Facebook Smart Marketing A-Z</a>
+                                                      <div class="gv-combo">Luong Van Nam</div>
+                                                      <div class="rate-combo">
+                                                         <p>Đánh giá: 5</p>
+                                                         <span><i class="fa fa-users" aria-hidden="true"></i> 5495 học viên</span>
+                                                      </div>
+                                                   </div>
+                                                   <div class="price-combo">
+                                                      <div class="price-combo-a">599,000<sup>đ</sup></div>
+                                                      <div class="price-combo-b">800,000<sup>đ</sup></div>
+                                                      <div class="price-combo-c">(-25%)</div>
+                                                   </div>
+                                                </div>
+                                             </li>
+                                             <li>
+                                                <div class="u-combo-usua">
+                                                   <div class="img-combo-favorited"><img class="img-responsive" src="https://static.unica.vn/upload/images/2019/04/facebook-marketing-a-z_m_1555557477.jpg" alt="" /></div>
+                                                   <div class="des-combo">
+                                                      <a href="/facebook-marketing-tu-a-z">Facebook Marketing từ A - Z</a>
+                                                      <div class="gv-combo">Hồ Ngọc Cương</div>
+                                                      <div class="rate-combo">
+                                                         <p>Đánh giá: 5</p>
+                                                         <span><i class="fa fa-users" aria-hidden="true"></i> 20526 học viên</span>
+                                                      </div>
+                                                   </div>
+                                                   <div class="price-combo">
+                                                      <div class="price-combo-a">199,000<sup>đ</sup></div>
+                                                      <div class="price-combo-b">700,000<sup>đ</sup></div>
+                                                      <div class="price-combo-c">(-71%)</div>
+                                                   </div>
+                                                </div>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <script>
+         $(window).on('load', function () {
+             $('#modalNotification').modal('show');
+         });
+         
+         function reActive(id) {
+             $.ajax({
+                 type: 'POST',
+                 url: '/membership/courseactive',
+                 data: {id: id},
+                 success: function (result) {
+                     console.log(result);
+                     if (result.success) {
+                         location.reload();
+                     } else {
+                         $('#showModalErrors').modal('show')
+                         $('#noti_error').html(result.message);
+                     }
+                 }
+             });
+         }
+      </script>
+   </div>
+</main>
+{% endblock content %}

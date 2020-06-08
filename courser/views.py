@@ -4,6 +4,36 @@ from django.views.generic.base import View
 from .forms import *
 from .models import *
 
+def demo(request):
+	return render(request, 'courserview/demo.html')
+def demo1(request):
+	return render(request, 'courserview/demo1.html')
+
+class C_Subject(View):
+	def get(self ,request):
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				# return render(request, 'loginview/course.html', content)
+				return render(request, 'teacher/createSubject.html',content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				# return render(request, 'loginview/profile1.html', content)
+				# return render(request, 'loginview/course.html', content)
+				return render(request, 'teacher/createSubject.html',content)
+		except Exception as e:
+			return render(request, '404.html') 
+	def post(self ,request):
+		return HttpResponse("111")
+
 # Create your views here.
 class OpenSubjectView(View):
 	def get(self, request):
@@ -225,8 +255,25 @@ class DelModuleView(View):
 
 class HomeView(View):
 	def get(self,request):
-		url = 'courserview/home.html'
-		return render(request, url)
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'teacher/overviewT.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'teacher/overviewT.html', content)
+		except Exception as e:
+			return render(request, 'teacher/overviewT.html')
+
+		# return render(request, 'student/overviewS.html')
 		# return HttpResponse('Home View')
 
 

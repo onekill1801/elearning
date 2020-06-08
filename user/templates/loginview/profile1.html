@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>{{user}}</div>
+<div>{{user.pass_word}}</div>
+<div>{{user.user_name}}</div>
+
+<div>{{user.email}}</div>
+<div>{{user.fullname}}</div>
+<div>{{user.address}}</div>
+<div>{{user.work_years}}</div>
+<div>{{user.work_company}}</div>
+<div>{{user.work_position}}</div>
+<div>{{user.image}}</div>
+<div>{{user.age}}</div>
+
+<div>{{user.points}}</div>
+<div>{{user.click_nums}}</div>
+<div>{{user.fav_nums}}</div>
+
+<div>{{type}}</div>
+{% endblock content %}
+
+user_name = models.CharField(max_length=50, verbose_name="user_name")
+pass_word = models.CharField(max_length=50, verbose_name="pass_word")
+email = models.CharField(max_length=50, verbose_name="email")
+fullname = models.CharField(max_length=50, verbose_name="fullname")
+address = models.CharField(max_length=100, default="")
+last_login = models.DateTimeField(null=True)
+work_years = models.IntegerField(default=0, verbose_name="work_years")
+work_company = models.CharField(max_length=50, verbose_name="work_company")
+work_position = models.CharField(max_length=50, verbose_name="work_position")
+points = models.CharField(max_length=50, verbose_name="points")
+click_nums = models.IntegerField(default=0, verbose_name="click_nums")
+fav_nums = models.IntegerField(default=0, verbose_name="fav_nums")
+add_time = models.DateTimeField(default=datetime.now)
+age = models.IntegerField(default=18, verbose_name="age")
+image = models.ImageField(upload_to="user/teacher", verbose_name="i
