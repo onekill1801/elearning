@@ -1,1631 +1,569 @@
-{% extends "base1.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-         <div class="container-fluid bg-br-2">
-            <div class="container">
-               <ol class="breadcrumb">
-                  <li><a href="../index.html">Trang chủ</a></li>
-                  <li class="active">Marketing</li>
-               </ol>
-            </div>
+<main style="margin-top: 42px;">
+   <div class="popup_success"></div>
+   <div class="u-course-highlight">
+   <div class="container">
+      <div class="breadcumb-detail-course">
+         <a href="index.html" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
+         <a href="course/marketing.html">Marketing</a> <i class="fa fa-angle-double-right"></i>
+         {{course.title}}        
+      </div>
+      <div class="u-detail-block-title">
+         <h1 itemprop="itemReviewed">
+            <span itemprop="name">{{course.title}} </span>
+         </h1>
+         <div class="u-detail-desc" itemprop="description">
+            <textarea name="demox" id="muser-address" cols="30"  class="form-control">Khóa học Email Marketing giúp bạn đưa ra những chiến lược kinh doanh bằng Email Marketing, cách sử dụng công cụ Getresponse, nâng cao chất lượng tìm kiếm, chăm sóc khách hàng
+            </textarea>
          </div>
-         <div class="container-fluid bg-br" style="padding:15px 0">
-            <div class="container">
-               <div class="row">
-                  <div class="col-lg-3 col-md-3 col-sm-4 u-list-leftbar hidden-xs ">
-                     <section>
-                        <div class="u-cate-list">
-                           <p style="font-size: 16px;font-weight: bold;border-bottom: 1px solid #d7d7d7;margin-bottom: 10px;padding-bottom: 5px;">Danh mục khóa học</p>
-                           <ul>
-                              <li>
-                                 <a title="Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp" href="ngoai-ngu.html"><i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
-                                    <li><a href="../tag/tieng-han.html">Tiếng Hàn</a></li>
-                                    <li><a href="../tag/tieng-anh.html">Tiếng Anh</a></li>
-                                    <li><a href="../tag/tieng-trung.html">Tiếng Trung</a></li>
-                                    <li><a href="../tag/tieng-nhat.html">Tiếng Nhật</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Khóa học Marketing thực chiến từ những giảng viên hàng đầu Việt Nam" href="marketing.html"><i class="fa fa fa-line-chart" aria-hidden="true"></i> Marketing</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="marketing.html">Tất cả Marketing</a></li>
-                                    <li><a href="../tag/facebook-marketing.html">Facebook Marketing</a></li>
-                                    <li><a href="../tag/tu-dong-hoa-marketing.html">Tự động hóa marketing</a></li>
-                                    <li><a href="../tag/email-marketing.html">Email Marketing</a></li>
-                                    <li><a href="../tag/google-ads.html">Google Ads</a></li>
-                                    <li><a href="../tag/seo.html">Seo</a></li>
-                                    <li><a href="../tag/branding.html">Branding</a></li>
-                                    <li><a href="../tag/video-marketing.html">Video marketing</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="69+ Khóa học tin học văn phòng từ cơ bản đến nâng cao" href="tin-hoc-van-phong.html"><i class="fa fa fa-desktop" aria-hidden="true"></i> Tin học văn phòng</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="tin-hoc-van-phong.html">Tất cả Tin học văn phòng</a></li>
-                                    <li><a href="../tag/excel.html">Excel</a></li>
-                                    <li><a href="../tag/word.html">Word</a></li>
-                                    <li><a href="../tag/ke-toan.html">Kế Toán</a></li>
-                                    <li><a href="../tag/powerpoint.html">PowerPoint</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khóa học thiết kế từ cơ bản đến chuyên sâu" href="thiet-ke.html"><i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="thiet-ke.html">Tất cả Thiết kế</a></li>
-                                    <li><a href="../tag/thiet-ke-web.html">Thiết kế Web</a></li>
-                                    <li><a href="../tag/thiet-ke-noi-that.html">Thiết kế nội thất</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khóa học kinh doanh và khởi nghiệp để gia tăng doanh số hiệu quả" href="kinh-doanh-khoi-nghiep.html"><i class="fa fa fa-rocket" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="kinh-doanh-khoi-nghiep.html">Tất cả Kinh doanh - Khởi nghiệp</a></li>
-                                    <li><a href="../tag/chien-luoc-kinh-doanh.html">Chiến lược kinh doanh</a></li>
-                                    <li><a href="../tag/bat-dong-san.html">Bất động sản</a></li>
-                                    <li><a href="../tag/crypto.html">Crypto</a></li>
-                                    <li><a href="../tag/kinh-doanh-online.html">Kinh doanh Online</a></li>
-                                    <li><a href="../tag/startup.html">Startup</a></li>
-                                    <li><a href="../tag/kiem-tien-online.html">Kiếm tiền Online</a></li>
-                                    <li><a href="../tag/chung-khoan.html">Chứng khoán</a></li>
-                                    <li><a href="../tag/dropshipping.html">Dropshipping</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Khóa học phát triển cá nhân đỉnh cao để cải thiện cuộc sống và sự nghiệp" href="phat-trien-ca-nhan.html"><i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phát triển cá nhân</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="phat-trien-ca-nhan.html">Tất cả Phát triển cá nhân</a></li>
-                                    <li><a href="../tag/phat-trien-ca-nhan.html">phát triển cá nhân</a></li>
-                                    <li><a href="../tag/tai-chinh-ca-nhan.html">Tài chính cá nhân</a></li>
-                                    <li><a href="../tag/ky-nang-lanh-dao.html">Kỹ năng lãnh đạo</a></li>
-                                    <li><a href="../tag/thuyet-trinh.html">Thuyết trình</a></li>
-                                    <li><a href="../tag/ky-nang-giao-tiep.html">Kỹ năng giao tiếp</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Khóa học Sales, bán hàng từ các chuyên gia Marketing hàng đầu Unica" href="sales-ban-hang.html"><i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Sales, bán hàng</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="sales-ban-hang.html">Tất cả Sales, bán hàng</a></li>
-                                    <li><a href="../tag/ban-hang-online.html">Bán hàng Online</a></li>
-                                    <li><a href="../tag/livestream.html">Livestream</a></li>
-                                    <li><a href="../tag/ky-nang-ban-hang.html">Kỹ năng bán hàng</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Học Công Nghệ Thông Tin Online Cùng Chuyên Gia Hàng Đầu Trong Ngành" href="cong-nghe-thong-tin.html"><i class="fa fa fa-code" aria-hidden="true"></i> Công nghệ thông tin</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="cong-nghe-thong-tin.html">Tất cả Công nghệ thông tin</a></li>
-                                    <li><a href="../tag/lap-trinh.html">Lập trình</a></li>
-                                    <li><a href="../tag/lap-trinh-web.html">Lập trình web</a></li>
-                                    <li><a href="../tag/lap-trinh-android.html">Lập trình Android</a></li>
-                                    <li><a href="../tag/lap-trinh-ios.html">Lập trình ios</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khóa học nâng các kiến thức sức khỏe và giới tính cho người Việt" href="suc-khoe-gioi-tinh.html"><i class="fa fa fa-heartbeat" aria-hidden="true"></i> Sức khỏe - Giới tính</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="suc-khoe-gioi-tinh.html">Tất cả Sức khỏe - Giới tính</a></li>
-                                    <li><a href="../tag/giam-can.html">Giảm cân</a></li>
-                                    <li><a href="../tag/thien.html">Thiền</a></li>
-                                    <li><a href="../tag/phong-the.html">Phòng the</a></li>
-                                    <li><a href="../tag/tinh-yeu.html">Tình yêu</a></li>
-                                    <li><a href="../tag/yoga.html">Yoga</a></li>
-                                    <li><a href="../tag/fitness.html">Fitness</a></li>
-                                    <li><a href="../tag/massage.html">Massage</a></li>
-                                    <li><a href="../tag/dinh-duong.html">Dinh dưỡng</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Khóa học phong cách sống giúp thành công hơn trong cuốc sống" href="phong-cach-song.html"><i class="fa fa fa-cutlery" aria-hidden="true"></i> Phong cách sống</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="phong-cach-song.html">Tất cả Phong cách sống</a></li>
-                                    <li><a href="../tag/am-thuc.html">Ẩm Thực</a></li>
-                                    <li><a href="../tag/lam-dep.html">Làm đẹp</a></li>
-                                    <li><a href="../tag/ao-thuat.html">Ảo thuật</a></li>
-                                    <li><a href="../tag/am-nhac.html">Âm nhạc</a></li>
-                                    <li><a href="../tag/nhay.html">Nhảy</a></li>
-                                    <li><a href="../tag/phong-thuy.html">Phong thuỷ</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khóa học nuôi dạy con đúng cách theo khoa học" href="nuoi-day-con.html"><i class="fa fa fa-child" aria-hidden="true"></i> Nuôi dạy con </a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="nuoi-day-con.html">Tất cả Nuôi dạy con </a></li>
-                                    <li><a href="../tag/giao-duc-som.html">Giáo dục sớm</a></li>
-                                    <li><a href="../tag/thai-giao.html">Thai giáo</a></li>
-                                    <li><a href="../tag/an-dam.html">Ăn dặm</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khoá học về hôn nhân, giữ gìn gia đình hạnh phúc" href="hon-nhan-gia-dinh.html"><i class="fa fa fa-group" aria-hidden="true"></i> Hôn nhân & Gia đình</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="hon-nhan-gia-dinh.html">Tất cả Hôn nhân & Gia đình</a></li>
-                                    <li><a href="../tag/hon-nhan.html">Hôn nhân</a></li>
-                                 </ul>
-                              </li>
-                              <li>
-                                 <a title="Các khóa học nhiếp ảnh, dựng phim từ chuyên gia trên Unica" href="nhiep-anh-dung-phim.html"><i class="fa fa fa-camera" aria-hidden="true"></i> Nhiếp ảnh, dựng phim</a>
-                                 <ul class="issub" style="z-index: 1002; display: none;">
-                                    <li><a href="nhiep-anh-dung-phim.html">Tất cả Nhiếp ảnh, dựng phim</a></li>
-                                    <li><a href="../tag/bien-tap-video.html">Biên tập video</a></li>
-                                 </ul>
-                              </li>
-                           </ul>
-                        </div>
-                     </section>
+         <div class="u-detail-tea" itemprop="author">
+            <img class="picture-teacher-circle" src="{{course.image.url}}" align="" />
+            <a href="teacher/han-quang-du.html">  <span itemprop="name">{{course.own_teacher.fullname}} </span></a>
+         </div>
+         <div class="u-detail-rate">
+            <span class="star-rate">
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+            </span>
+            <span>{{course.rate_student}}</span>
+            đánh giá
+         </div>
+         <div class="u-detail-students">
+            <span>
+            <i class="fa fa-users" aria-hidden="true"></i> {{course.students}}  học viên</span>
+         </div>
+         <div class="favorite_des">
+         </div>
+      </div>
+   </div>
+   </div>
+   <div class="u-detail-course">
+   <div class="container">
+      <div class="row">
+
+         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <input type="text" id="muser-address" class="form-control" name="demox" value="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0">
+            <div class="u-detail-block-left">
+               <div class="u-video">
+                  <div class="embed-responsive embed-responsive-16by9">
+
+                     <iframe class="embed-responsive-item img-responsive" src="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
+                     </iframe>
+                     <?php// if($model['Banner_large'] != ''): ?>
+                     <!--<img src="<?//=$model['Banner_large']?>" alt="" width="100%">-->
+                     <?php// endif; ?>
                   </div>
-                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-content" style="">
-                     <div class="u-all-course">
-                        <h1 style="font-size: 20px;font-family: inherit;line-height: 1.1;color: inherit;margin-top: 0px;">Khóa học Marketing</h1>
-                        <h3>
-                           Tất cả [ <span class="p-or">94</span> 
-                           <p> khóa học</p>
-                           ]
-                        </h3>
-                        <style>
-                           .box-teacher .slick-next:before,.box-teacher .slick-prev:before{color: #F37E65 !important;}
-                        </style>
-                        <button type="button" class="btn btn-info btn-lg btn-popup-recomend hidden" data-toggle="modal" data-target="#popupRecomend"></button>
-                        <div id="popupRecomend" class="modal fade" role="dialog" style="margin-top: 100px;">
-                           <div class="modal-dialog modal-lg">
-                              <div class="modal-content">
-                                 <div class="modal-header text-center" style="font-size: 22px;">
-                                    <b style="color: #F37E65;">ĐỢI CHÚT ĐÃ NÀO!</b> <br>
-                                    <p>BẠN ĐANG BỎ LỠ NHỮNG KHÓA HỌC HẤP DẪN NHẤT!</p>
-                                    <button type="button" class="close" data-dismiss="modal" style="position: absolute;top: 3px;right: 2px;padding: 2px;background: #c2d5f2;opacity: 0.8;"><i class="fa fa-times"></i></button>
-                                 </div>
-                                 <div class="modal-body" style="padding: 0px;background: #F3F3F3;">
-                                    <div class="box-teacher content-recomend">
-                                       <div class="box-pop ">
-                                          <a href="../facebook-marketing-tu-a-z.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/facebook-marketing-a-z_m_1555557477.jpg" alt="Facebook Marketing từ A - Z">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Facebook Marketing từ A - Z</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Hồ Ngọc Cương                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >665</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">700,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Facebook Marketing từ A - Z</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 64 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 22 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Hồ Ngọc Cương</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Freelancer Facebook Marketing</div>
-                                             <div class="des-course">
-                                                Trọn bộ khoá học facebook marketing online từ a-z hướng dẫn chuyên sâu về quảng cáo facebook giúp bạn có các chiến lược facebook marketing hoàn hảo - tự chạy quảng cáo chuyên nghiệp.            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="hWDi7CFNGizLc7IN7AhGcA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../vua-email-marketing.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/Vua-email-marketing-han-quang-du_m_1555569804.jpg" alt="VUA EMAIL MARKETING">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >VUA EMAIL MARKETING</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Hán Quang Dự                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >177</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">VUA EMAIL MARKETING</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 16 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 34 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Hán Quang Dự</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Giám đốc đào tạo công ty  GCC Việt Nam</div>
-                                             <div class="des-course">
-                                                Khóa học Email Marketing giúp bạn đưa ra những chiến lược kinh doanh bằng Email Marketing, cách sử dụng công cụ Getresponse, nâng cao chất lượng tìm kiếm, chăm sóc khách hàng            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../hoc-lam-web-sieu-toc.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/hoc-lam-web-sieu-toc-cho-nguoi-khong-chuyen_m_1555658815.jpg" alt="Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Trương Văn Hòa                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >43</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">500,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 22 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 56 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Trương Văn Hòa</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Chuyên gia Marketing, CEO PDS VIỆT</div>
-                                             <div class="des-course">
-                                                Hướng dẫn bạn chi tiết cách bạn làm web bán hàng đỉnh cao với landing page ngay cả khi bạn không biết gì về kỹ thuật IT, học chưa xong web đã xong            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="zaCmQd0yHa74eFaJX1moTg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../hoc-seo-tu-a-z.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-seo-online_m_1555575597.jpg" alt="Học SEO từ A-Z">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Học SEO từ A-Z</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Henry Phước                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >55</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">700,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Học SEO từ A-Z</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 41 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 02 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Henry Phước</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Chuyên gia SEO</div>
-                                             <div class="des-course">
-                                                Khóa Học Seo từ chuyên gia - Trải nghiệm cách bán hàng đỉnh cao trên công cụ tìm kiếm Google với khoá học Seo từ A-Z lên Top bất kỳ từ khoá dài và từ khoá ngắn nào.            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="Xmny6FNZvv2jpHl%2ByX6sTA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../facebook-marketing-du-kich.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/Facebook-marketing-chi-phi-0-dong_m_1555573466.jpg" alt="Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Nguyễn Huỳnh Giao                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >80</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">700,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 25 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 17 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Nguyễn Huỳnh Giao</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Chuyên gia Marketing Online</div>
-                                             <div class="des-course">
-                                                Cách thức tiếp cận hàng ngàn khách hàng tiềm năng trên facebook với chi phí 0 đồng thông qua các công cụ marketing online mới nhất            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="zKepb%2B1BK5HnTAsM6dwlEA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../xay-dung-thuong-hieu-ca-nhan-trong-the-gioi-phang.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/05/xay-dung-thuong-hieu-ca-nhan-trong-the-gioi-phang_m_1557994860.jpg" alt="Xây dựng thương hiệu cá nhân trong thế giới phẳng">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Xây dựng thương hiệu cá nhân trong thế giới phẳng</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Ths. Nguyễn Duy Kha                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >12</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Xây dựng thương hiệu cá nhân trong thế giới phẳng</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 35 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 20 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Ths. Nguyễn Duy Kha</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Thạc sỹ </div>
-                                             <div class="des-course">
-                                                Tạo dựng thương hiệu cá nhân qua nhiều kênh thôn tin khác nhau - Phát triển và kiểm soát thương hiệu của chính mình            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="cv43xeNVj8ay0TXy7zpBAg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../marketing-bao.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-marketing-bao_m_1555574356.jpg" alt="Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Nguyễn Quang Ngọc                                     </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >74</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 21 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 07 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b> Nguyễn Quang Ngọc </b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Diễn giả </div>
-                                             <div class="des-course">
-                                                Đây là khoá học đang được các Marketer quan tâm nhiều nhất để thúc đẩy quá trình bán hàng online của mình            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="ku%2Bdc7G7VAzGl%2BCEodsbFw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../Vu-khi-ngon-tu-ung-dung-trong-pr-quang-cao-ban-hang-giao-tiep-thuyet-trinh.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-vu-khi-ngon-tu_m_1555570487.jpg" alt="Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Huỳnh Minh Thuận                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >132</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 49 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 04 giờ 00 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Huỳnh Minh Thuận</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Chuyên gia thương hiệu</div>
-                                             <div class="des-course">
-                                                Ngôn từ có sức mạnh vô cùng lớn trong đời sống. Khóa học này giúp bạn khám phá ngôn từ như một vũ khí để PR, Quảng cáo, bán hàng, thuyết trình...            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="HyIq2B3XsH%2B2OalVP1Y6Xw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../marketing-cho-doanh-nghiep-nho.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/marketing-cho-doanh-nghiep-nho_m_1556177882.jpg" alt="Marketing cho doanh nghiệp nhỏ">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Marketing cho doanh nghiệp nhỏ</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Nguyễn Thái Duy                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >35</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Marketing cho doanh nghiệp nhỏ</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 35 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 33 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Nguyễn Thái Duy</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">CEO BeTraining</div>
-                                             <div class="des-course">
-                                                Đã được hơn 1000 doanh nghiệp nhỏ khởi nghiệp và mang lại hiệu quả cao qua khoá học Marketing cho doanh nghiệp nhỏ với các chiến lược marketing bài bản từ a-z            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="8RFXLSdHwjCMgQsQYl3ZTw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../youtube-marketing.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/uploads/images/linhntd%40unica.vn/QA_m.png" alt="Youtube Marketing">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Youtube Marketing</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Nguyễn Quốc Anh                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >28</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">600,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Youtube Marketing</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 32 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 05 giờ 19 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Nguyễn Quốc Anh</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Giảng viên</div>
-                                             <div class="des-course">
-                                                Khóa học Youtube Marketing xây dựng một kênh bán hàng chi phí thấp nhất mà hiệu quả cao. Khóa học này mang đến cho bạn kiến thức về cách làm video nhanh chóng tối ưu Youtube nhanh nhất            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="DAvkwwZ8GvrWcCvx8LYOJQ%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../lam-chu-he-thong-marketing-thong-minh.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/05/lam-chu-he-thong-marketing-thong-minh_m_1557995435.jpg" alt="Làm chủ hệ thống MARKETING thông minh">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Làm chủ hệ thống MARKETING thông minh</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Nguyễn Tài Tuệ                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >23</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">700,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Làm chủ hệ thống MARKETING thông minh</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 31 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 40 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Nguyễn Tài Tuệ</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Founder & CEO công ty cổ phần Đào Tạo WeSa Việt nam</div>
-                                             <div class="des-course">
-                                                Khóa học chính là giải pháp giúp bạn phát triển kinh doanh đúng hướng và tăng doanh thu một cách bền vững. Marketing thông minh giúp bạn thu nhập thụ động nhanh.            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="63QjNNBuxitOySh45Cubgg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                       <div class="box-pop ">
-                                          <a href="../dot-pha-doanh-thu-voi-06-kenh-marketing-pho-bien-nhat.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                             <div class="img-course">
-                                                <img style=""  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/dot-pha-thu-nhap-6-kenh-marketing-online_m_1555569994.jpg" alt="Đột phá thu nhập 06 kênh marketing online ngay lập tức">
-                                             </div>
-                                             <div class="content-course">
-                                                <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Đột phá thu nhập 06 kênh marketing online ngay lập tức</span></h3>
-                                                <div class="name-gv">
-                                                   <b>
-                                                   Vũ Ngọc Quyền                                    </b>
-                                                </div>
-                                                <div class="rate-course" style="display: inline-block;" itemscope >
-                                                   <span class="star-rate">
-                                                   <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                                   <span class="n-rate">(<span >110</span>)</span>                
-                                                </div>
-                                             </div>
-                                             <div class="price-course ">
-                                                <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                                <span class="price-b">700,000<sup>đ</sup></span>
-                                             </div>
-                                          </a>
-                                          <div id="popover-content" class="pop-course hide">
-                                             <div class="title-pop-course">Đột phá thu nhập 06 kênh marketing online ngay lập tức</div>
-                                             <div class="cate-course"></div>
-                                             <div class="time-course">
-                                                <ul>
-                                                   <li><i class="fa fa-list-alt" aria-hidden="true"></i> 149 bài giảng</li>
-                                                   <li><i class="fa fa-clock-o" aria-hidden="true"></i> 28 giờ 56 phút</li>
-                                                </ul>
-                                             </div>
-                                             <div class="avatar-gv">
-                                                <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                                <span><b>Vũ Ngọc Quyền</b></span>
-                                             </div>
-                                             <div class="des-gv-pop">Founder Học Viện PAcademy</div>
-                                             <div class="des-course">
-                                                Chinh Phục Thị trường Kinh Doanh Online trên Tất cả các kênh Marketing lớn nhất 2018 !            
-                                             </div>
-                                             <a onclick="addcart(this)" data-id="TnT1P%2FCclADyvp8vOYjDmw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                          </div>
-                                       </div>
-                                    </div>
+               </div>
+               <div class="hidden-lg hidden-md hidden-sm show-xs">
+                  <div class="hidden-lg hidden-md hidden-sm show-xs">
+                     <div class="inner-scroll" style="padding-bottom: 1px;padding-top: 1px;">
+                        <div class="price-inner"><a href="javascript:void(0)" class="btn-add-course-cart">Thêm vào giỏ hàng</a></div>
+                        <div class="btn-inner"><a href="order/step1e27e.html?id=76">Đăng ký học</a></div>
+                     </div>
+                  </div>
+                  <div class="block-buy">
+                     <div class="u-sm-left">
+                        <div class="block-price">
+                           <span class="big-price">199,000<sup>đ</sup></span><span class="small-price">600,000<sup>đ</sup></span><span class="discount-price" data-percent="67">-67%</span>
+                        </div>
+                        <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
+                        <div class="block-btn">
+                           <a course_id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="order/step1e27e.html?id=76" class="btn-buy-course">Đăng ký học</a><a data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="javascript:void(0)" onclick="addcart(this)" class="btn-cart-course btn-add_cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                           <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
+                        </div>
+                     </div>
+                     <div class="u-sm-right">
+                        <div class="block-ulti">
+                           <ul style="margin-left: 0">
+                              <li>
+                                 <i class="fa fa-clock-o" aria-hidden="true"></i> Thời lượng:
+                                 <p>02 giờ 34 phút</p>
+                              </li>
+                              <li>
+                                 <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
+                                 <p>16 bài giảng</p>
+                              </li>
+                              <li><i class="fa fa-history" aria-hidden="true"></i> Sở hữu khóa học trọn đời</li>
+                              <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
+                              <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
+                           </ul>
+                           <center><a href="javascript:void(0)" class="dropdown-coupon">Bạn có mã giảm giá?</a></center>
+                           <div class="dropdown-input-coupon">
+                              <div class="col-lg-8 col-xs-8">
+                                 <div class="form-group">
+                                    <input autocomplete="off" name="coupon_code_mb" pattern="[^'\x22]+" required="" type="text" class="form-control" id="coupon_code_mb" placeholder="Nhập mã giảm giá..." style="margin-left:-10px;">
                                  </div>
                               </div>
+                              <div class="col-lg-2 col-xs-4">
+                                 <div class="form-group">
+                                    <button onclick="submit_coupon()" type="button" class="coupon-submit btn btn-coupon" style="margin-left:-25px;">Áp dụng</button>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12" style="display:inline-block;margin-bottom: 5px;">
+                                 <span style="display: none" class="error_message label label-danger">Coupon không hợp lệ</span>
+                              </div>
+                              <div class="col-lg-12" style="display:inline-block;">
+                                 <span style="display: none" class="success_message label label-success">Kích hoạt coupon thành công</span>
+                              </div>
+                              <br/>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <div class="block-share" style="display: none;">
+                           <div style="margin-bottom: 15px;" class="share-title">
+                              <b>CHIA SẺ NHẬN NGAY MÃ GIẢM GIÁ 50%</b>
+                           </div>
+                           <button style="width: 50%;margin-bottom: 10px" onclick="share(76)" class="btn btn-sm btn-primary"><i class="fa fa-facebook"></i> CHIA SẺ NGAY</button>
+                           <div class="result-share" style="display: none;">
+                              <div style="margin-bottom: 15px;">
+                                 <b>BẠN NHẬN ĐƯỢC MÃ GIẢM GIÁ 50% </b>
+                              </div>
+                              <p>HỌC PHÍ CHỈ CÒN <b>299,000đ</b></p>
+                              <div style="color: #35BAF6;font-size: 16px;margin-bottom: 10px;"><b class="coupon-share"></b></div>
+                              <i style="color: #858585;font-style: italic !important;" class="coupon-expired">xx</i>
                            </div>
                         </div>
-                        <script type="text/javascript">
-                           $(document).ready(function () {
-                               var recomend = 0;
-                               $(document).mouseleave(function () {
-                                   if(recomend == 0){
-                                       $('.btn-popup-recomend').click();
-                                       $('.slick-next').click();
-                                       $('.slick-prev').click();
-                                       recomend++;
-                                   }
-                               });
-                           });
-                        </script>
-                        <section>
-                           <div class="u-hot-cate" style="border: none;padding: 0px 0px;">
-                              <ul>
-                                 <li><a href="../tag/facebook-marketing.html"><span class="label label-primary">Facebook Marketing</span></a></li>
-                                 <li><a href="../tag/email-marketing.html"><span class="label label-primary">Email Marketing</span></a></li>
-                                 <li><a href="../tag/marketing-online.html"><span class="label label-primary">Marketing Online</span></a></li>
-                                 <li><a href="../tag/seo.html"><span class="label label-primary">Seo</span></a></li>
-                                 <li><a href="../tag/google-ads.html"><span class="label label-primary">Google Ads</span></a></li>
-                                 <li><a href="../tag/youtube-marketing.html"><span class="label label-primary">Youtube Marketing</span></a></li>
-                                 <li><a href="../tag/video-marketing.html"><span class="label label-primary">Video marketing</span></a></li>
-                                 <li><a href="../tag/quang-cao.html"><span class="label label-primary">quảng cáo</span></a></li>
-                              </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="tab-detail hidden-xs">
+                  <ul>
+                     <li><a href="#u-des-course">Giới thiệu</a></li>
+                     <li><a href="#u-list-course">Nội dung khóa học</a></li>
+                     <li><a href="#u-course-teacher">Thông tin giảng viên</a></li>
+                     <li><a href="#u-rate-hv">Đánh giá</a></li>
+                  </ul>
+               </div>
+               <div class="u-learn-what">
+                  <h3>Bạn sẽ học được gì</h3>
+                  <div class="content">
+                     <div class="row">
+                        <textarea name="demox" id="muser-address" cols="30" rows="20" class="form-control"><div class="col-sm-6 form-group" style="margin-top: 0px;">
+   <div class="title" style="line-height:21px;margin-bottom: 0px; ">
+      Biết chi tiết từng bước để hiện thực hóa chiến lược đó thông qua Gmail và Getresponse
+   </div>
+</div>
+<div class="col-sm-6 form-group" style="margin-top: 0px;">
+   <div class="title" style="line-height:21px;margin-bottom: 0px; ">
+      Cách thức xây dựng website đơn giản và hiệu quả
+   </div>
+</div>
+<div class="col-sm-6 form-group" style="margin-top: 0px;">
+   <div class="title" style="line-height:21px;margin-bottom: 0px; ">
+      Kỹ thuật để có được thông tin khách hàng tiềm năng trên Facebook tự động
+   </div>
+</div>
+<div class="col-sm-6 form-group" style="margin-top: 0px;">
+   <div class="title" style="line-height:21px;margin-bottom: 0px; ">
+      Biết cách thức để có thông tin về tiềm năng từ YouTube tự động
+   </div>
+</div>
+                     </textarea>
+                        
+                     </div>
+                  </div>
+               </div>
+               <div class="u-des-course" id="u-des-course">
+                  <h2>Giới thiệu khóa học</h2>
+            <textarea name="demox" id="muser-address" cols="30" rows="20" class="form-control"><p>Email marketing vẫn l&agrave; c&ocirc;ng cụ hỗ trợ đắc lực cho những chiến lược Marketing.</p>
+<p>Email marketing gi&uacute;p bạn x&acirc;y dựng mối quan hệ, tạo dựng l&ograve;ng tin v&agrave; tăng khả năng nhận diện thương hiệu với kh&aacute;ch h&agrave;ng bằng c&aacute;ch cung cấp th&ocirc;ng tin hữu &iacute;ch.</p>
+<p>Tuy nhi&ecirc;n để tiếp thị th&agrave;nh c&ocirc;ng v&agrave; tăng doanh số kinh doanh bằng email l&agrave; điều m&agrave; tất cả người l&agrave;m chiến lược n&agrave;o đều muốn nhưng kh&ocirc;ng phải l&uacute;c n&agrave;o cũng hiệu quả.</p>
+<p>Để bạn lu&ocirc;n duy tr&igrave; được những chiến dịch Email marketing th&agrave;nh c&ocirc;ng, mang đến cho bạn th&ecirc;m nhiều kh&aacute;ch h&agrave;ng v&agrave; b&aacute;n được nhiều sản phẩm/dịch vụ &nbsp;hơn nữa th&igrave; h&atilde;y đến với kh&oacute;a học <strong>Vua Email Marketing </strong>của giảng vi&ecirc;n H&aacute;n Quang Dự.</p>
+<p>Với c&aacute;ch truyền đạt dễ nhớ, dễ h&igrave;nh dung, bạn sẽ nắm được bản chất của Email marketing từ đ&oacute; đưa ra những chiến lược kinh doanh bằng email v&agrave; được thực h&agrave;nh bằng c&ocirc;ng cụ Getresponse. Từ đ&oacute;, bạn sẽ c&oacute; được những b&iacute; quyết email marketing chuy&ecirc;n biệt để tạo dựng th&agrave;nh c&ocirc;ng.</p>
+            </textarea>
+               </div>
+               <div class="u-list-course" id="u-list-course">
+                  <h2>Nội dung khóa học</h2>
+<div class="content">
+   <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+         <!-- phần -->
+         <div class="panel-heading">
+            <div class="row">
+               <div class="col-md-12">
+                  <h4 class="panel-title">
+                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="" aria-expanded="true">
+                     <i class="fa fa-minus-square" aria-hidden="true"></i>
+                     Phần 1: Nhập môn Email Marketing</a>
+                  </h4>
+               </div>
+            </div>
+         </div>
+         <!-- bài -->
+         <div id="collapse1" class="panel-collapse collapse in " aria-expanded="true">
+            <div class="panel-body">
+               <div class="col">
+                  <div class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-5 col-md-8">
+                           <div class="title">
+                              <a>
+                              <i class="fa fa-play-circle" aria-hidden="true"></i>
+                              Bài 1: Bản chất của Marketing và bán hàng</a>
                            </div>
-                        </section>
-                        <br>
-                        <section>
-                           <ul>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../facebook-marketing-tu-a-z.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/facebook-marketing-a-z_m_1555557477.jpg" alt="Facebook Marketing từ A - Z">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Facebook Marketing từ A - Z</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Hồ Ngọc Cương                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >665</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Facebook Marketing từ A - Z</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 64 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 22 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Hồ Ngọc Cương</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Freelancer Facebook Marketing</div>
-                                       <div class="des-course">
-                                          Trọn bộ khoá học facebook marketing online từ a-z hướng dẫn chuyên sâu về quảng cáo facebook giúp bạn có các chiến lược facebook marketing hoàn hảo - tự chạy quảng cáo chuyên nghiệp.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="hWDi7CFNGizLc7IN7AhGcA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../vua-email-marketing.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/Vua-email-marketing-han-quang-du_m_1555569804.jpg" alt="VUA EMAIL MARKETING">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >VUA EMAIL MARKETING</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Hán Quang Dự                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >177</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">VUA EMAIL MARKETING</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 16 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 34 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Hán Quang Dự</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giám đốc đào tạo công ty  GCC Việt Nam</div>
-                                       <div class="des-course">
-                                          Khóa học Email Marketing giúp bạn đưa ra những chiến lược kinh doanh bằng Email Marketing, cách sử dụng công cụ Getresponse, nâng cao chất lượng tìm kiếm, chăm sóc khách hàng            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../hoc-lam-web-sieu-toc.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/hoc-lam-web-sieu-toc-cho-nguoi-khong-chuyen_m_1555658815.jpg" alt="Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Trương Văn Hòa                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >43</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">500,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Hướng dẫn làm web Landing Page bán hàng đỉnh cao dành cho người không chuyên</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 22 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 56 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Trương Văn Hòa</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Chuyên gia Marketing, CEO PDS VIỆT</div>
-                                       <div class="des-course">
-                                          Hướng dẫn bạn chi tiết cách bạn làm web bán hàng đỉnh cao với landing page ngay cả khi bạn không biết gì về kỹ thuật IT, học chưa xong web đã xong            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="zaCmQd0yHa74eFaJX1moTg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../hoc-seo-tu-a-z.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-seo-online_m_1555575597.jpg" alt="Học SEO từ A-Z">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Học SEO từ A-Z</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Henry Phước                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >55</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Học SEO từ A-Z</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 41 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 02 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Henry Phước</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Chuyên gia SEO</div>
-                                       <div class="des-course">
-                                          Khóa Học Seo từ chuyên gia - Trải nghiệm cách bán hàng đỉnh cao trên công cụ tìm kiếm Google với khoá học Seo từ A-Z lên Top bất kỳ từ khoá dài và từ khoá ngắn nào.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="Xmny6FNZvv2jpHl%2ByX6sTA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../facebook-marketing-du-kich.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/Facebook-marketing-chi-phi-0-dong_m_1555573466.jpg" alt="Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Nguyễn Huỳnh Giao                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >80</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Facebook Marketing Du Kích Tiếp cận hàng ngàn khách hàng với chi phí bằng 0</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 25 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 17 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Nguyễn Huỳnh Giao</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Chuyên gia Marketing Online</div>
-                                       <div class="des-course">
-                                          Cách thức tiếp cận hàng ngàn khách hàng tiềm năng trên facebook với chi phí 0 đồng thông qua các công cụ marketing online mới nhất            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="zKepb%2B1BK5HnTAsM6dwlEA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../xay-dung-thuong-hieu-ca-nhan-trong-the-gioi-phang.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/05/xay-dung-thuong-hieu-ca-nhan-trong-the-gioi-phang_m_1557994860.jpg" alt="Xây dựng thương hiệu cá nhân trong thế giới phẳng">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Xây dựng thương hiệu cá nhân trong thế giới phẳng</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Ths. Nguyễn Duy Kha                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >12</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Xây dựng thương hiệu cá nhân trong thế giới phẳng</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 35 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 20 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Ths. Nguyễn Duy Kha</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Thạc sỹ </div>
-                                       <div class="des-course">
-                                          Tạo dựng thương hiệu cá nhân qua nhiều kênh thôn tin khác nhau - Phát triển và kiểm soát thương hiệu của chính mình            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="cv43xeNVj8ay0TXy7zpBAg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../hoc-seo-bai-ban-lam-seo-len-top.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/hoc-seo-bai-ban-len-top_m_1555573812.jpg" alt="Khóa học SEO bài bản - Làm SEO lên Top đơn giản">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Khóa học SEO bài bản - Làm SEO lên Top đơn giản</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Đình Tỉnh                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >86</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="449000">449,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Khóa học SEO bài bản - Làm SEO lên Top đơn giản</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 58 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 07 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Đình Tỉnh</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Chuyên gia SEO</div>
-                                       <div class="des-course">
-                                          Bạn có muốn Tăng đơn hàng với Seo? - Làm Seo là phải lên Top - Khoá học giúp bạn tự Làm Seo lên Top bán cháy hàng ngay trong 58 bài học.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="MvdOikz08s4RwRUPhGMP5A%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../marketing-bao.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-marketing-bao_m_1555574356.jpg" alt="Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Nguyễn Quang Ngọc                                     </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >74</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Marketing Bão - Tạo lốc đơn hàng, Nâng cao doanh số</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 21 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 07 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b> Nguyễn Quang Ngọc </b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Diễn giả </div>
-                                       <div class="des-course">
-                                          Đây là khoá học đang được các Marketer quan tâm nhiều nhất để thúc đẩy quá trình bán hàng online của mình            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="ku%2Bdc7G7VAzGl%2BCEodsbFw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../Vu-khi-ngon-tu-ung-dung-trong-pr-quang-cao-ban-hang-giao-tiep-thuyet-trinh.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/khoa-hoc-vu-khi-ngon-tu_m_1555570487.jpg" alt="Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Huỳnh Minh Thuận                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >132</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Vũ khí ngôn từ: ứng dụng trong PR, Quảng cáo, Bán hàng, Giao tiếp, Thuyết trình</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 49 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 04 giờ 00 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Huỳnh Minh Thuận</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Chuyên gia thương hiệu</div>
-                                       <div class="des-course">
-                                          Ngôn từ có sức mạnh vô cùng lớn trong đời sống. Khóa học này giúp bạn khám phá ngôn từ như một vũ khí để PR, Quảng cáo, bán hàng, thuyết trình...            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="HyIq2B3XsH%2B2OalVP1Y6Xw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../marketing-cho-doanh-nghiep-nho.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/marketing-cho-doanh-nghiep-nho_m_1556177882.jpg" alt="Marketing cho doanh nghiệp nhỏ">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Marketing cho doanh nghiệp nhỏ</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Nguyễn Thái Duy                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >35</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Marketing cho doanh nghiệp nhỏ</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 35 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 33 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Nguyễn Thái Duy</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">CEO BeTraining</div>
-                                       <div class="des-course">
-                                          Đã được hơn 1000 doanh nghiệp nhỏ khởi nghiệp và mang lại hiệu quả cao qua khoá học Marketing cho doanh nghiệp nhỏ với các chiến lược marketing bài bản từ a-z            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="8RFXLSdHwjCMgQsQYl3ZTw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../youtube-marketing.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/uploads/images/linhntd%40unica.vn/QA_m.png" alt="Youtube Marketing">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Youtube Marketing</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Nguyễn Quốc Anh                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >28</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Youtube Marketing</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 32 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 05 giờ 19 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Nguyễn Quốc Anh</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giảng viên</div>
-                                       <div class="des-course">
-                                          Khóa học Youtube Marketing xây dựng một kênh bán hàng chi phí thấp nhất mà hiệu quả cao. Khóa học này mang đến cho bạn kiến thức về cách làm video nhanh chóng tối ưu Youtube nhanh nhất            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="DAvkwwZ8GvrWcCvx8LYOJQ%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../lam-chu-he-thong-marketing-thong-minh.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/05/lam-chu-he-thong-marketing-thong-minh_m_1557995435.jpg" alt="Làm chủ hệ thống MARKETING thông minh">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Làm chủ hệ thống MARKETING thông minh</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Nguyễn Tài Tuệ                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >23</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Làm chủ hệ thống MARKETING thông minh</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 31 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 40 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Nguyễn Tài Tuệ</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Founder & CEO công ty cổ phần Đào Tạo WeSa Việt nam</div>
-                                       <div class="des-course">
-                                          Khóa học chính là giải pháp giúp bạn phát triển kinh doanh đúng hướng và tăng doanh thu một cách bền vững. Marketing thông minh giúp bạn thu nhập thụ động nhanh.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="63QjNNBuxitOySh45Cubgg%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../dot-pha-doanh-thu-voi-06-kenh-marketing-pho-bien-nhat.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/dot-pha-thu-nhap-6-kenh-marketing-online_m_1555569994.jpg" alt="Đột phá thu nhập 06 kênh marketing online ngay lập tức">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Đột phá thu nhập 06 kênh marketing online ngay lập tức</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Vũ Ngọc Quyền                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >110</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Đột phá thu nhập 06 kênh marketing online ngay lập tức</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 149 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 28 giờ 56 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Vũ Ngọc Quyền</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Founder Học Viện PAcademy</div>
-                                       <div class="des-course">
-                                          Chinh Phục Thị trường Kinh Doanh Online trên Tất cả các kênh Marketing lớn nhất 2018 !            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="TnT1P%2FCclADyvp8vOYjDmw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../32-tuyet-chieu-khuyen-mai-qua-tang-va-giam-gia.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/uploads/images/thaoptt09%40gmail.com/32-tuyet-chieu-khuyen-mai-giam-gia_m.jpg" alt="32 Tuyệt chiêu khuyến mại, quà tặng và giảm giá">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >32 Tuyệt chiêu khuyến mại, quà tặng và giảm giá</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Tuấn Hà                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >30</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="599000">599,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">32 Tuyệt chiêu khuyến mại, quà tặng và giảm giá</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 33 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 03 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Tuấn Hà</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Diễn giả - CEO Vinalink. Đồng sáng lập và là Phó chủ tịch VMCC</div>
-                                       <div class="des-course">
-                                          Tập trung dạy bạn cách khuyến mại, giảm giá hiệu quả, đập tan nỗi sợ hãi tiềm ẩn, khơi dậy niềm tin của bạn trong mọi cuộc giao dịch            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="13ycSu8N3PsxpqcxhijxsA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../ban-hang-tu-youtube-voi-phi-0-dong.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/ban-hang-tu-youtube-voi-chi-phi-0-dong_m_1556178944.jpg" alt="Bán hàng từ Youtube với phí 0 đồng">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Bán hàng từ Youtube với phí 0 đồng</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Lê Văn Trường                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >39</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Bán hàng từ Youtube với phí 0 đồng</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 25 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 04 giờ 10 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Lê Văn Trường</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giảng viên</div>
-                                       <div class="des-course">
-                                          Khoá học giúp bạn có được các chiêu thức marketing thu hút khách hàng mua hàng, bạn có thể bắt đầu khởi nghiệp từ 0 đồng bằng video của riêng bạn.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="CR4TUzXYlQpaImoGanTj9w%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../tu-tay-thiet-ke-landing-page-thoi-mien-khach-hang.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/tu-tay-thiet-ke-landingpage-thoi-mien-khach-hang_m_1555575314.jpg" alt="Tự tay Thiết kế Landing Page - thôi miên khách hàng">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Tự tay Thiết kế Landing Page - thôi miên khách hàng</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Hán Quang Dự                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >50</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Tự tay Thiết kế Landing Page - thôi miên khách hàng</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 41 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 04 giờ 09 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Hán Quang Dự</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giám đốc đào tạo công ty  GCC Việt Nam</div>
-                                       <div class="des-course">
-                                          Thiết kế website đơn giản nhất không cần biết lập trình, biết cách viết một nội dung chuẩn thôi miên khách hàng            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="NBmYc%2B6Qso8iabsMgXPk8Q%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../hoc-lam-video-marketing-cho-nguoi-moi-bat-dau.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/uploads/images/linhntd%40unica.vn/Van_Thuong_Hi_m.jpg" alt="Học làm Video Marketing cho người mới bắt đầu">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Học làm Video Marketing cho người mới bắt đầu</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Văn Thượng Hỉ                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >20</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">700,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Học làm Video Marketing cho người mới bắt đầu</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 54 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 03 giờ 24 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Văn Thượng Hỉ</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Nhà đào tạo Marketing Online</div>
-                                       <div class="des-course">
-                                          Video marketing là xu hướng của thế giới, không ít người làm giàu nhờ vào video. Hãy bắt đầu làm giàu ngay từ bây giờ bằng cách tham gia khóa học Video Marketing này.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="Qb3dChvPhH0tSTpMCOxqMw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../kiem-tien-dinh-cao-voi-facebook-email-marketing-va-affiliate-2-0.html" class="course-box-slider pop" data-placement="right" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/kiem-tien-ding-cao-voi-aff-ngo-trong-trung-2_m_1555657951.jpg" alt="Kiếm tiền đỉnh cao với Facebook cá nhân - Email marketing và Affiliate 2.0">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Kiếm tiền đỉnh cao với Facebook cá nhân - Email marketing và Affiliate 2.0</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Ngô Trọng Trung                                     </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >39</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">1,000,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Kiếm tiền đỉnh cao với Facebook cá nhân - Email marketing và Affiliate 2.0</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 44 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 10 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Ngô Trọng Trung </b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giảng Viên </div>
-                                       <div class="des-course">
-                                          Hàng ngày lướt Facebook, dùng Email nhưng bạn có biết đó là công cụ kiếm rất nhiều tiền. Tham gia khóa học bạn sẽ học cách kiếm tiền đỉnh cao bằng Affiliate, Facebook và Email.            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="Z1H2x%2FSMml2XA1u3jECjHw%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../nghe-thuat-viet-ebook-danh-cho-nguoi-moi-bat-dau.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/04/nghe-thuat-viet-ebook-cho-nguoi-moi-bat-dau_m_1555573733.jpg" alt="Nghệ thuật viết Ebook dành cho người mới bắt đầu">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Nghệ thuật viết Ebook dành cho người mới bắt đầu</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Hán Quang Dự                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >72</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">1,200,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Nghệ thuật viết Ebook dành cho người mới bắt đầu</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 26 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 24 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Hán Quang Dự</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giám đốc đào tạo công ty  GCC Việt Nam</div>
-                                       <div class="des-course">
-                                          Khóa học giúp bạn tự viết ebook, sách, bài Pr hiệu quả và thu hút với nội dung hoàn toàn độc đáo và rất thực tế            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="CxidpqLquIHVFZth7JMPeQ%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <div class="box-pop ">
-                                    <a href="../bi-quyet-tang-doanh-so-bang-email-marketing.html" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="Marketing">
-                                       <div class="img-course">
-                                          <img style="max-height:110px;width:100%;"  class="img-responsive " src="../../static.unica.vn/upload/images/2019/05/tang-doanh-so-bang-email-mkt_m_1558083335.jpg" alt="Bí quyết tăng doanh số bằng Email Marketing">
-                                       </div>
-                                       <div class="content-course">
-                                          <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >Bí quyết tăng doanh số bằng Email Marketing</span></h3>
-                                          <div class="name-gv">
-                                             <b>
-                                             Phạm Huy Long                                    </b>
-                                          </div>
-                                          <div class="rate-course" style="display: inline-block;" itemscope >
-                                             <span class="star-rate">
-                                             <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                </span>
-                                             <span class="n-rate">(<span >11</span>)</span>                
-                                          </div>
-                                       </div>
-                                       <div class="price-course ">
-                                          <span class="price-a" value="199000">199,000<sup>đ</sup></span>
-                                          <span class="price-b">600,000<sup>đ</sup></span>
-                                       </div>
-                                    </a>
-                                    <div id="popover-content" class="pop-course hide">
-                                       <div class="title-pop-course">Bí quyết tăng doanh số bằng Email Marketing</div>
-                                       <div class="cate-course"></div>
-                                       <div class="time-course">
-                                          <ul>
-                                             <li><i class="fa fa-list-alt" aria-hidden="true"></i> 22 bài giảng</li>
-                                             <li><i class="fa fa-clock-o" aria-hidden="true"></i> 02 giờ 09 phút</li>
-                                          </ul>
-                                       </div>
-                                       <div class="avatar-gv">
-                                          <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                          <span><b>Phạm Huy Long</b></span>
-                                       </div>
-                                       <div class="des-gv-pop">Giám đốc Công ty cổ phần ANZMedia</div>
-                                       <div class="des-course">
-                                          Bạn sẽ được định hướng, hướng dẫn các chiến lược về Email Marketing, cách sử dụng phần mềm MailChimp, cách xử lý dữ liệu khách hàng, cách tạo template chuyên nghiệp....            
-                                       </div>
-                                       <a onclick="addcart(this)" data-id="9IPbQiYo1fT%2FwprVE0knnQ%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
-                                    </div>
-                                 </div>
-                              </li>
-                           </ul>
-                        </section>
+                        </div>
+                        <div class="col-xs-4 col-md-2">
+                           <div class="link">
+                              &nbsp;
+                              <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(797);">Học thử</a>
+                           </div>
+                        </div>
+                        <div class="col-xs-3 col-md-2">
+                           <div class="time">00:04:16</div>
+                        </div>
                      </div>
-                     <div class="u-number-page">
-                        <ul class="pagination">
-                           <li class="prev disabled"><span>&laquo;</span></li>
-                           <li class="active"><a href="marketing.html?page=1" data-page="0">1</a></li>
-                           <li><a href="marketing4658.html?page=2" data-page="1">2</a></li>
-                           <li><a href="marketing9ba9.html?page=3" data-page="2">3</a></li>
-                           <li><a href="marketingfdb0.html?page=4" data-page="3">4</a></li>
-                           <li><a href="marketingaf4d.html?page=5" data-page="4">5</a></li>
-                           <li class="next"><a href="marketing4658.html?page=2" data-page="1">&raquo;</a></li>
-                        </ul>
-                     </div>
-                     <div class="blog_content" style="background: none;">
-                        <p><strong>Marketing l&agrave; một trong những lĩnh vực &ldquo;thịnh h&agrave;nh&rdquo; nhất hiện nay. Thực tế, những &ocirc;ng &ldquo;vua Marketing&rdquo; đều l&agrave; những người th&agrave;nh đạt v&agrave; sở hữu khối t&agrave;i sản đ&aacute;ng mơ ước. Tuy nhi&ecirc;n, l&agrave;m sao để th&agrave;nh c&ocirc;ng trong lĩnh vực Marketing th&igrave; kh&ocirc;ng phải ai cũng biết.&nbsp;</strong></p>
-                        <p><strong>Do đ&oacute;, UNICA đ&atilde; x&acirc;y dựng n&ecirc;n c&aacute;c kh&oacute;a học Marketing chuy&ecirc;n nghiệp nhằm gi&uacute;p cho nhiều người trẻ c&oacute; thể Startup th&agrave;nh c&ocirc;ng.&nbsp;</strong></p>
-                        <h2><strong>&ldquo;Tối ưu h&oacute;a&rdquo; việc học Marketing&nbsp;</strong></h2>
-                        <p>Hiện nay, Marketing kh&ocirc;ng chỉ đơn thuần l&agrave; một lĩnh vực nhỏ lẻ m&agrave; c&ograve;n bao h&agrave;m nhiều lĩnh vực tương ứng với c&aacute;c k&ecirc;nh kh&aacute;c nhau như: Facebook, Google, Zalo, Youtube, Email&hellip;&nbsp;</p>
-                        <p>Ch&iacute;nh v&igrave; vậy, c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA sẽ tập trung &ldquo;tối ưu h&oacute;a&rdquo; những lĩnh vực Marketing đang &ldquo;thịnh h&agrave;nh&rdquo; nhất hiện nay. Bao gồm: Facebook Marketing, Email Marketing, Marketing online, Seo, Google Ads, Content Marketing, Youtube Marketing, Video Marketing.&nbsp;</p>
-                        <p>Như vậy, t&ugrave;y theo lĩnh vực học tập, nghi&ecirc;n cứu v&agrave; c&ocirc;ng việc m&agrave; mỗi học vi&ecirc;n sẽ lựa chọn được kh&oacute;a học ph&ugrave; hợp nhất. Điều n&agrave;y cũng đồng nghĩa với việc nỗi lo về ph&aacute;t triển chiến lược Marketing được giải quyết một c&aacute;ch hữu hiệu.&nbsp;</p>
-                        <h2><strong>Học c&ugrave;ng &ldquo;vua Marketing&rdquo;&nbsp;</strong></h2>
-                        <p>Ưu điểm lớn nhất m&agrave; c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA mang lại đ&oacute; ch&iacute;nh l&agrave; đội ngũ giảng vi&ecirc;n v&ocirc; c&ugrave;ng chất lượng. Cụ thể, c&aacute;c học vi&ecirc;n sẽ được giảng dạy bởi những &ldquo;&ocirc;ng vua v&agrave;ng&rdquo; trong &ldquo;l&agrave;ng Marketing&rdquo; như: Hồ Ngọc Cương, H&aacute;n Quang Dự, T&uacute; Michael, B&ugrave;i Quang Cường, Master Trần&hellip;&nbsp;</p>
-                        <p>Với nhiều năm kinh nghiệm trong lĩnh vực Marketing, c&ugrave;ng với những b&agrave;i học thực tiễn đắt gi&aacute;, c&aacute;c giảng vi&ecirc;n sẽ c&oacute; c&acirc;u trả lời ho&agrave;n hảo cho thắc mắc: L&agrave;m sao để th&agrave;nh c&ocirc;ng trong lĩnh vực Marketing?</p>
-                        <h2><strong>Kiến thức chuy&ecirc;n ng&agrave;nh đa dạng&nbsp;</strong></h2>
-                        <p>Một lợi &iacute;ch ưu việt khiến bạn kh&ocirc;ng thể bỏ lỡ c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA đ&oacute; ch&iacute;nh l&agrave;, bạn sẽ được cung cấp c&aacute;c kiến thức chuy&ecirc;n ng&agrave;nh v&ocirc; c&ugrave;ng đa dạng.&nbsp;</p>
-                        <p>Đ&oacute; kh&ocirc;ng chỉ l&agrave; những &ldquo;l&yacute; thuyết su&ocirc;ng&rdquo; về Marketing m&agrave; c&ograve;n được kết hợp với những chi&ecirc;u thức, kỹ nghệ, chiến lược, tuyệt chi&ecirc;u, b&iacute; quyết s&aacute;ng tạo, thủ thuật Marketing, c&aacute;c ứng dụng chuy&ecirc;n ng&agrave;nh&hellip; Điều n&agrave;y sẽ gi&uacute;p việc học v&agrave; thực h&agrave;nh về Marketing được tiến h&agrave;nh thuận lợi hơn bao giờ hết.&nbsp;</p>
-                        <p>Nếu muốn trở th&agrave;nh &ldquo;vua Marketing&rdquo; trong thời gian ngắn nhất, h&atilde;y đăng k&yacute; tham gia c&aacute;c kh&oacute;a học tr&ecirc;n UNICA ngay từ h&ocirc;m nay bạn nh&eacute;!&nbsp;</p>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="container-fluid">
+                     <div class="row">
+                        <div class="col-xs-5 col-md-8">
+                           <div class="title">
+                              <a>
+                              <i class="fa fa-play-circle" aria-hidden="true"></i>
+                              Bài 2: Sự thật về Email Marketing</a>
+                           </div>
+                        </div>
+                        <div class="col-xs-4 col-md-2">
+                           <div class="link">
+                              &nbsp;
+                              <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(798);">Học thử</a>
+                           </div>
+                        </div>
+                        <div class="col-xs-3 col-md-2">
+                           <div class="time">00:03:38</div>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
          </div>
+      </div>
+   </div>
+</div>
+               </div>
+               <div class="clearfix"></div>
+               <br/>
+               <span class="kndtc-label fl">Tags: </span>
+               <a class="tag" href="tag/email-marketing.html" > <span class="label label-default"> {{course.tag.tag}} </span></a> &nbsp;                            <br/>
+               <div class="clearfix"></div>
+               <div class="u-combo-buy" id="u-combo-buy">
+                  <h3>Khóa học liên quan</h3>
+                  <div class="u-combo-course">
+                     <ul>
+                        {% for i in '01' %}
+                           <li>
+                           <div class="u-combo-usua">
+                              <div class="img-combo"><img  class="img-responsive lazy" data-src="https://static.unica.vn/upload/images/2019/04/bi-quyet-viet-cv-du-phong-van_m_1555575879.jpg" alt="" /></div>
+                              <div class="des-combo">
+                                 <a href="bi-quyet-viet-cv-du-phong-van.html">Bí quyết viết CV - Dự phỏng vấn</a>
+                                 <div class="gv-combo">Hán Quang Dự</div>
+                                 <div class="rate-combo">
+                                    <p>
+                                       <span class="star-rate">
+                                       <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i> (69)
+                                       </span>
+                                    </p>
+                                    <span>
+                                    <i class="fa fa-users" aria-hidden="true"></i> 491 học viên                                                            </span>
+                                 </div>
+                              </div>
+                              <div class="price-combo">
+                                 <div class="price-combo-a">199,000<sup>đ</sup></div>
+                                 <div class="price-combo-b">400,000<sup>đ</sup></div>
+                                 <div class="price-combo-c">(-50%)</div>
+                              </div>
+                           </div>
+                        </li>
+                        {% endfor %}
+                     </ul>
+                  </div>
+               </div>
+               <div class="u-course-teacher" id="u-course-teacher">
+                  <h3>Thông tin giảng viên</h3>
+                  <div class="uct-left">
+                     <div class="uct-ava-gv"><img class="lazy" data-src="{{course.image.url}}" align="" /></div>
+                     <div class="uct-rate-gv">
+                        <ul>
+                           <li>
+                              <i class="fa fa-users" aria-hidden="true"></i>
+                              <span>{{course.students}}</span> học viên
+                           </li>
+                           <li><i class="fa fa-play-circle" aria-hidden="true"></i> <span>11</span> khóa học</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="uct-right">
+                     <div class="uct-name-gv"><a target="_blank" href="teacher/han-quang-du.html">{{course.own_teacher.fullname}}</a></div>
+                     <div class="uct-des-gv">
+                        <input type="text" id="muser-address" class="form-control" name="demox" value="Giám đốc đào tạo công ty  GCC Việt Nam">
+                    </div>
+                     <div class="uct-more-gv">
+<textarea name="demox" id="muser-address" cols="30" rows="20" class="form-control"><p><strong>Giảng vi&ecirc;n H&aacute;n Quang dự</strong> hiện l&agrave; chuy&ecirc;n gia đ&agrave;o tạo về ph&aacute;t triển bản th&acirc;n v&agrave; ph&aacute;t triển kinh doanh</p>
+<p>Hiện tại, anh đang l&agrave; gi&aacute;m đốc đ&agrave;o tạo c&ocirc;ng ty GCC Việt Nam.</p>
+<p>L&agrave; t&aacute;c giả c&aacute;c quyển s&aacute;ch điện tử: 30s t&aacute;n đổ kh&aacute;ch h&agrave;ng, 08 bước&nbsp;telesales chinh phục kh&aacute;ch h&agrave;ng, 10s b&aacute;n h&agrave;ng si&ecirc;u đẳng, phương ph&aacute;p&nbsp;học tiếng anh của người ngu nhất h&agrave;nh tinh, X&acirc;y dựng hệ thống b&aacute;n h&agrave;ng&nbsp;tự động.&nbsp;</p>
+<p>Đang l&agrave; cố vấn đ&agrave;o tạo, ki&ecirc;m cố vấn chiến lược kinh doanh cho h&agrave;ng chục c&aacute;c doanh nghiệp ở khắp 2 miền Nam Bắc</p>
+<p>Được mọi người biết đến như một người truyền cảm hứng m&atilde;nh liệt với c&aacute;c chương tr&igrave;nh đ&agrave;o tạo nổi tiếng đang được tổ chức tại H&agrave; Nội v&agrave; Hồ Ch&iacute; Minh: B&aacute;n h&agrave;ng như hơi thở, Email marketing d&agrave;nh cho chủ doanh nghiệp, Nghệ thuật viết s&aacute;ch, x&acirc;y dựng hệ thống b&aacute;n h&agrave;ng tự động, Thuyết tr&igrave;nh b&aacute;n h&agrave;ng...</p>
+</textarea>
+                     </div>
+                  </div>
+               </div>
+               <div class="u-rate-hv" id="u-rate-hv">
+                  <h3>Đánh giá của học viên</h3>
+                  <div class="urh-left">
+                     <div class="number-big-rate">5</div>
+                     <div class="star-big-rate">
+                        <span class="star-rate">
+                        <i class="fa fa-star co-or" aria-hidden="true"></i>
+                        <i class="fa fa-star co-or" aria-hidden="true"></i>
+                        <i class="fa fa-star co-or" aria-hidden="true"></i>
+                        <i class="fa fa-star co-or" aria-hidden="true"></i>
+                        <i class="fa fa-star co-or" aria-hidden="true"></i>
+                        </span>
+                     </div>
+                     <div class="count-rate">177 đánh giá</div>
+                  </div>
+                  <div class="urh-right">
+                     <div class="u-rate-f1">
+                        <div class="u-rate-f1-progress">
+                           <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%;">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="u-rate-f1-star">
+                           <span class="star-rate">
+                              <i class="fa fa-star co-or"></i>
+                              <i class="fa fa-star co-or"></i>
+                              <i class="fa fa-star co-or"></i>
+                              <i class="fa fa-star co-or"></i>
+                              <i class="fa fa-star co-or"></i>
+                           </span>
+                        </div>
+                        <div class="u-rate-f1-num">
+                           <p>73%</p>
+                        </div>
+                     </div>
+                     <div class="u-rate-f1">
+                        <div class="u-rate-f1-progress">
+                           <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100" style="width: 16%;">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="u-rate-f1-star">
+                           <span class="star-rate">
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                            <i class="fa fa-star-o co-or"></i>
+                        </span>
+                        </div>
+                        <div class="u-rate-f1-num">
+                           <p>16%</p>
+                        </div>
+                     </div>
+                     <div class="u-rate-f1">
+                        <div class="u-rate-f1-progress">
+                           <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100" style="width: 7%;">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="u-rate-f1-star">
+                           <span class="star-rate">
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star-o co-or"></i>
+                           <i class="fa fa-star-o co-or"></i>
+                       </span>
+                        </div>
+                        <div class="u-rate-f1-num">
+                           <p>7%</p>
+                        </div>
+                     </div>
+                     <div class="u-rate-f1">
+                        <div class="u-rate-f1-progress">
+                           <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="u-rate-f1-star">
+                           <span class="star-rate">
+                           <i class="fa fa-star co-or"></i>
+                           <i class="fa fa-star co-or"></i>
+                            <i class="fa fa-star-o co-or"></i>
+                            <i class="fa fa-star-o co-or"></i>
+                           <i class="fa fa-star-o co-or"></i>
+                           </span>
+                        </div>
+                        <div class="u-rate-f1-num">
+                           <p>1%</p>
+                        </div>
+                     </div>
+                     <div class="u-rate-f1">
+                        <div class="u-rate-f1-progress">
+                           <div class="progress">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100" style="width: 3%;">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="u-rate-f1-star">
+                           <span class="star-rate">
+                           <i class="fa fa-star co-or"></i>
+                            <i class="fa fa-star-o co-or"></i>
+                            <i class="fa fa-star-o co-or"></i>
+                           <i class="fa fa-star-o co-or"></i>
+                           <i class="fa fa-star-o co-or"></i>
+                           </span>
+                        </div>
+                        <div class="u-rate-f1-num">
+                           <p>3%</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="u-cm-hv">
+                  <h3>Nhận xét của học viên</h3>
+                  <div>
+                     <ul class="load_comment">
+                        <li class="u-block-cmhv">
+                           <div class="ava-hv"><img class="lazy" width="55px" height="55px" data-src="https://graph.facebook.com/1604447299672123/picture?type=small" alt="" /></div>
+                           <div class="block-hv">
+                              <div class="block-inner">
+                                 <div class="name-hv">Lê Thanh Sơn</div>
+                              </div>
+                              <div class="cm-hv">
+                                 <div class="rate-hv">
+                                    <span class="star-rate">
+                                    <i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i><i class="fa fa-star co-or" aria-hidden="true"></i>                                                                </span>
+                                    <p>RẤT HAY VÀ BỔ ÍCH, VUA EMAIL MARKETING</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+                  <center>
+                     <a class="view-more" id="loadmore_comment" data-id="76" href="javascript:void(0)">
+                     Xem thêm
+                     </a>
+                  </center>
+               </div>
+               <div class="u-face-cm lazy">
+                  <!--
+                     <div class="col-md-12">
+                       <div class="fb-like" data-href="https://unica.vn/vua-email-marketing" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                     </div>
+                     -->
+                  <span class="comment">
+                     <div class="fb-comments" data-href="https://unica.vn/vua-email-marketing" data-width="100%" data-numposts="10" data-order-by="reverse_time"></div>
+                  </span>
+                  <div id="fb-root"></div>
+                  <script>
+                     window.fbAsyncInit = function() {
+                       FB.init({
+                         appId : '410486232859596',
+                         xfbml      : true,
+                         vua-email-marketingsion    : 'v2.4'
+                       });
+                     };
+                     
+                     (function(d, s, id){
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {return;}
+                        js = d.createElement(s); js.id = id;
+                        js.src = "../connect.facebook.net/en_US/sdk.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                      }(document, 'script', 'facebook-jssdk'));
+                  </script>                        
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-4 col-sm-12 pdr-b hidden-xs">
+            <div class="u-detail-block-right" id="sidebar">
+               <div class="hidden-lg hidden-md hidden-sm show-xs">
+                  <div class="inner-scroll" style="padding-bottom: 1px;padding-top: 1px;">
+                     <div class="price-inner"><a href="javascript:void(0)" class="btn-add-course-cart">Thêm vào giỏ hàng</a></div>
+                     <div class="btn-inner"><a href="order/step1e27e.html?id=76">Đăng ký học</a></div>
+                  </div>
+               </div>
+               <div class="block-buy">
+                  <div class="u-sm-left">
+                     <div class="block-price">
+                        <span class="big-price">199,000<sup>đ</sup></span><span class="small-price">600,000<sup>đ</sup></span><span class="discount-price" data-percent="67">-67%</span>
+                     </div>
+                     <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
+                     <div class="block-btn">
+                        <a course_id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="order/step1e27e.html?id=76" class="btn-buy-course">Đăng ký học</a><a data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="javascript:void(0)" onclick="addcart(this)" class="btn-cart-course btn-add_cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                        <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
+                     </div>
+                  </div>
+                  <div class="u-sm-right">
+                     <div class="block-ulti">
+                        <ul style="margin-left: 0">
+                           <li>
+                              <i class="fa fa-clock-o" aria-hidden="true"></i> Thời lượng:
+                              <p>02 giờ 34 phút</p>
+                           </li>
+                           <li>
+                              <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
+                              <p>16 bài giảng</p>
+                           </li>
+                           <li><i class="fa fa-history" aria-hidden="true"></i> Sở hữu khóa học trọn đời</li>
+                           <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
+                           <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
+                        </ul>
+                        <center><a href="javascript:void(0)" class="dropdown-coupon">Bạn có mã giảm giá?</a></center>
+                        <div class="dropdown-input-coupon">
+                           <div class="col-lg-8 col-xs-8">
+                              <div class="form-group">
+                                 <input autocomplete="off" name="coupon_code" pattern="[^'\x22]+" required="" type="text" class="form-control" id="coupon_code" placeholder="Nhập mã giảm giá..." style="margin-left:-10px;">
+                              </div>
+                           </div>
+                           <div class="col-lg-2 col-xs-4">
+                              <div class="form-group">
+                                 <button onclick="submit_coupon()" type="button" class="coupon-submit btn btn-coupon" style="margin-left:-25px;">Áp dụng</button>
+                              </div>
+                           </div>
+                           <div class="col-lg-12" style="display:inline-block;margin-bottom: 5px;">
+                              <span style="display: none" class="error_message label label-danger">Coupon không hợp lệ</span>
+                           </div>
+                           <div class="col-lg-12" style="display:inline-block;">
+                              <span style="display: none" class="success_message label label-success">Kích hoạt coupon thành công</span>
+                           </div>
+                           <br/>
+                        </div>
+                        <div class="clearfix"></div>
+                     </div>
+                     <div class="block-share" style="display: none;">
+                        <div style="margin-bottom: 15px;" class="share-title">
+                           <b>CHIA SẺ NHẬN NGAY MÃ GIẢM GIÁ 50%</b>
+                        </div>
+                        <button style="width: 50%;margin-bottom: 10px" onclick="share(76)" class="btn btn-sm btn-primary"><i class="fa fa-facebook"></i> CHIA SẺ NGAY</button>
+                        <div class="result-share" style="display: none;">
+                           <div style="margin-bottom: 15px;">
+                              <b>BẠN NHẬN ĐƯỢC MÃ GIẢM GIÁ 50% </b>
+                           </div>
+                           <p>HỌC PHÍ CHỈ CÒN <b>299,000đ</b></p>
+                           <div style="color: #35BAF6;font-size: 16px;margin-bottom: 10px;"><b class="coupon-share"></b></div>
+                           <i style="color: #858585;font-style: italic !important;" class="coupon-expired">xx</i>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+</main>
 {% endblock content %}

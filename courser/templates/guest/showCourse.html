@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block content %}
+<main style="margin-top: 42px;">
+   <div class="popup_success"></div>
+   <div class="u-course-highlight">
+      <div class="container">
+         <div class="breadcumb-detail-course">
+            <a href="index.html" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
+            <a href="course/marketing.html">Marketing</a> <i class="fa fa-angle-double-right"></i>
+            {{course.title}}        
+         </div>
+         <div class="u-detail-block-title">
+            <h1 itemprop="itemReviewed">
+               <span itemprop="name">{{course.title}} </span>
+            </h1>
+            <div class="u-detail-desc" itemprop="description">
+               {{course.description}}
+            </div>
+            <div class="u-detail-tea" itemprop="author">
+               <img class="picture-teacher-circle" src="{{course.image.url}}" align="" />
+               <a href="teacher/han-quang-du.html">  <span itemprop="name">{{course.own_teacher.fullname}} </span></a>
+            </div>
+            <div class="u-detail-rate">
+               <span class="star-rate">
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               </span>
+               <span>{{course.rate_student}}</span>
+               đánh giá
+            </div>
+            <div class="u-detail-students">
+               <span>
+               <i class="fa fa-users" aria-hidden="true"></i> {{course.students}}  học viên</span>
+            </div>
+            <div class="favorite_des">
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="u-detail-course">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+               <input type="text"  class="form-control" name="video_ins" value="{{course.video_ins}}">
+               <div class="u-detail-block-left">
+                  <div class="u-video">
+                     <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item img-responsive" src="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
+                        </iframe>
+                        <?php// if($model['Banner_large'] != ''): ?>
+                        <!--<img src="<?//=$model['Banner_large']?>" alt="" width="100%">-->
+                        <?php// endif; ?>
+                     </div>
+                  </div>
+                  <div class="tab-detail hidden-xs">
+                     <ul>
+                        <li><a href="#u-des-course">Giới thiệu</a></li>
+                        <li><a href="#u-list-course">Nội dung khóa học</a></li>
+                     </ul>
+                  </div>
+                  <div class="u-learn-what">
+                     <h3>Bạn sẽ học được gì</h3>
+                     <div class="content">
+                        <div class="row">
+                           {{course.you_need_know}}
+                        </div>
+                     </div>
+                  </div>
+                  <div class="u-des-course" id="u-des-course">
+                     <h2>Giới thiệu khóa học</h2>
+                     {{course.overview}}
+                  </div>
+                  <div class="u-list-course" id="u-list-course">
+                     <h2>Danh Sach Nội dung khóa học</h2>
+                     <div class="content">
+                        <div class="panel-group" id="accordion">
+                           <div class="panel panel-default">
+                              <!-- phần -->
+                              {% for m in modules %}
+                              {% if  m.module_level == 0 %}
+                              <div class="panel-heading">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <h4 class="panel-title">
+                                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{m.id}}" class="" aria-expanded="true">
+                                          <i class="fa fa-minus-square" aria-hidden="true"></i>
+                                          {{ m.title }}
+                                          </a>
+                                       </h4>
+                                    </div>
+                                 </div>
+                              </div>
+                              {% else %}
+                              <div id="#collapse{{m.id}}" class="panel-collapse collapse in " aria-expanded="true">
+                                 <div class="panel-body">
+                                    <div class="col">
+                                       <div class="container-fluid">
+                                          <div class="row">
+                                             <div class="col-xs-5 col-md-8">
+                                                <div class="title">
+                                                   <a>
+                                                   <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                                   {{m.description}}
+                                                   </a>
+                                                </div>
+                                             </div>
+                                             <div class="col-xs-4 col-md-2">
+                                                <div class="link">
+                                                   &nbsp;
+                                                   <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(797);">Delete</a>
+                                                </div>
+                                             </div>
+                                             <div class="col-xs-3 col-md-2">
+                                                <div class="time">00:04:15</div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              {% endif %}
+                              {% endfor %}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="clearfix"></div>
+                  <br/>
+               </div>
+            </div>
+            {# Phan phai sua. Nhung chua lam ^^ #}
+            <div class="col-lg-4 col-md-4 col-sm-12 pdr-b hidden-xs">
+               <div class="u-detail-block-right" id="sidebar">
+                  <div class="hidden-lg hidden-md hidden-sm show-xs">
+                     <div class="inner-scroll" style="padding-bottom: 1px;padding-top: 1px;">
+                        <div class="price-inner"><a href="javascript:void(0)" class="btn-add-course-cart">Thêm vào giỏ hàng</a></div>
+                        <div class="btn-inner"><a href="order/step1e27e.html?id=76">Đăng ký học</a></div>
+                     </div>
+                  </div>
+                  <div class="block-buy">
+                     <div class="u-sm-left">
+                        <div class="block-price">
+                           <span class="big-price">199,000<sup>đ</sup></span><span class="small-price">600,000<sup>đ</sup></span><span class="discount-price" data-percent="67">-67%</span>
+                        </div>
+                        <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
+                        <div class="block-btn">
+                           <a course_id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="order/step1e27e.html?id=76" class="btn-buy-course">Đăng ký học</a><a data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="javascript:void(0)" onclick="addcart(this)" class="btn-cart-course btn-add_cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
+                           <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
+                        </div>
+                     </div>
+                     <div class="u-sm-right">
+                        <div class="block-ulti">
+                           <ul style="margin-left: 0">
+                              <li>
+                                 <i class="fa fa-clock-o" aria-hidden="true"></i> Thời lượng:
+                                 <p>02 giờ 34 phút</p>
+                              </li>
+                              <li>
+                                 <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
+                                 <p>16 bài giảng</p>
+                              </li>
+                              <li><i class="fa fa-history" aria-hidden="true"></i> Sở hữu khóa học trọn đời</li>
+                              <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
+                              <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
+                           </ul>
+                           <center><a href="javascript:void(0)" class="dropdown-coupon">Bạn có mã giảm giá?</a></center>
+                           <div class="dropdown-input-coupon">
+                              <div class="col-lg-8 col-xs-8">
+                                 <div class="form-group">
+                                    <input autocomplete="off" name="coupon_code" pattern="[^'\x22]+" required="" type="text" class="form-control" id="coupon_code" placeholder="Nhập mã giảm giá..." style="margin-left:-10px;">
+                                 </div>
+                              </div>
+                              <div class="col-lg-2 col-xs-4">
+                                 <div class="form-group">
+                                    <button onclick="submit_coupon()" type="button" class="coupon-submit btn btn-coupon" style="margin-left:-25px;">Áp dụng</button>
+                                 </div>
+                              </div>
+                              <div class="col-lg-12" style="display:inline-block;margin-bottom: 5px;">
+                                 <span style="display: none" class="error_message label label-danger">Coupon không hợp lệ</span>
+                              </div>
+                              <div class="col-lg-12" style="display:inline-block;">
+                                 <span style="display: none" class="success_message label label-success">Kích hoạt coupon thành công</span>
+                              </div>
+                              <br/>
+                           </div>
+                           <div class="clearfix"></div>
+                        </div>
+                        <div class="block-share" style="display: none;">
+                           <div style="margin-bottom: 15px;" class="share-title">
+                              <b>CHIA SẺ NHẬN NGAY MÃ GIẢM GIÁ 50%</b>
+                           </div>
+                           <button style="width: 50%;margin-bottom: 10px" onclick="share(76)" class="btn btn-sm btn-primary"><i class="fa fa-facebook"></i> CHIA SẺ NGAY</button>
+                           <div class="result-share" style="display: none;">
+                              <div style="margin-bottom: 15px;">
+                                 <b>BẠN NHẬN ĐƯỢC MÃ GIẢM GIÁ 50% </b>
+                              </div>
+                              <p>HỌC PHÍ CHỈ CÒN <b>299,000đ</b></p>
+                              <div style="color: #35BAF6;font-size: 16px;margin-bottom: 10px;"><b class="coupon-share"></b></div>
+                              <i style="color: #858585;font-style: italic !important;" class="coupon-expired">xx</i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
+{% endblock content %}

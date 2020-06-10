@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "guest/menubar_user.html" %}
+
+<main>
+   <div class="container">
+      <div class="right">
+         <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+         <link rel="stylesheet" href="/media/styles/flatpickr.min.css">
+         <br/>
+         <div id="main-content">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <span style="font-weight: bold;"><i class="fa fa-user" aria-hidden="true"></i> Tao Khoa Hoc</span>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+					<form action="#" method="post" enctype="multipart/form-data">
+						<div class="col-md-6 col-sm-6">
+							{% csrf_token %}
+						<div class="form-group">
+							<label>Tag </label>
+							<div class="form-group field-muser-city">
+								<select id="muser-city" class="form-control" name="tag">
+								<option value="">Chọn Tag</option>
+								{% for t in tags  %}
+									<option value="{{t.id}}">{{t.subject.title}} - {{t.tag}}</option>
+								{% endfor %}
+								</select>
+							</div>
+							<p class="help-block help-block-error"></p>
+						</div>
+						<div class="form-group">
+							<label>Title </label>
+							<div class="form-group field-muser-address">
+								<input type="text" id="muser-address" class="form-control" name="title" value="">
+							<p class="help-block help-block-error"></p>
+							</div>
+						</div>
+						<div class="form-group" style="padding-top: 19px;">
+							<button class="btn btn-success"><i class="fa fa-save"></i> Them moi </button>
+						</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+						<div class="form-group">
+							<label>Anh </label>
+							<div class="form-group field-muser-address">
+								<input type="file" id="muser-address" class="form-control" name="image" value="">
+							<p class="help-block help-block-error"></p>
+							</div>
+							<p class="help-block help-block-error"></p>
+						</div>
+						<div class="form-group">
+							<label>value_old</label>
+							<div class="form-group field-muser-address">
+							<input type="text" id="muser-address" class="form-control" name="value_old" value="">
+							<p class="help-block help-block-error"></p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>value_new</label>
+							<div class="form-group field-muser-address">
+							<input type="text" id="muser-address" class="form-control" name="value_new" value="">
+							<p class="help-block help-block-error"></p>
+							</div>
+						</div>
+						</div>
+					</form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <script src="/media/js/flatpickr.min.js"></script>
+      </div>
+   </div>
+</main>	
+{% endblock content %}

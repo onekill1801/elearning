@@ -1,53 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="u-dashboard-top" style="background-image:  url(https://unica.vn/media/img/bg-db.jpg);">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12">
-            <p>
-               {% if type == '1' %}
-                  {% if  user.fullname %}
-                     Học viên : {{ user.fullname }}
-                  {% else %}
-                     Học viên                                 
-                  {% endif %}
-               {% else %}
-                  {% if  user.fullname %}
-                     Giang vien : {{ user.fullname }}
-                  {% else %}
-                     Giang vien                                 
-                  {% endif %}  
-               {% endif %}                                           
-            </p>
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-               <ul class="nav nav-tabs" style="border-bottom: 0px !important">
-                  <li class="active"><a href="{% url 'courseuser-view' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Khóa học</a></li>
-                  <li class=""><a href="{% url 'profile-view' %}" class=""><i class="fa fa-user" aria-hidden="true"></i> Hồ sơ cá nhân</a></li>
-                  <li class=""><a href="/dashboard/user/wishlist" class=""><i class="fa fa-book" aria-hidden="true"></i> Yêu thích</a></li>
-                  <li class="hidden-sm "><a href="/khampha" class=""><i class="fa fa-search-plus" aria-hidden="true"></i> Khám phá</a></li>
-                  <li class="hiden-md hidden-sm "><a href="/dealer/nap-tien" class=""><i class="fa fa-money" aria-hidden="true"></i> Nạp tiền</a></li>
-                  <li class="hidden-md hidden-sm "><a href="/dashboard/order" class=""> <i class="fa fa-history" aria-hidden="true"></i> Lịch sử đặt hàng</a></li>
-                  <li class="hidden-md hidden-sm "><a href="/dashboard/user/inbox" class=""> <i class="fa fa-envelope-o" aria-hidden="true"></i> Hộp thư</a></li>
-                  <li class="btn-group pull-right">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Thêm  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
-                     <ul class="dropdown-menu" role="menu">
-                        <li class=""><a href="/dashboard/user/login-history" class=""> <i class="fa fa-history" aria-hidden="true"></i> Lịch sử đăng nhập</a></li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+{% include "guest/menubar_user.html" %}
 <main>
    <div class="container">
       <style>
@@ -71,53 +25,34 @@
                            <div class="panel-heading"> 
                               <span style="font-weight: bold;">
                                  <i class="fa fa-book" aria-hidden="true"></i> 
-                                 Đang quan tâm </span> 
+                                 Khoa hoc cua toi </span> 
                            </div>
                            <div class="panel-body">
-                              <ul class="nav nav-tabs">
-                                 <li><a  href="">Đã quan tâm</a></li>
-                              </ul>
                               <div class="tab-content">
                                  <div id="menu1" class="tab-pane fade active in">
                                     <div class="u-combo-buy">
                                        <div class="u-combo-course">
                                           <ul>
-                                             <li>
+                                             {% for c in courses %}
+                                               <li>
                                                 <div class="u-combo-usua">
-                                                   <div class="img-combo-favorited"><img class="img-responsive" src="https://static.unica.vn/upload/images/2019/05/facebook-smart-marketing_m_1558083419.jpg" alt="" /></div>
+                                                   <div class="img-combo-favorited"><img class="img-responsive" src="{{c.image.url}}" alt="" /></div>
                                                    <div class="des-combo">
-                                                      <a href="/facebook-smart-marketing-a-z">Facebook Smart Marketing A-Z</a>
-                                                      <div class="gv-combo">Luong Van Nam</div>
+                                                      <a href="{% url 'full_course' c.id %}">{{c.title}}</a>
+                                                      <div class="gv-combo">{{c.own_teacher.fullname}}</div>
                                                       <div class="rate-combo">
                                                          <p>Đánh giá: 5</p>
                                                          <span><i class="fa fa-users" aria-hidden="true"></i> 5495 học viên</span>
                                                       </div>
                                                    </div>
                                                    <div class="price-combo">
-                                                      <div class="price-combo-a">599,000<sup>đ</sup></div>
-                                                      <div class="price-combo-b">800,000<sup>đ</sup></div>
+                                                      <div class="price-combo-a">{{c.value_old}}<sup>đ</sup></div>
+                                                      <div class="price-combo-b">{{c.value_new}}<sup>đ</sup></div>
                                                       <div class="price-combo-c">(-25%)</div>
                                                    </div>
                                                 </div>
                                              </li>
-                                             <li>
-                                                <div class="u-combo-usua">
-                                                   <div class="img-combo-favorited"><img class="img-responsive" src="https://static.unica.vn/upload/images/2019/04/facebook-marketing-a-z_m_1555557477.jpg" alt="" /></div>
-                                                   <div class="des-combo">
-                                                      <a href="/facebook-marketing-tu-a-z">Facebook Marketing từ A - Z</a>
-                                                      <div class="gv-combo">Hồ Ngọc Cương</div>
-                                                      <div class="rate-combo">
-                                                         <p>Đánh giá: 5</p>
-                                                         <span><i class="fa fa-users" aria-hidden="true"></i> 20526 học viên</span>
-                                                      </div>
-                                                   </div>
-                                                   <div class="price-combo">
-                                                      <div class="price-combo-a">199,000<sup>đ</sup></div>
-                                                      <div class="price-combo-b">700,000<sup>đ</sup></div>
-                                                      <div class="price-combo-c">(-71%)</div>
-                                                   </div>
-                                                </div>
-                                             </li>
+                                             {% endfor %}
                                           </ul>
                                        </div>
                                     </div>

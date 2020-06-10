@@ -1,0 +1,50 @@
+<div class="u-dashboard-top" style="background-image:  url(https://unica.vn/media/img/bg-db.jpg);">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12">
+            <p>
+               {% if type == '1' %}
+                  {% if  user.fullname %}
+                     Học viên : {{ user.fullname }}
+                  {% else %}
+                     Học viên                                 
+                  {% endif %}
+               {% else %}
+                  {% if  user.fullname %}
+                     Giang vien : {{ user.fullname }}
+                  {% else %}
+                     Giang vien                                 
+                  {% endif %}  
+               {% endif %}                                           
+            </p>
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav nav-tabs" style="border-bottom: 0px !important">
+                  <li class="active">
+                     <a href="{% url 'courseuser-view' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Khóa học</a></li>
+                  <li class="">
+                     <a href="{% url 'profile-view' %}" class=""><i class="fa fa-user" aria-hidden="true"></i> Hồ sơ cá nhân</a></li>
+                  {% if request.session.type == '0' %}
+                     <li class="">
+                     <a href="{% url 'c_subject' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Chu de</a></li>
+                  <li class="">
+                     <a href="{% url 'c_course' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Khoa Hoc</a></li>
+                  {% endif %}
+                  <li class="btn-group pull-right">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Thêm  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
+                     <ul class="dropdown-menu" role="menu">
+                        <li class=""><a href="/dashboard/user/login-history" class=""> <i class="fa fa-history" aria-hidden="true"></i> Lịch sử đăng nhập</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

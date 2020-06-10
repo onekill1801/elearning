@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.http import HttpResponse
 from user.models import *
+from courser.models import *
 from .forms import *
-# import pdb
 # Create your views here.
 
 #  Phan tren la demo
@@ -22,7 +22,6 @@ class LoginView(View):
 		if form.is_valid():
 			userT = Teacher.objects.filter(user_name=request.POST.get('user_name'))
 			userS = Student.objects.filter(user_name=request.POST.get('user_name'))
-			import pdb; pdb.set_trace()
 			if userS:
 				id_S = Student.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passS = Student.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
@@ -90,23 +89,23 @@ class RegisterView(View):
 
 class CourseView(View):
 	def get(self, request):
-		# import pdb; pdb.set_trace()
 		try:
 			if request.session['type'] == '1':
 				user = Student.objects.filter(id=request.session['id'])[0]
 				content = {
 					'user' : user,
-					'type' : request.session['type']
+					'type' : request.session['type'],
 				}
-				return render(request, 'loginview/course.html', content)
+				return render(request, 'student/courseS.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
 				content = {
 					'user' : user,
-					'type' : request.session['type']
+					'type' : request.session['type'],
+					'courses' : Course.objects.filter(own_teacher=request.session['id'])
 				}
 				# return render(request, 'loginview/profile1.html', content)
-				return render(request, 'loginview/course.html', content)
+				return render(request, 'teacher/courseT.html', content)
 		except Exception as e:
 			return render(request, '404.html') 
 		# return render(request, 'loginview/course.html')
@@ -116,7 +115,6 @@ class CourseView(View):
 
 class ProfileView(View):
 	def get(self, request):
-		# import pdb; pdb.set_trace()
 		try:
 			if request.session['type'] == '1':
 				user = Student.objects.filter(id=request.session['id'])[0]
@@ -158,7 +156,6 @@ class ProfileView(View):
 				# return render(request, 'student/profileS.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
-				import pdb; pdb.set_trace()
 				user.fullname = request.POST.get('fullname', '')
 				user.address = request.POST.get('address', '')
 				user.work_years = request.POST.get('work_years', '')

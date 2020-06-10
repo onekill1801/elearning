@@ -53,7 +53,6 @@ class Course(models.Model):
     fav_nums = models.IntegerField(default=0, verbose_name="fav_nums")
     teacher_tell = models.CharField(max_length=300, verbose_name="teacher_tell", default='')
 
-    add_time = models.DateTimeField(default=datetime.now, verbose_name="add_time")
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

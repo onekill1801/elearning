@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid bg-br-2">
+   <div class="container">
+      <ol class="breadcrumb">
+         <li><a href="../index.html">Trang chủ</a></li>
+         <li class="active">Marketing</li>
+      </ol>
+   </div>
+</div>
+<div class="container-fluid bg-br" style="padding:15px 0">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-3 col-md-3 col-sm-4 u-list-leftbar hidden-xs ">
+            <section>
+               <div class="u-cate-list">
+                  <p style="font-size: 16px;font-weight: bold;border-bottom: 1px solid #d7d7d7;margin-bottom: 10px;padding-bottom: 5px;">Danh mục khóa học</p>
+                  <ul>
+	                {% for s in subjects %}
+						<li>
+							<a title="{{s.title}}" aria-hidden="true"></i> {{s.title}}</a>
+							<ul class="issub" style="z-index: 1002; display: none;">
+								<li><a href="ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
+							</ul>
+						</li>
+	                {% endfor %}
+                  </ul>
+               </div>
+            </section>
+         </div>
+         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 main-content" style="">
+            <div class="u-all-course">
+               <h1 style="font-size: 20px;font-family: inherit;line-height: 1.1;color: inherit;margin-top: 0px;">Khóa học </h1>
+               <h3>
+                  Tất cả [ <span class="p-or">94</span> 
+                  <p> khóa học</p>
+                  ]
+               </h3>
+               <style>
+                  .box-teacher .slick-next:before,.box-teacher .slick-prev:before{color: #F37E65 !important;}
+               </style>
+               <button type="button" class="btn btn-info btn-lg btn-popup-recomend hidden" data-toggle="modal" data-target="#popupRecomend"></button>
+               {# Vi tri cua popup.html ^^ #}
+               <script type="text/javascript">
+                  $(document).ready(function () {
+                      var recomend = 0;
+                      $(document).mouseleave(function () {
+                          if(recomend == 0){
+                              $('.btn-popup-recomend').click();
+                              $('.slick-next').click();
+                              $('.slick-prev').click();
+                              recomend++;
+                          }
+                      });
+                  });
+               </script>
+               <section>
+                  <div class="u-hot-cate" style="border: none;padding: 0px 0px;">
+                     <ul>
+                        <li><a href="../tag/facebook-marketing.html"><span class="label label-primary">Facebook Marketing</span></a></li>
+                     </ul>
+                  </div>
+               </section>
+               <br>
+               <section>
+                  <ul>
+                   {% for c in courses %}
+                     <li>
+                       	<div class="box-pop ">
+                           <a href="{% url 'show_course' c.id %}" class="course-box-slider pop" data-placement="left" data-toggle="popover" data-container="body" data-html="true" data-original-title="" title="">
+                              <div class="img-course">
+                                 <img style="max-height:110px;width:100%;"  class="img-responsive " src="{{c.image.url}}" alt="">
+                              </div>
+                              <div class="content-course">
+                                 <h3 class="title-course" style="font-size:15px;overflow: hidden;margin-top: 8px;height: 44px;"><span >{{c.title}}</span></h3>
+                                 <div class="name-gv">
+                                    <b>
+                                    {{c.own_teacher.fullname}}</b>
+                                 </div>
+                                 <div class="rate-course" style="display: inline-block;" itemscope >
+                                    <span class="star-rate">
+                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
+                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
+                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
+                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
+                                    <i class="fa fa-star-o co-or" aria-hidden="true"></i>
+                                    </span>
+                                    <span class="n-rate">(<span >{{c.rate_student}}</span>)</span>                
+                                 </div>
+                              </div>
+                              <div class="price-course ">
+                                 <span class="price-a" value="{{c.value_new}}">{{c.value_new}}<sup>đ</sup></span>
+                                 <span class="price-b">{{c.value_old}}<sup>đ</sup></span>
+                              </div>
+                           </a>
+                           <div id="popover-content" class="pop-course hide">
+                              <div class="title-pop-course">{{c.title}}</div>
+                              <div class="cate-course"></div>
+                              <div class="time-course">
+                                 <ul>
+                                    <li><i class="fa fa-list-alt" aria-hidden="true"></i> 64 bài giảng</li>
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 22 phút</li>
+                                 </ul>
+                              </div>
+                              <div class="avatar-gv">
+                                 <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
+                                 <span><b>Hồ Ngọc Cương</b></span>
+                              </div>
+                              <div class="des-gv-pop">Freelancer Facebook Marketing</div>
+                              <div class="des-course">
+                                 Trọn bộ khoá học facebook marketing online từ a-z hướng dẫn chuyên sâu về quảng cáo facebook giúp bạn có các chiến lược facebook marketing hoàn hảo - tự chạy quảng cáo chuyên nghiệp.            
+                              </div>
+                              <a onclick="addcart(this)" data-id="hWDi7CFNGizLc7IN7AhGcA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
+                           </div>
+                        </div>
+                     </li>
+                     {% endfor %}
+                  </ul>
+               </section>
+            </div>
+            <div class="u-number-page">
+               <ul class="pagination">
+                  <li class="prev disabled"><span>&laquo;</span></li>
+                  <li class="active"><a href="marketing.html?page=1" data-page="0">1</a></li>
+                  <li><a href="marketing4658.html?page=2" data-page="1">2</a></li>
+                  <li><a href="marketing9ba9.html?page=3" data-page="2">3</a></li>
+                  <li><a href="marketingfdb0.html?page=4" data-page="3">4</a></li>
+                  <li><a href="marketingaf4d.html?page=5" data-page="4">5</a></li>
+                  <li class="next"><a href="marketing4658.html?page=2" data-page="1">&raquo;</a></li>
+               </ul>
+            </div>
+            <div class="blog_content" style="background: none;">
+               <p><strong>Marketing l&agrave; một trong những lĩnh vực &ldquo;thịnh h&agrave;nh&rdquo; nhất hiện nay. Thực tế, những &ocirc;ng &ldquo;vua Marketing&rdquo; đều l&agrave; những người th&agrave;nh đạt v&agrave; sở hữu khối t&agrave;i sản đ&aacute;ng mơ ước. Tuy nhi&ecirc;n, l&agrave;m sao để th&agrave;nh c&ocirc;ng trong lĩnh vực Marketing th&igrave; kh&ocirc;ng phải ai cũng biết.&nbsp;</strong></p>
+               <p><strong>Do đ&oacute;, UNICA đ&atilde; x&acirc;y dựng n&ecirc;n c&aacute;c kh&oacute;a học Marketing chuy&ecirc;n nghiệp nhằm gi&uacute;p cho nhiều người trẻ c&oacute; thể Startup th&agrave;nh c&ocirc;ng.&nbsp;</strong></p>
+               <h2><strong>&ldquo;Tối ưu h&oacute;a&rdquo; việc học Marketing&nbsp;</strong></h2>
+               <p>Hiện nay, Marketing kh&ocirc;ng chỉ đơn thuần l&agrave; một lĩnh vực nhỏ lẻ m&agrave; c&ograve;n bao h&agrave;m nhiều lĩnh vực tương ứng với c&aacute;c k&ecirc;nh kh&aacute;c nhau như: Facebook, Google, Zalo, Youtube, Email&hellip;&nbsp;</p>
+               <p>Ch&iacute;nh v&igrave; vậy, c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA sẽ tập trung &ldquo;tối ưu h&oacute;a&rdquo; những lĩnh vực Marketing đang &ldquo;thịnh h&agrave;nh&rdquo; nhất hiện nay. Bao gồm: Facebook Marketing, Email Marketing, Marketing online, Seo, Google Ads, Content Marketing, Youtube Marketing, Video Marketing.&nbsp;</p>
+               <p>Như vậy, t&ugrave;y theo lĩnh vực học tập, nghi&ecirc;n cứu v&agrave; c&ocirc;ng việc m&agrave; mỗi học vi&ecirc;n sẽ lựa chọn được kh&oacute;a học ph&ugrave; hợp nhất. Điều n&agrave;y cũng đồng nghĩa với việc nỗi lo về ph&aacute;t triển chiến lược Marketing được giải quyết một c&aacute;ch hữu hiệu.&nbsp;</p>
+               <h2><strong>Học c&ugrave;ng &ldquo;vua Marketing&rdquo;&nbsp;</strong></h2>
+               <p>Ưu điểm lớn nhất m&agrave; c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA mang lại đ&oacute; ch&iacute;nh l&agrave; đội ngũ giảng vi&ecirc;n v&ocirc; c&ugrave;ng chất lượng. Cụ thể, c&aacute;c học vi&ecirc;n sẽ được giảng dạy bởi những &ldquo;&ocirc;ng vua v&agrave;ng&rdquo; trong &ldquo;l&agrave;ng Marketing&rdquo; như: Hồ Ngọc Cương, H&aacute;n Quang Dự, T&uacute; Michael, B&ugrave;i Quang Cường, Master Trần&hellip;&nbsp;</p>
+               <p>Với nhiều năm kinh nghiệm trong lĩnh vực Marketing, c&ugrave;ng với những b&agrave;i học thực tiễn đắt gi&aacute;, c&aacute;c giảng vi&ecirc;n sẽ c&oacute; c&acirc;u trả lời ho&agrave;n hảo cho thắc mắc: L&agrave;m sao để th&agrave;nh c&ocirc;ng trong lĩnh vực Marketing?</p>
+               <h2><strong>Kiến thức chuy&ecirc;n ng&agrave;nh đa dạng&nbsp;</strong></h2>
+               <p>Một lợi &iacute;ch ưu việt khiến bạn kh&ocirc;ng thể bỏ lỡ c&aacute;c kh&oacute;a học Marketing tr&ecirc;n UNICA đ&oacute; ch&iacute;nh l&agrave;, bạn sẽ được cung cấp c&aacute;c kiến thức chuy&ecirc;n ng&agrave;nh v&ocirc; c&ugrave;ng đa dạng.&nbsp;</p>
+               <p>Đ&oacute; kh&ocirc;ng chỉ l&agrave; những &ldquo;l&yacute; thuyết su&ocirc;ng&rdquo; về Marketing m&agrave; c&ograve;n được kết hợp với những chi&ecirc;u thức, kỹ nghệ, chiến lược, tuyệt chi&ecirc;u, b&iacute; quyết s&aacute;ng tạo, thủ thuật Marketing, c&aacute;c ứng dụng chuy&ecirc;n ng&agrave;nh&hellip; Điều n&agrave;y sẽ gi&uacute;p việc học v&agrave; thực h&agrave;nh về Marketing được tiến h&agrave;nh thuận lợi hơn bao giờ hết.&nbsp;</p>
+               <p>Nếu muốn trở th&agrave;nh &ldquo;vua Marketing&rdquo; trong thời gian ngắn nhất, h&atilde;y đăng k&yacute; tham gia c&aacute;c kh&oacute;a học tr&ecirc;n UNICA ngay từ h&ocirc;m nay bạn nh&eacute;!&nbsp;</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock content %}
