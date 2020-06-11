@@ -41,8 +41,11 @@
                                                       <a href="{% url 'full_course' c.id %}">{{c.title}}</a>
                                                       <div class="gv-combo">{{c.own_teacher.fullname}}</div>
                                                       <div class="rate-combo">
-                                                         <p>Đánh giá: 5</p>
-                                                         <span><i class="fa fa-users" aria-hidden="true"></i> 5495 học viên</span>
+                                                         <p>Đánh giá: {{c.rate_student}}</p>
+                                                         <span><i class="fa fa-users" aria-hidden="true"></i> {{c.students}} học viên</span>
+                                                      </div>
+                                                      <div class="gv-combo">
+                                                        <a href="{% url 'del_c_view' c.id %}">Xoa course</a>
                                                       </div>
                                                    </div>
                                                    <div class="price-combo">

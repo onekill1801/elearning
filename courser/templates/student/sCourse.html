@@ -17,13 +17,18 @@
                {{course.description}}
             </div>
             <div class="u-detail-tea" itemprop="author">
-               <img class="picture-teacher-circle" src="{{course.image.url}}" align="" />
+               <img class="picture-teacher-circle" src="{{course.own_teacher.image.url}}" align="" />
                <a href="teacher/han-quang-du.html">  <span itemprop="name">{{course.own_teacher.fullname}} </span></a>
             </div>
             <div class="u-detail-rate">
+               
                <span class="star-rate">
                   {% for x in '01234' %}
-                    <i class="fa fa-star co-or" aria-hidden="true"></i>
+                     {% if x < rate_course %}
+                       <i class="fa fa-star co-or" aria-hidden="true"></i>
+                     {% else %}
+                       <i class="fa fa-star-o co-or" aria-hidden="true"></i>
+                     {% endif %}
                   {% endfor %}
                </span>
                <span>{{course.rate_student}}</span>

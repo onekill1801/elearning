@@ -85,25 +85,46 @@
                      <div class="content">
                         <div class="panel-group" id="accordion1">
                            <div class="panel panel-default">
+                              {% if lv0 %}
+                              <form action="{% url 'update_m_view' course.id %}" method="post" enctype="multipart/form-data">
+                              {% else %}
                               <form action="{% url 'full_course' course.id %}" method="post" enctype="multipart/form-data">
+                              {% endif %}
                               	{% csrf_token %}
                                  <div class="form-group">
                                     <div class="form-group field-muser-address">
                                        <label>Tao Noi Dung </label>
+                                       {% if lv0 %}
+                                       <input type="text" id="muser-address" class="form-control" name="module_lv0" value="{{lv_module.title}}">
+                                       {% else %}
                                        <input type="text" id="muser-address" class="form-control" name="module_lv0" value="">
+                                       {% endif %}
                                        <p class="help-block help-block-error"></p>
                                     </div>
                                  </div>
                                  <div class="form-group">
+                                    {% if lv0 %}
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Update </button>
+                                    {% else %}
                                     <button class="btn btn-success"><i class="fa fa-save"></i> Them moi </button>
+                                    {% endif %}
                                  </div>
                               </form>
+                              {% if lv1 %}
+                              <form action="{% url 'update_m_view' course.id %}" method="post" enctype="multipart/form-data">
+                              {% else %}
                               <form action="{% url 'full_course' course.id %}" method="post" enctype="multipart/form-data">
+                              {% endif %}
                               	{% csrf_token %}
                                  <div class="form-group">
                                     <div class="form-group field-muser-address">
-                                       <label>Tao tung bai  </label>
+                                       {% if lv1 %}
+                                       <label>Sua ten bai  </label>
+                                       <input type="text" id="muser-address" class="form-control" name="module_lv1" value="{{lv_module.description}}">
+                                       {% else %}
+                                       <label>Tao ten bai  </label>
                                        <input type="text" id="muser-address" class="form-control" name="module_lv1" value="">
+                                       {% endif %}
                                        <p class="help-block help-block-error"></p>
                                     </div>
                                  </div>
@@ -112,13 +133,21 @@
                                        <option value="">Chọn Noi dung</option>
                                     	{% for m in modules %}
                                     		{% if  m.module_level == 0 %}
-                                       			<option value="{{m.id}}">{{m.title}}</option>
+                                             {% if m.id == lv_module.module_level %}
+                                                <option value="{{m.id}}" selected>{{m.title}}</option>
+                                             {% else %}
+                                       		   <option value="{{m.id}}">{{m.title}}</option>
+                                             {% endif %}
                                     		{% endif %}
                                     	{% endfor %}
                                     </select>
                                  </div>
                                  <div class="form-group">
-                                    <button class="btn btn-success"><i class="fa fa-save"></i>  Them moi </button>
+                                    {% if lv1 %}
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Update </button>
+                                    {% else %}
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Them moi </button>
+                                    {% endif %}
                                  </div>
                               </form>
                            </div>
@@ -131,51 +160,61 @@
                         <div class="panel-group" id="accordion">
                            <div class="panel panel-default">
                               <!-- phần -->
-                              {% for m in modules %}
-                              	{% if  m.module_level == 0 %}
-                           			<div class="panel-heading">
-									   <div class="row">
-									      <div class="col-md-12">
-									         <h4 class="panel-title">
-									            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{m.id}}" class="" aria-expanded="true">
-									            <i class="fa fa-minus-square" aria-hidden="true"></i>
-									            {{ m.title }}
-									            </a>
-									         </h4>
-									      </div>
-									   </div>
-									</div>
-								{% else %}
-								<div id="#collapse{{m.id}}" class="panel-collapse collapse in " aria-expanded="true">
-								   <div class="panel-body">
-								      <div class="col">
-								         <div class="container-fluid">
-								            <div class="row">
-								               <div class="col-xs-5 col-md-8">
-								                  <div class="title">
-								                     <a>
-								                     <i class="fa fa-play-circle" aria-hidden="true"></i>
-								                     {{m.description}}
-								                     </a>
-								                  </div>
-								               </div>
-								               <div class="col-xs-4 col-md-2">
-								                  <div class="link">
-								                     &nbsp;
-								                     <a class="btn-preview" href="javascript:void(0)" onclick="preview_freetrial(797);">Delete</a>
-								                  </div>
-								               </div>
-								               <div class="col-xs-3 col-md-2">
-								                  <div class="time">00:04:15</div>
-								               </div>
-								            </div>
-								         </div>
-								      </div>
-								   </div>
-								</div>
-                        		{% endif %}
-                              {% endfor %}
+            {% for m in modules %}
+            	{% if  m.module_level == 0 %}
+         			<div class="panel-heading">
+						   <div class="row">
+						      <div class="col-md-8">
+						         <h4 class="panel-title">
+						            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{m.id}}" class="" aria-expanded="true">
+						            <i class="fa fa-minus-square" aria-hidden="true"></i>
+						            {{ m.title }}
+						            </a>
+						         </h4>
+						      </div>
+                        <div class="col-md-4">
+                           <div class="link" style="padding-left: 7px;" >
+                              <a class="btn-preview" href="{% url 'edit_m_view' m.id %}" >Edit</a>
+                              <a class="btn-preview" href="{% url 'del_m_view' m.id %}" >Delete</a>
                            </div>
+                        </div>
+						   </div>
+						</div>
+                        <div id="#collapse{{m.id}}" class="panel-collapse collapse in " aria-expanded="true">
+                  {% for n in modules %}
+                     {% if n.module_level == m.id %}
+                           <div class="panel-body">
+                              <div class="col">
+                                 <div class="container-fluid">
+                                    <div class="row">
+                                       <div class="col-xs-5 col-md-8">
+                                          <div class="title">
+                                             <a>
+                                             <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                             {{n.description}}
+                                             </a>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-5 col-md-3">
+                                          <div class="link">
+                                             &nbsp;
+                                             <a class="btn-preview" href="{% url 'edit_m_view' n.id %}" >Edit</a>
+                                             <a class="btn-preview" href="{% url 'del_m_view' n.id %}" >Delete</a>
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-2 col-md-1">
+                                          <div class="time">00:00:00</div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                     {% endif %}
+                  {% endfor %}
+                        </div>
+         		{% endif %}
+            {% endfor %}
+                     </div>
                         </div>
                      </div>
                   </div>

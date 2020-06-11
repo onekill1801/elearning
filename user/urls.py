@@ -8,7 +8,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register-view'),
     # chua lam reset_pass/
     path('reset_pass/', ResetPassView.as_view(), name='reset_pass-view'), 
-    path('change_pass/', ResetPassView.as_view(), name='change_pass-view'), 
+    path('change_pass/', ChangePassView.as_view(), name='change_pass-view'), 
     path('logout/', logout, name='logout-view'),
 
 	# Phan 2

@@ -38,11 +38,31 @@
                                                 <div class="u-combo-usua">
                                                    <div class="img-combo-favorited"><img class="img-responsive" src="{{c.image.url}}" alt="" /></div>
                                                    <div class="des-combo">
-                                                      <a href="{% url 'full_course' c.id %}">{{c.title}}</a>
+                                                      <a href="{% url 'show_course' c.id %}">{{c.title}}</a>
                                                       <div class="gv-combo">{{c.own_teacher.fullname}}</div>
                                                       <div class="rate-combo">
-                                                         <p>Đánh giá: 5</p>
-                                                         <span><i class="fa fa-users" aria-hidden="true"></i> 5495 học viên</span>
+                                                         <p>Đánh giá: {{c.rate_student}}</p>
+                                                         <span><i class="fa fa-users" aria-hidden="true"></i> {{c.students}} học viên</span>
+                                                      </div>
+                                                      <div class="rate-combo">
+                                                        <div class="row">
+                                                          <div class="col-sm-4 ">
+                                                            Đánh giá khoa hoc:
+                                                          </div>
+                                                           <form action="{% url 'rate_view' c.id %}" method="POST">
+                                                            {% csrf_token %}
+                                                           <div class="col-sm-4 ">
+                                                             <select name="rate">
+                                                              {% for ind in '12345' %}
+                                                                <option value="{{ind}}">{{ind}} Sao</option>
+                                                              {% endfor %}
+                                                             </select>
+                                                          </div>
+                                                           <div class="col-sm-4 ">
+                                                            <button type="submit">Lưu lại</button>
+                                                           </div>
+                                                          </form>
+                                                        </div>
                                                       </div>
                                                    </div>
                                                    <div class="price-combo">

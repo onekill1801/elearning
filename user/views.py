@@ -91,10 +91,15 @@ class CourseView(View):
 	def get(self, request):
 		try:
 			if request.session['type'] == '1':
+				arr = []
 				user = Student.objects.filter(id=request.session['id'])[0]
+				for x in Student_Course.objects.filter(student=user):
+					arr.append(x.course.id)
 				content = {
 					'user' : user,
 					'type' : request.session['type'],
+					# 'student_course' : Student_Course.objects.filter(student=user),
+					'courses' : Course.objects.filter(id__in=arr)
 				}
 				return render(request, 'student/courseS.html', content)
 			else:
@@ -111,7 +116,7 @@ class CourseView(View):
 		# return render(request, 'loginview/course.html')
 
 	def post(self, request):
-		return HttpResponse("Post ProfileView")
+		return HttpResponse("Post ProdfileView")
 
 class ProfileView(View):
 	def get(self, request):

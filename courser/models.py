@@ -67,7 +67,7 @@ class Module(models.Model):
                                related_name='modules',
                                on_delete=models.CASCADE)
     module_level =  models.IntegerField(default=0)  
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     done = models.IntegerField(default=0)  
     url = models.CharField(max_length=500)
