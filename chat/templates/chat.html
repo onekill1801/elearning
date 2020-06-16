@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chat demo Ajax</title>
+</head>
+<body>
+	<label>Chat Text</label>
+	<input type="text" id="in-out" name="chat">
+	<button id="click" value="1">Click</button>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script>
+		// $("#click").click(function () {
+	 //      console.log( $(this).val()+1 );
+	 //    });
+		$("#click").click(function (e) {
+			$.ajax({
+			type: 'GET',
+			url: "{% url 'validate_nickname' %}",
+			data: {"chat": "this is chat"},
+			success: function (response) {
+			    alert(response.error);
+			},
+			error: function (response) {
+			    alert(response.error);
+			    // console.log(response)
+			}
+			})
+		});
+	</script>
+</body>
+</html>

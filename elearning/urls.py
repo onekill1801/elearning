@@ -27,6 +27,7 @@ urlpatterns = [
 
     path('user/', include('user.urls'), name='login-view'),
     path('course/', include('courser.urls'), name='courser-view'),
+    path('chat/', include('chat.urls'), name='chat-view'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
 

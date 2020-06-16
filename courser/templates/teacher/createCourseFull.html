@@ -8,7 +8,7 @@
 	{% csrf_token %}
 
          <div class="breadcumb-detail-course">
-            <a href="index.html" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
+            <a href="{% url 'home-view' %}" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
             <a href="course/marketing.html">Marketing</a> <i class="fa fa-angle-double-right"></i>
             {{course.title}}        
          </div>
@@ -17,7 +17,7 @@
                <span itemprop="name">{{course.title}} </span>
             </h1>
             <div class="u-detail-desc" itemprop="description">
-               <textarea name="description" id="muser-address" cols="30"  class="form-control">{{course.description}}</textarea>
+               <textarea name="description"  cols="30"  class="form-control">{{course.description}}</textarea>
             </div>
             <div class="u-detail-tea" itemprop="author">
                <img class="picture-teacher-circle" src="{{course.image.url}}" align="" />
@@ -29,7 +29,7 @@
                <i class="fa fa-star co-or" aria-hidden="true"></i>
                <i class="fa fa-star co-or" aria-hidden="true"></i>
                <i class="fa fa-star co-or" aria-hidden="true"></i>
-               <i class="fa fa-star co-or" aria-hidden="true"></i>
+               <i class="fa fa-star-o co-or" aria-hidden="true"></i>
                </span>
                <span>{{course.rate_student}}</span>
                đánh giá
@@ -53,9 +53,6 @@
                      <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item img-responsive" src="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
                         </iframe>
-                        <?php// if($model['Banner_large'] != ''): ?>
-                        <!--<img src="<?//=$model['Banner_large']?>" alt="" width="100%">-->
-                        <?php// endif; ?>
                      </div>
                   </div>
                   <div class="tab-detail hidden-xs">
@@ -68,50 +65,51 @@
                      <h3>Bạn sẽ học được gì</h3>
                      <div class="content">
                         <div class="row">
-                           <textarea name="you_need_know" id="muser-address" cols="30" rows="20" class="form-control">{{course.you_need_know}}</textarea>
+                           <textarea name="you_need_know" cols="30" rows="20" class="form-control">{{course.you_need_know}}</textarea>
                         </div>
                      </div>
                   </div>
                   <div class="u-des-course" id="u-des-course">
                      <h2>Giới thiệu khóa học</h2>
-                     <textarea name="overview" id="muser-address" cols="30" rows="20" class="form-control">{{course.overview}}</textarea>
+                     <textarea name="overview" cols="30" rows="20" class="form-control">{{course.overview}}</textarea>
                   </div>
                   <div class="form-group">
                     <button class="btn btn-success"><i class="fa fa-update"></i> Update</button>
                  </div>
 </form>
                   <div class="u-list-course" id="u-list-course">
-                     <h2>Tao Module</h2>
+                     <h2>Tạo Module</h2>
                      <div class="content">
                         <div class="panel-group" id="accordion1">
                            <div class="panel panel-default">
                               {% if lv0 %}
-                              <form action="{% url 'update_m_view' course.id %}" method="post" enctype="multipart/form-data">
+                              <form action="{% url 'update_m_view' lv_module.id %}" method="post" enctype="multipart/form-data">
                               {% else %}
                               <form action="{% url 'full_course' course.id %}" method="post" enctype="multipart/form-data">
                               {% endif %}
                               	{% csrf_token %}
                                  <div class="form-group">
                                     <div class="form-group field-muser-address">
-                                       <label>Tao Noi Dung </label>
+                                       <br>
+                                       <label>Tạo nội dung phần học</label>
                                        {% if lv0 %}
-                                       <input type="text" id="muser-address" class="form-control" name="module_lv0" value="{{lv_module.title}}">
+                                       <input type="text"  class="form-control" name="module_lv0" value="{{lv_module.title}}">
                                        {% else %}
-                                       <input type="text" id="muser-address" class="form-control" name="module_lv0" value="">
+                                       <input type="text"  class="form-control" name="module_lv0" value="">
                                        {% endif %}
                                        <p class="help-block help-block-error"></p>
                                     </div>
                                  </div>
                                  <div class="form-group">
                                     {% if lv0 %}
-                                    <button class="btn btn-success"><i class="fa fa-save"></i> Update </button>
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Cập nhật  </button>
                                     {% else %}
-                                    <button class="btn btn-success"><i class="fa fa-save"></i> Them moi </button>
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Thêm mới </button>
                                     {% endif %}
                                  </div>
                               </form>
                               {% if lv1 %}
-                              <form action="{% url 'update_m_view' course.id %}" method="post" enctype="multipart/form-data">
+                              <form action="{% url 'update_m_view' lv_module.id %}" method="post" enctype="multipart/form-data">
                               {% else %}
                               <form action="{% url 'full_course' course.id %}" method="post" enctype="multipart/form-data">
                               {% endif %}
@@ -119,18 +117,30 @@
                                  <div class="form-group">
                                     <div class="form-group field-muser-address">
                                        {% if lv1 %}
-                                       <label>Sua ten bai  </label>
-                                       <input type="text" id="muser-address" class="form-control" name="module_lv1" value="{{lv_module.description}}">
+                                       <label>Sửa tên bài học  </label>
+                                       <input type="text" class="form-control" name="module_lv1" value="{{lv_module.description}}">
                                        {% else %}
-                                       <label>Tao ten bai  </label>
-                                       <input type="text" id="muser-address" class="form-control" name="module_lv1" value="">
+                                       <label>Tạo tên bài học  </label>
+                                       <input type="text" class="form-control" name="module_lv1" value="">
+                                       {% endif %}
+                                       <p class="help-block help-block-error"></p>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <div class="form-group field-muser-address">
+                                       {% if lv1 %}
+                                       <label>Sửa link bài học  </label>
+                                       <input type="text" class="form-control" name="url" value="{{lv_module.url}}">
+                                       {% else %}
+                                       <label>Thêm link video bài học  </label>
+                                       <input type="text" class="form-control" name="url" value="">
                                        {% endif %}
                                        <p class="help-block help-block-error"></p>
                                     </div>
                                  </div>
                                  <div class="form-group field-muser-city">
                                     <select id="muser-city" class="form-control" name="par_module">
-                                       <option value="">Chọn Noi dung</option>
+                                       <option value="">Chọn phần học cho bài học</option>
                                     	{% for m in modules %}
                                     		{% if  m.module_level == 0 %}
                                              {% if m.id == lv_module.module_level %}
@@ -144,9 +154,9 @@
                                  </div>
                                  <div class="form-group">
                                     {% if lv1 %}
-                                    <button class="btn btn-success"><i class="fa fa-save"></i> Update </button>
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Cập nhật </button>
                                     {% else %}
-                                    <button class="btn btn-success"><i class="fa fa-save"></i> Them moi </button>
+                                    <button class="btn btn-success"><i class="fa fa-save"></i> Thêm mới </button>
                                     {% endif %}
                                  </div>
                               </form>
@@ -155,7 +165,7 @@
                      </div>
                   </div>
                   <div class="u-list-course" id="u-list-course">
-                     <h2>Danh Sach Nội dung khóa học</h2>
+                     <h2>Danh sách nội dung khóa học</h2>
                      <div class="content">
                         <div class="panel-group" id="accordion">
                            <div class="panel panel-default">
@@ -224,22 +234,15 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 pdr-b hidden-xs">
                <div class="u-detail-block-right" id="sidebar">
-                  <div class="hidden-lg hidden-md hidden-sm show-xs">
-                     <div class="inner-scroll" style="padding-bottom: 1px;padding-top: 1px;">
-                        <div class="price-inner"><a href="javascript:void(0)" class="btn-add-course-cart">Thêm vào giỏ hàng</a></div>
-                        <div class="btn-inner"><a href="order/step1e27e.html?id=76">Đăng ký học</a></div>
-                     </div>
-                  </div>
+                 
                   <div class="block-buy">
                      <div class="u-sm-left">
                         <div class="block-price">
-                           <span class="big-price">199,000<sup>đ</sup></span><span class="small-price">600,000<sup>đ</sup></span><span class="discount-price" data-percent="67">-67%</span>
+                           <span class="big-price">199,000<sup>đ</sup></span>
+                           <span class="small-price">600,000<sup>đ</sup></span>
+                           <span class="discount-price" data-percent="67">-67%</span>
                         </div>
                         <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
-                        <div class="block-btn">
-                           <a course_id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="order/step1e27e.html?id=76" class="btn-buy-course">Đăng ký học</a><a data-id="qbDhURC5TIKtKh9ApcsanA%3D%3D" href="javascript:void(0)" onclick="addcart(this)" class="btn-cart-course btn-add_cart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
-                           <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
-                        </div>
                      </div>
                      <div class="u-sm-right">
                         <div class="block-ulti">
@@ -256,41 +259,7 @@
                               <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
                               <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
                            </ul>
-                           <center><a href="javascript:void(0)" class="dropdown-coupon">Bạn có mã giảm giá?</a></center>
-                           <div class="dropdown-input-coupon">
-                              <div class="col-lg-8 col-xs-8">
-                                 <div class="form-group">
-                                    <input autocomplete="off" name="coupon_code" pattern="[^'\x22]+" required="" type="text" class="form-control" id="coupon_code" placeholder="Nhập mã giảm giá..." style="margin-left:-10px;">
-                                 </div>
-                              </div>
-                              <div class="col-lg-2 col-xs-4">
-                                 <div class="form-group">
-                                    <button onclick="submit_coupon()" type="button" class="coupon-submit btn btn-coupon" style="margin-left:-25px;">Áp dụng</button>
-                                 </div>
-                              </div>
-                              <div class="col-lg-12" style="display:inline-block;margin-bottom: 5px;">
-                                 <span style="display: none" class="error_message label label-danger">Coupon không hợp lệ</span>
-                              </div>
-                              <div class="col-lg-12" style="display:inline-block;">
-                                 <span style="display: none" class="success_message label label-success">Kích hoạt coupon thành công</span>
-                              </div>
-                              <br/>
-                           </div>
                            <div class="clearfix"></div>
-                        </div>
-                        <div class="block-share" style="display: none;">
-                           <div style="margin-bottom: 15px;" class="share-title">
-                              <b>CHIA SẺ NHẬN NGAY MÃ GIẢM GIÁ 50%</b>
-                           </div>
-                           <button style="width: 50%;margin-bottom: 10px" onclick="share(76)" class="btn btn-sm btn-primary"><i class="fa fa-facebook"></i> CHIA SẺ NGAY</button>
-                           <div class="result-share" style="display: none;">
-                              <div style="margin-bottom: 15px;">
-                                 <b>BẠN NHẬN ĐƯỢC MÃ GIẢM GIÁ 50% </b>
-                              </div>
-                              <p>HỌC PHÍ CHỈ CÒN <b>299,000đ</b></p>
-                              <div style="color: #35BAF6;font-size: 16px;margin-bottom: 10px;"><b class="coupon-share"></b></div>
-                              <i style="color: #858585;font-style: italic !important;" class="coupon-expired">xx</i>
-                           </div>
                         </div>
                      </div>
                   </div>

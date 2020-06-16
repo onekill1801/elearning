@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.http import HttpResponse
+from django.contrib.auth.hashers import make_password
 from user.models import *
 from courser.models import *
 from .forms import *
@@ -26,6 +27,7 @@ class LoginView(View):
 				id_S = Student.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passS = Student.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
 				if passS == request.POST.get('pass_word'):
+				# if passS == make_password(request.POST.get('pass_word')):
 					request.session['id'] = id_S
 					request.session['type'] = '1'
 					return redirect('/')
@@ -33,6 +35,7 @@ class LoginView(View):
 				id_T = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passT = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
 				if passT == request.POST.get('pass_word'):
+				# if passT == make_password(request.POST.get('pass_word')):
 					request.session['id'] = id_T
 					request.session['type'] = '0'
 					return redirect('/')
@@ -58,6 +61,7 @@ class RegisterView(View):
 							userTeacher = Teacher()
 							userTeacher.user_name = request.POST.get('user_name', '')
 							userTeacher.pass_word = request.POST.get('password1', '')
+							# userTeacher.pass_word = make_password(request.POST.get('password1', ''))
 							userTeacher.email = request.POST.get('email', '')
 							userTeacher.save()
 							context = {'messge': 'Account Sussess'}
@@ -73,6 +77,7 @@ class RegisterView(View):
 							userStudent = Student()
 							userStudent.user_name = request.POST.get('user_name', '')
 							userStudent.pass_word = request.POST.get('password1', '')
+							# userStudent.pass_word = make_password(request.POST.get('password1', ''))
 							userStudent.email = request.POST.get('email', '')
 							userStudent.save()
 							context = {'messge': 'Account Sussess'}
@@ -109,11 +114,9 @@ class CourseView(View):
 					'type' : request.session['type'],
 					'courses' : Course.objects.filter(own_teacher=request.session['id'])
 				}
-				# return render(request, 'loginview/profile1.html', content)
 				return render(request, 'teacher/courseT.html', content)
 		except Exception as e:
 			return render(request, '404.html') 
-		# return render(request, 'loginview/course.html')
 
 	def post(self, request):
 		return HttpResponse("Post ProdfileView")
@@ -134,7 +137,6 @@ class ProfileView(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
-				# return render(request, 'loginview/profile1.html', content)
 				return render(request, 'teacher/profileT.html', content)
 		except Exception as e:
 			return render(request, '404.html')
@@ -153,7 +155,6 @@ class ProfileView(View):
 				except Exception as e:
 					print("request.FILES['image'] is null")
 				user.save()
-				# return render(request, 'loginview/profile1.html')
 				content = {
 					'messge' : 'Cap nhat thanh cong!!!'
 				}
@@ -172,12 +173,10 @@ class ProfileView(View):
 				except Exception as e:
 					print("request.FILES['image'] is null")
 				user.save()
-				# return render(request, 'loginview/profile1.html')
 				content = {
 					'messge' : 'Cap nhat thanh cong!!!'
 				}
 				return redirect('profile-view')
-				# return render(request, 'loginview/profile1.html')
 				# return render(request, 'teacher/profileT.html', content)
 		except Exception as e:
 			return render(request, '404.html')
@@ -190,7 +189,54 @@ class ResetPassView(View):
 
 class ChangePassView(View):
 	def get(self, request):
-		return HttpResponse("GET ChangePassView")
-		# return render(request, 'account/reset_pass.html')
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'account/change_password.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				return render(request, 'account/change_password.html', content)
+		except Exception as e:
+			return render(request, '404.html')
 	def post(self, request):
-		return render(request, 'account/reset_pass.html')
+		try:
+			if request.session['type'] == '1':
+				user = Student.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				if user.pass_word == request.POST.get('oldpassword'):
+					if request.POST.get('password') == request.POST.get('repassword'):
+						user.pass_word = request.POST.get('password')
+						# user.pass_word = make_password(request.POST.get('user_name'))
+						user.save()
+						content.update({'messge': 'Change pass success!!!'})
+					else:
+						content.update({'messge': 'Change pass fail!!!'})
+				return render(request, 'account/change_password.html', content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type']
+				}
+				if user.pass_word == request.POST.get('oldpassword'):
+					if request.POST.get('password') == request.POST.get('repassword'):
+						user.pass_word = request.POST.get('password')
+						# user.pass_word = make_password(request.POST.get('user_name'))
+						user.save()
+						content.update({'messge': 'Change pass success!!!'})
+					else:
+						content.update({'messge': 'Change pass fail!!!'})
+				return render(request, 'account/change_password.html', content)
+		except Exception as e:
+			return render(request, '404.html')

@@ -156,29 +156,168 @@
       <header>
          <div class="clearfix" style="position: relative;">
             <!--Menu PC-->
-            <div class="unica-home-menutop hidden-xs" style="position: absolute;">
-               <div class="container">
+            <div class="unica-home-menutop hidden-xs">
+               <div class="container-fluid">
                   <div class="row col-width-lg">
-                     <div class="col-lg-2 col-md-2 col-sm-2 cate-md">
-                        <h1 class="unica-menu-cate pd-new-home">
-                           <a href="index.html"><span>Học Online: 1500+ Khóa học trực tuyến cho người đi làm</span></a>
-                        </h1>
+                     <div class="col-lg-3 col-md-3 col-sm-4 cate-md">
+                        <a class="unica-logo" href="../index.html"><img class="img-responsive" src="{% static 'media/images_v2018/logo.png' %}" alt="Học Online: 1500+ Khóa học trực tuyến cho người đi làm" width="138" height="33" /></a>
+                        <div class="unica-menu-cate">
+                           <i class="fa fa-th" aria-hidden="true"></i> Danh mục
+                           <nav id="mysidebarmenu" class="amazonmenu">
+                              <ul>
+                                 <li>
+                                    <a title="Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp" href="ngoai-ngu.html"><i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
+                                       <li><a href="../tag/tieng-han.html">Tiếng Hàn</a></li>
+                                       <li><a href="../tag/tieng-anh.html">Tiếng Anh</a></li>
+                                       <li><a href="../tag/tieng-trung.html">Tiếng Trung</a></li>
+                                       <li><a href="../tag/tieng-nhat.html">Tiếng Nhật</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Khóa học Marketing thực chiến từ những giảng viên hàng đầu Việt Nam" href="marketing.html"><i class="fa fa fa-line-chart" aria-hidden="true"></i> Marketing</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="marketing.html">Tất cả Marketing</a></li>
+                                       <li><a href="../tag/facebook-marketing.html">Facebook Marketing</a></li>
+                                       <li><a href="../tag/tu-dong-hoa-marketing.html">Tự động hóa marketing</a></li>
+                                       <li><a href="../tag/email-marketing.html">Email Marketing</a></li>
+                                       <li><a href="../tag/google-ads.html">Google Ads</a></li>
+                                       <li><a href="../tag/seo.html">Seo</a></li>
+                                       <li><a href="../tag/branding.html">Branding</a></li>
+                                       <li><a href="../tag/video-marketing.html">Video marketing</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="69+ Khóa học tin học văn phòng từ cơ bản đến nâng cao" href="tin-hoc-van-phong.html"><i class="fa fa fa-desktop" aria-hidden="true"></i> Tin học văn phòng</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="tin-hoc-van-phong.html">Tất cả Tin học văn phòng</a></li>
+                                       <li><a href="../tag/excel.html">Excel</a></li>
+                                       <li><a href="../tag/word.html">Word</a></li>
+                                       <li><a href="../tag/ke-toan.html">Kế Toán</a></li>
+                                       <li><a href="../tag/powerpoint.html">PowerPoint</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khóa học thiết kế từ cơ bản đến chuyên sâu" href="thiet-ke.html"><i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="thiet-ke.html">Tất cả Thiết kế</a></li>
+                                       <li><a href="../tag/thiet-ke-web.html">Thiết kế Web</a></li>
+                                       <li><a href="../tag/thiet-ke-noi-that.html">Thiết kế nội thất</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khóa học kinh doanh và khởi nghiệp để gia tăng doanh số hiệu quả" href="kinh-doanh-khoi-nghiep.html"><i class="fa fa fa-rocket" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="kinh-doanh-khoi-nghiep.html">Tất cả Kinh doanh - Khởi nghiệp</a></li>
+                                       <li><a href="../tag/chien-luoc-kinh-doanh.html">Chiến lược kinh doanh</a></li>
+                                       <li><a href="../tag/bat-dong-san.html">Bất động sản</a></li>
+                                       <li><a href="../tag/crypto.html">Crypto</a></li>
+                                       <li><a href="../tag/kinh-doanh-online.html">Kinh doanh Online</a></li>
+                                       <li><a href="../tag/startup.html">Startup</a></li>
+                                       <li><a href="../tag/kiem-tien-online.html">Kiếm tiền Online</a></li>
+                                       <li><a href="../tag/chung-khoan.html">Chứng khoán</a></li>
+                                       <li><a href="../tag/dropshipping.html">Dropshipping</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Khóa học phát triển cá nhân đỉnh cao để cải thiện cuộc sống và sự nghiệp" href="phat-trien-ca-nhan.html"><i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phát triển cá nhân</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="phat-trien-ca-nhan.html">Tất cả Phát triển cá nhân</a></li>
+                                       <li><a href="../tag/phat-trien-ca-nhan.html">phát triển cá nhân</a></li>
+                                       <li><a href="../tag/tai-chinh-ca-nhan.html">Tài chính cá nhân</a></li>
+                                       <li><a href="../tag/ky-nang-lanh-dao.html">Kỹ năng lãnh đạo</a></li>
+                                       <li><a href="../tag/thuyet-trinh.html">Thuyết trình</a></li>
+                                       <li><a href="../tag/ky-nang-giao-tiep.html">Kỹ năng giao tiếp</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Khóa học Sales, bán hàng từ các chuyên gia Marketing hàng đầu Unica" href="sales-ban-hang.html"><i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Sales, bán hàng</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="sales-ban-hang.html">Tất cả Sales, bán hàng</a></li>
+                                       <li><a href="../tag/ban-hang-online.html">Bán hàng Online</a></li>
+                                       <li><a href="../tag/livestream.html">Livestream</a></li>
+                                       <li><a href="../tag/ky-nang-ban-hang.html">Kỹ năng bán hàng</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Học Công Nghệ Thông Tin Online Cùng Chuyên Gia Hàng Đầu Trong Ngành" href="cong-nghe-thong-tin.html"><i class="fa fa fa-code" aria-hidden="true"></i> Công nghệ thông tin</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="cong-nghe-thong-tin.html">Tất cả Công nghệ thông tin</a></li>
+                                       <li><a href="../tag/lap-trinh.html">Lập trình</a></li>
+                                       <li><a href="../tag/lap-trinh-web.html">Lập trình web</a></li>
+                                       <li><a href="../tag/lap-trinh-android.html">Lập trình Android</a></li>
+                                       <li><a href="../tag/lap-trinh-ios.html">Lập trình ios</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khóa học nâng các kiến thức sức khỏe và giới tính cho người Việt" href="suc-khoe-gioi-tinh.html"><i class="fa fa fa-heartbeat" aria-hidden="true"></i> Sức khỏe - Giới tính</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="suc-khoe-gioi-tinh.html">Tất cả Sức khỏe - Giới tính</a></li>
+                                       <li><a href="../tag/giam-can.html">Giảm cân</a></li>
+                                       <li><a href="../tag/thien.html">Thiền</a></li>
+                                       <li><a href="../tag/phong-the.html">Phòng the</a></li>
+                                       <li><a href="../tag/tinh-yeu.html">Tình yêu</a></li>
+                                       <li><a href="../tag/yoga.html">Yoga</a></li>
+                                       <li><a href="../tag/fitness.html">Fitness</a></li>
+                                       <li><a href="../tag/massage.html">Massage</a></li>
+                                       <li><a href="../tag/dinh-duong.html">Dinh dưỡng</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Khóa học phong cách sống giúp thành công hơn trong cuốc sống" href="phong-cach-song.html"><i class="fa fa fa-cutlery" aria-hidden="true"></i> Phong cách sống</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="phong-cach-song.html">Tất cả Phong cách sống</a></li>
+                                       <li><a href="../tag/am-thuc.html">Ẩm Thực</a></li>
+                                       <li><a href="../tag/lam-dep.html">Làm đẹp</a></li>
+                                       <li><a href="../tag/ao-thuat.html">Ảo thuật</a></li>
+                                       <li><a href="../tag/am-nhac.html">Âm nhạc</a></li>
+                                       <li><a href="../tag/nhay.html">Nhảy</a></li>
+                                       <li><a href="../tag/phong-thuy.html">Phong thuỷ</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khóa học nuôi dạy con đúng cách theo khoa học" href="nuoi-day-con.html"><i class="fa fa fa-child" aria-hidden="true"></i> Nuôi dạy con </a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="nuoi-day-con.html">Tất cả Nuôi dạy con </a></li>
+                                       <li><a href="../tag/giao-duc-som.html">Giáo dục sớm</a></li>
+                                       <li><a href="../tag/thai-giao.html">Thai giáo</a></li>
+                                       <li><a href="../tag/an-dam.html">Ăn dặm</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khoá học về hôn nhân, giữ gìn gia đình hạnh phúc" href="hon-nhan-gia-dinh.html"><i class="fa fa fa-group" aria-hidden="true"></i> Hôn nhân & Gia đình</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="hon-nhan-gia-dinh.html">Tất cả Hôn nhân & Gia đình</a></li>
+                                       <li><a href="../tag/hon-nhan.html">Hôn nhân</a></li>
+                                    </ul>
+                                 </li>
+                                 <li>
+                                    <a title="Các khóa học nhiếp ảnh, dựng phim từ chuyên gia trên Unica" href="nhiep-anh-dung-phim.html"><i class="fa fa fa-camera" aria-hidden="true"></i> Nhiếp ảnh, dựng phim</a>
+                                    <ul class="issub" style="z-index: 1002; display: none;">
+                                       <li><a href="nhiep-anh-dung-phim.html">Tất cả Nhiếp ảnh, dựng phim</a></li>
+                                       <li><a href="../tag/bien-tap-video.html">Biên tập video</a></li>
+                                    </ul>
+                                 </li>
+                              </ul>
+                           </nav>
+                        </div>
                      </div>
-                     <div class="col-lg-5 col-md-6 col-sm-5 cate-sm">
+                     <div class="col-lg-5 col-md-5 col-sm-4 cate-sm">
                         <form class="unica-search-boxtop navbar-form form-inline" method="GET" action="https://unica.vn/search">
                            <input autocomplete="off" name="key" type="text" class="form-control unica-form" placeholder="Tìm khóa học, giảng viên bạn quan tâm">
                            <button type="submit" class="btn unica-btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                         </form>
                      </div>
-                     <div class="col-lg-5 col-md-4 col-sm-5 cate-sm">
-                        <a href="kichhoat.html" class="unica-active-course">
+                     <div class="col-lg-4 col-md-4 col-sm-4 cate-sm">
+                        <a href="../kichhoat.html" class="unica-active-course">
                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
                            <p class="hidden-md hidden-xs hidden-sm">Kích hoạt khóa học</p>
                         </a>
-                        <a href="gio-hang.html" class="unica-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="unica-sl-cart"><b>0</b></span></a>
+                        <a href="../gio-hang.html" class="unica-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="unica-sl-cart"><b>22</b></span></a>
                         <ul class="unica-acc-zone">
-                           <li><a class="unica-reg-acc" href="{% url 'demo1-view' %}">Đăng nhập</a></li>
-                           <li><a class="unica-log-acc" href="">Đăng ký</a></li>
+                           <li><a class="unica-reg-acc" href="https://id.unica.vn/login?src=http://unica.vn/tag/powerpoint&amp;token=63Q%2F8bj7jtCRkTnpFQNCgBK0bnRKv8eHwxcFaPMJPSM%3D">Đăng nhập</a></li>
+                           <li><a class="unica-log-acc" href="https://id.unica.vn/register?src=http://unica.vn&amp;token=OmBkhdLXznSli2urMySvZQ%3D%3D">Đăng ký</a></li>
                         </ul>
                      </div>
                   </div>
@@ -204,142 +343,142 @@
                   <div class="navbar-offcanvas navbar-offcanvas-touch offcanvas-transform js-offcanvas-done" id="js-bootstrap-offcanvas" style="">
                      <div class="sidenav-brand">
                         <a class="remove-navibar"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                        <div class="sm_logo_brand"><img src="{% static 'media/img/logo-unica.svg' %}" alt=""></div>
+                        <div class="sm_logo_brand"><img src="../media/img/logo-unica.svg" alt=""></div>
                      </div>
                      <ul class="nav navbar-nav sm-customize-menu">
-                        <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+                        <li><a href="../index.html"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
                         <li>
-                           <a title="Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp" href="course/ngoai-ngu.html"><i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</a>
+                           <a title="Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp" href="ngoai-ngu.html"><i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
-                              <li><a href="tag/tieng-han.html">Tiếng Hàn</a></li>
-                              <li><a href="tag/tieng-anh.html">Tiếng Anh</a></li>
-                              <li><a href="tag/tieng-trung.html">Tiếng Trung</a></li>
-                              <li><a href="tag/tieng-nhat.html">Tiếng Nhật</a></li>
+                              <li><a href="ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
+                              <li><a href="../tag/tieng-han.html">Tiếng Hàn</a></li>
+                              <li><a href="../tag/tieng-anh.html">Tiếng Anh</a></li>
+                              <li><a href="../tag/tieng-trung.html">Tiếng Trung</a></li>
+                              <li><a href="../tag/tieng-nhat.html">Tiếng Nhật</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Khóa học Marketing thực chiến từ những giảng viên hàng đầu Việt Nam" href="course/marketing.html"><i class="fa fa fa-line-chart" aria-hidden="true"></i> Marketing</a>
+                           <a title="Khóa học Marketing thực chiến từ những giảng viên hàng đầu Việt Nam" href="marketing.html"><i class="fa fa fa-line-chart" aria-hidden="true"></i> Marketing</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/marketing.html">Tất cả Marketing</a></li>
-                              <li><a href="tag/facebook-marketing.html">Facebook Marketing</a></li>
-                              <li><a href="tag/tu-dong-hoa-marketing.html">Tự động hóa marketing</a></li>
-                              <li><a href="tag/email-marketing.html">Email Marketing</a></li>
-                              <li><a href="tag/google-ads.html">Google Ads</a></li>
-                              <li><a href="tag/seo.html">Seo</a></li>
-                              <li><a href="tag/branding.html">Branding</a></li>
-                              <li><a href="tag/video-marketing.html">Video marketing</a></li>
+                              <li><a href="marketing.html">Tất cả Marketing</a></li>
+                              <li><a href="../tag/facebook-marketing.html">Facebook Marketing</a></li>
+                              <li><a href="../tag/tu-dong-hoa-marketing.html">Tự động hóa marketing</a></li>
+                              <li><a href="../tag/email-marketing.html">Email Marketing</a></li>
+                              <li><a href="../tag/google-ads.html">Google Ads</a></li>
+                              <li><a href="../tag/seo.html">Seo</a></li>
+                              <li><a href="../tag/branding.html">Branding</a></li>
+                              <li><a href="../tag/video-marketing.html">Video marketing</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="69+ Khóa học tin học văn phòng từ cơ bản đến nâng cao" href="course/tin-hoc-van-phong.html"><i class="fa fa fa-desktop" aria-hidden="true"></i> Tin học văn phòng</a>
+                           <a title="69+ Khóa học tin học văn phòng từ cơ bản đến nâng cao" href="tin-hoc-van-phong.html"><i class="fa fa fa-desktop" aria-hidden="true"></i> Tin học văn phòng</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/tin-hoc-van-phong.html">Tất cả Tin học văn phòng</a></li>
-                              <li><a href="tag/excel.html">Excel</a></li>
-                              <li><a href="tag/word.html">Word</a></li>
-                              <li><a href="tag/ke-toan.html">Kế Toán</a></li>
-                              <li><a href="tag/powerpoint.html">PowerPoint</a></li>
+                              <li><a href="tin-hoc-van-phong.html">Tất cả Tin học văn phòng</a></li>
+                              <li><a href="../tag/excel.html">Excel</a></li>
+                              <li><a href="../tag/word.html">Word</a></li>
+                              <li><a href="../tag/ke-toan.html">Kế Toán</a></li>
+                              <li><a href="../tag/powerpoint.html">PowerPoint</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khóa học thiết kế từ cơ bản đến chuyên sâu" href="course/thiet-ke.html"><i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</a>
+                           <a title="Các khóa học thiết kế từ cơ bản đến chuyên sâu" href="thiet-ke.html"><i class="fa fa fa-paint-brush" aria-hidden="true"></i> Thiết kế</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/thiet-ke.html">Tất cả Thiết kế</a></li>
-                              <li><a href="tag/thiet-ke-web.html">Thiết kế Web</a></li>
-                              <li><a href="tag/thiet-ke-noi-that.html">Thiết kế nội thất</a></li>
+                              <li><a href="thiet-ke.html">Tất cả Thiết kế</a></li>
+                              <li><a href="../tag/thiet-ke-web.html">Thiết kế Web</a></li>
+                              <li><a href="../tag/thiet-ke-noi-that.html">Thiết kế nội thất</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khóa học kinh doanh và khởi nghiệp để gia tăng doanh số hiệu quả" href="course/kinh-doanh-khoi-nghiep.html"><i class="fa fa fa-rocket" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a>
+                           <a title="Các khóa học kinh doanh và khởi nghiệp để gia tăng doanh số hiệu quả" href="kinh-doanh-khoi-nghiep.html"><i class="fa fa fa-rocket" aria-hidden="true"></i> Kinh doanh - Khởi nghiệp</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/kinh-doanh-khoi-nghiep.html">Tất cả Kinh doanh - Khởi nghiệp</a></li>
-                              <li><a href="tag/chien-luoc-kinh-doanh.html">Chiến lược kinh doanh</a></li>
-                              <li><a href="tag/bat-dong-san.html">Bất động sản</a></li>
-                              <li><a href="tag/crypto.html">Crypto</a></li>
-                              <li><a href="tag/kinh-doanh-online.html">Kinh doanh Online</a></li>
-                              <li><a href="tag/startup.html">Startup</a></li>
-                              <li><a href="tag/kiem-tien-online.html">Kiếm tiền Online</a></li>
-                              <li><a href="tag/chung-khoan.html">Chứng khoán</a></li>
-                              <li><a href="tag/dropshipping.html">Dropshipping</a></li>
+                              <li><a href="kinh-doanh-khoi-nghiep.html">Tất cả Kinh doanh - Khởi nghiệp</a></li>
+                              <li><a href="../tag/chien-luoc-kinh-doanh.html">Chiến lược kinh doanh</a></li>
+                              <li><a href="../tag/bat-dong-san.html">Bất động sản</a></li>
+                              <li><a href="../tag/crypto.html">Crypto</a></li>
+                              <li><a href="../tag/kinh-doanh-online.html">Kinh doanh Online</a></li>
+                              <li><a href="../tag/startup.html">Startup</a></li>
+                              <li><a href="../tag/kiem-tien-online.html">Kiếm tiền Online</a></li>
+                              <li><a href="../tag/chung-khoan.html">Chứng khoán</a></li>
+                              <li><a href="../tag/dropshipping.html">Dropshipping</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Khóa học phát triển cá nhân đỉnh cao để cải thiện cuộc sống và sự nghiệp" href="course/phat-trien-ca-nhan.html"><i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phát triển cá nhân</a>
+                           <a title="Khóa học phát triển cá nhân đỉnh cao để cải thiện cuộc sống và sự nghiệp" href="phat-trien-ca-nhan.html"><i class="fa fa fa-lightbulb-o" aria-hidden="true"></i> Phát triển cá nhân</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/phat-trien-ca-nhan.html">Tất cả Phát triển cá nhân</a></li>
-                              <li><a href="tag/phat-trien-ca-nhan.html">phát triển cá nhân</a></li>
-                              <li><a href="tag/tai-chinh-ca-nhan.html">Tài chính cá nhân</a></li>
-                              <li><a href="tag/ky-nang-lanh-dao.html">Kỹ năng lãnh đạo</a></li>
-                              <li><a href="tag/thuyet-trinh.html">Thuyết trình</a></li>
-                              <li><a href="tag/ky-nang-giao-tiep.html">Kỹ năng giao tiếp</a></li>
+                              <li><a href="phat-trien-ca-nhan.html">Tất cả Phát triển cá nhân</a></li>
+                              <li><a href="../tag/phat-trien-ca-nhan.html">phát triển cá nhân</a></li>
+                              <li><a href="../tag/tai-chinh-ca-nhan.html">Tài chính cá nhân</a></li>
+                              <li><a href="../tag/ky-nang-lanh-dao.html">Kỹ năng lãnh đạo</a></li>
+                              <li><a href="../tag/thuyet-trinh.html">Thuyết trình</a></li>
+                              <li><a href="../tag/ky-nang-giao-tiep.html">Kỹ năng giao tiếp</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Khóa học Sales, bán hàng từ các chuyên gia Marketing hàng đầu Unica" href="course/sales-ban-hang.html"><i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Sales, bán hàng</a>
+                           <a title="Khóa học Sales, bán hàng từ các chuyên gia Marketing hàng đầu Unica" href="sales-ban-hang.html"><i class="fa fa fa-shopping-cart" aria-hidden="true"></i> Sales, bán hàng</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/sales-ban-hang.html">Tất cả Sales, bán hàng</a></li>
-                              <li><a href="tag/ban-hang-online.html">Bán hàng Online</a></li>
-                              <li><a href="tag/livestream.html">Livestream</a></li>
-                              <li><a href="tag/ky-nang-ban-hang.html">Kỹ năng bán hàng</a></li>
+                              <li><a href="sales-ban-hang.html">Tất cả Sales, bán hàng</a></li>
+                              <li><a href="../tag/ban-hang-online.html">Bán hàng Online</a></li>
+                              <li><a href="../tag/livestream.html">Livestream</a></li>
+                              <li><a href="../tag/ky-nang-ban-hang.html">Kỹ năng bán hàng</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Học Công Nghệ Thông Tin Online Cùng Chuyên Gia Hàng Đầu Trong Ngành" href="course/cong-nghe-thong-tin.html"><i class="fa fa fa-code" aria-hidden="true"></i> Công nghệ thông tin</a>
+                           <a title="Học Công Nghệ Thông Tin Online Cùng Chuyên Gia Hàng Đầu Trong Ngành" href="cong-nghe-thong-tin.html"><i class="fa fa fa-code" aria-hidden="true"></i> Công nghệ thông tin</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/cong-nghe-thong-tin.html">Tất cả Công nghệ thông tin</a></li>
-                              <li><a href="tag/lap-trinh.html">Lập trình</a></li>
-                              <li><a href="tag/lap-trinh-web.html">Lập trình web</a></li>
-                              <li><a href="tag/lap-trinh-android.html">Lập trình Android</a></li>
-                              <li><a href="tag/lap-trinh-ios.html">Lập trình ios</a></li>
+                              <li><a href="cong-nghe-thong-tin.html">Tất cả Công nghệ thông tin</a></li>
+                              <li><a href="../tag/lap-trinh.html">Lập trình</a></li>
+                              <li><a href="../tag/lap-trinh-web.html">Lập trình web</a></li>
+                              <li><a href="../tag/lap-trinh-android.html">Lập trình Android</a></li>
+                              <li><a href="../tag/lap-trinh-ios.html">Lập trình ios</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khóa học nâng các kiến thức sức khỏe và giới tính cho người Việt" href="course/suc-khoe-gioi-tinh.html"><i class="fa fa fa-heartbeat" aria-hidden="true"></i> Sức khỏe - Giới tính</a>
+                           <a title="Các khóa học nâng các kiến thức sức khỏe và giới tính cho người Việt" href="suc-khoe-gioi-tinh.html"><i class="fa fa fa-heartbeat" aria-hidden="true"></i> Sức khỏe - Giới tính</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/suc-khoe-gioi-tinh.html">Tất cả Sức khỏe - Giới tính</a></li>
-                              <li><a href="tag/giam-can.html">Giảm cân</a></li>
-                              <li><a href="tag/thien.html">Thiền</a></li>
-                              <li><a href="tag/phong-the.html">Phòng the</a></li>
-                              <li><a href="tag/tinh-yeu.html">Tình yêu</a></li>
-                              <li><a href="tag/yoga.html">Yoga</a></li>
-                              <li><a href="tag/fitness.html">Fitness</a></li>
-                              <li><a href="tag/massage.html">Massage</a></li>
-                              <li><a href="tag/dinh-duong.html">Dinh dưỡng</a></li>
+                              <li><a href="suc-khoe-gioi-tinh.html">Tất cả Sức khỏe - Giới tính</a></li>
+                              <li><a href="../tag/giam-can.html">Giảm cân</a></li>
+                              <li><a href="../tag/thien.html">Thiền</a></li>
+                              <li><a href="../tag/phong-the.html">Phòng the</a></li>
+                              <li><a href="../tag/tinh-yeu.html">Tình yêu</a></li>
+                              <li><a href="../tag/yoga.html">Yoga</a></li>
+                              <li><a href="../tag/fitness.html">Fitness</a></li>
+                              <li><a href="../tag/massage.html">Massage</a></li>
+                              <li><a href="../tag/dinh-duong.html">Dinh dưỡng</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Khóa học phong cách sống giúp thành công hơn trong cuốc sống" href="course/phong-cach-song.html"><i class="fa fa fa-cutlery" aria-hidden="true"></i> Phong cách sống</a>
+                           <a title="Khóa học phong cách sống giúp thành công hơn trong cuốc sống" href="phong-cach-song.html"><i class="fa fa fa-cutlery" aria-hidden="true"></i> Phong cách sống</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/phong-cach-song.html">Tất cả Phong cách sống</a></li>
-                              <li><a href="tag/am-thuc.html">Ẩm Thực</a></li>
-                              <li><a href="tag/lam-dep.html">Làm đẹp</a></li>
-                              <li><a href="tag/ao-thuat.html">Ảo thuật</a></li>
-                              <li><a href="tag/am-nhac.html">Âm nhạc</a></li>
-                              <li><a href="tag/nhay.html">Nhảy</a></li>
-                              <li><a href="tag/phong-thuy.html">Phong thuỷ</a></li>
+                              <li><a href="phong-cach-song.html">Tất cả Phong cách sống</a></li>
+                              <li><a href="../tag/am-thuc.html">Ẩm Thực</a></li>
+                              <li><a href="../tag/lam-dep.html">Làm đẹp</a></li>
+                              <li><a href="../tag/ao-thuat.html">Ảo thuật</a></li>
+                              <li><a href="../tag/am-nhac.html">Âm nhạc</a></li>
+                              <li><a href="../tag/nhay.html">Nhảy</a></li>
+                              <li><a href="../tag/phong-thuy.html">Phong thuỷ</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khóa học nuôi dạy con đúng cách theo khoa học" href="course/nuoi-day-con.html"><i class="fa fa fa-child" aria-hidden="true"></i> Nuôi dạy con </a>
+                           <a title="Các khóa học nuôi dạy con đúng cách theo khoa học" href="nuoi-day-con.html"><i class="fa fa fa-child" aria-hidden="true"></i> Nuôi dạy con </a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/nuoi-day-con.html">Tất cả Nuôi dạy con </a></li>
-                              <li><a href="tag/giao-duc-som.html">Giáo dục sớm</a></li>
-                              <li><a href="tag/thai-giao.html">Thai giáo</a></li>
-                              <li><a href="tag/an-dam.html">Ăn dặm</a></li>
+                              <li><a href="nuoi-day-con.html">Tất cả Nuôi dạy con </a></li>
+                              <li><a href="../tag/giao-duc-som.html">Giáo dục sớm</a></li>
+                              <li><a href="../tag/thai-giao.html">Thai giáo</a></li>
+                              <li><a href="../tag/an-dam.html">Ăn dặm</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khoá học về hôn nhân, giữ gìn gia đình hạnh phúc" href="course/hon-nhan-gia-dinh.html"><i class="fa fa fa-group" aria-hidden="true"></i> Hôn nhân & Gia đình</a>
+                           <a title="Các khoá học về hôn nhân, giữ gìn gia đình hạnh phúc" href="hon-nhan-gia-dinh.html"><i class="fa fa fa-group" aria-hidden="true"></i> Hôn nhân & Gia đình</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/hon-nhan-gia-dinh.html">Tất cả Hôn nhân & Gia đình</a></li>
-                              <li><a href="tag/hon-nhan.html">Hôn nhân</a></li>
+                              <li><a href="hon-nhan-gia-dinh.html">Tất cả Hôn nhân & Gia đình</a></li>
+                              <li><a href="../tag/hon-nhan.html">Hôn nhân</a></li>
                            </ul>
                         </li>
                         <li>
-                           <a title="Các khóa học nhiếp ảnh, dựng phim từ chuyên gia trên Unica" href="course/nhiep-anh-dung-phim.html"><i class="fa fa fa-camera" aria-hidden="true"></i> Nhiếp ảnh, dựng phim</a>
+                           <a title="Các khóa học nhiếp ảnh, dựng phim từ chuyên gia trên Unica" href="nhiep-anh-dung-phim.html"><i class="fa fa fa-camera" aria-hidden="true"></i> Nhiếp ảnh, dựng phim</a>
                            <ul class="issub" style="z-index: 1002; display: none;">
-                              <li><a href="course/nhiep-anh-dung-phim.html">Tất cả Nhiếp ảnh, dựng phim</a></li>
-                              <li><a href="tag/bien-tap-video.html">Biên tập video</a></li>
+                              <li><a href="nhiep-anh-dung-phim.html">Tất cả Nhiếp ảnh, dựng phim</a></li>
+                              <li><a href="../tag/bien-tap-video.html">Biên tập video</a></li>
                            </ul>
                         </li>
                      </ul>
@@ -353,12 +492,10 @@
                      </div>
                   </div>
                </nav>
-               <h1 class="logo-mobile" style="margin-top: 1px;margin-bottom: 5px;display: inline-flex;">
-                  <a href="index.html"><span>Học Online: 1500+ Khóa học trực tuyến cho người đi làm</span></a>
-               </h1>
-               <a class="cart-mobile" href="gio-hang.html">
+               <a class="logo-mobile" href="../index.html"><img src="../media/img/logo-unica.svg" alt="Học Online: 1500+ Khóa học trực tuyến cho người đi là"></a>
+               <a class="cart-mobile" href="../gio-hang.html">
                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-               <span class="unica-sl-cart" style="top:1px;"><b>0</b></span></b></span>
+               <span class="unica-sl-cart" style="top:1px;"><b>22</b></span></b></span>
                </a>
                <div class="login-mobile">
                   <span class="ava-img" data-toggle="collapse" data-target="#userPanel">
@@ -366,7 +503,7 @@
                   </span>
                   <div id="userPanel" class="popover user-login-panel">
                      <div class="popover-content">
-                        <a class="btn btn-block btn-white" href="https://id.unica.vn/login?src=http://unica.vn&amp;token=OmBkhdLXznSli2urMySvZQ%3D%3D" class="btnDangxuat"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
+                        <a class="btn btn-block btn-white" href="https://id.unica.vn/login?src=http://unica.vn/tag/powerpoint&amp;token=63Q%2F8bj7jtCRkTnpFQNCgBK0bnRKv8eHwxcFaPMJPSM%3D" class="btnDangxuat"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
                         <a class="btn btn-block btn-white" href="https://id.unica.vn/register?src=http://unica.vn&amp;token=OmBkhdLXznSli2urMySvZQ%3D%3D" class="btnDangxuat">Đăng ký</a>
                      </div>
                   </div>

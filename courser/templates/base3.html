@@ -55,28 +55,13 @@
       <header>
          <div class="clearfix" style="position: relative;">
             <!--Menu PC-->
-            <div class="unica-home-menutop hidden-xs">
+            <div class="unica-home-menutop hidden-xs" style="position: absolute;">
                <div class="container-fluid">
                   <div class="row col-width-lg">
-                     <div class="col-lg-3 col-md-3 col-sm-4 cate-md">
-                        <a class="unica-logo" href="{% url 'home-view' %}"><img class="img-responsive" src="{% static 'media/images_v2018/logo.png' %}" alt="" width="138" height="33" /></a>
-                        <div class="unica-menu-cate">
-                           <i class="fa fa-th" aria-hidden="true"></i> Danh mục
-                           <nav id="mysidebarmenu" class="amazonmenu">
-                              <ul>
-                                 <li>
-                                    <a title="Khóa học Tiếng Anh, Tiếng Nhật, Tiếng Hàn, Tiếng Trung Giao Tiếp" href="ngoai-ngu.html"><i class="fa fa fa-language" aria-hidden="true"></i> Ngoại ngữ</a>
-                                    <ul class="issub" style="z-index: 1002; display: none;">
-                                       <li><a href="ngoai-ngu.html">Tất cả Ngoại ngữ</a></li>
-                                       <li><a href="../tag/tieng-han.html">Tiếng Hàn</a></li>
-                                       <li><a href="../tag/tieng-anh.html">Tiếng Anh</a></li>
-                                       <li><a href="../tag/tieng-trung.html">Tiếng Trung</a></li>
-                                       <li><a href="../tag/tieng-nhat.html">Tiếng Nhật</a></li>
-                                    </ul>
-                                 </li>
-                              </ul>
-                           </nav>
-                        </div>
+                     <div class="col-lg-3 col-md-2 col-sm-2 cate-md">
+                        <a href="{% url 'home-view' %}">
+                          <img class="img-responsive" src="{% static 'media/images_v2018/logo.png' %}" style="padding-top: 10px;width: 160px;height: 59px;" >
+                        </a>
                      </div>
                      <div class="col-lg-7 col-md-6 col-sm-5 cate-sm">
                         <form class="unica-search-boxtop navbar-form form-inline" method="GET" action="https://unica.vn/search">
@@ -146,7 +131,6 @@
       <main>
         {% block content %}{% endblock content %}
       </main>   
-      {% block tag_video %}{% endblock tag_video %}
       <style>
          #footer2 ul li {margin-left: 0px;}
       </style>
@@ -222,7 +206,6 @@
       <script src="{% static 'media/js_v2018/dev/userprofile.js' %}"></script>
       <script src="{% static 'media/js/myScript.js' %}"></script>
       <script src="{% static 'media/js_v2018/dev/blog.js' %}"></script>        
-      {% block javascript_course %}{% endblock javascript_course %}
    </body>
    <!-- Mirrored from unica.vn/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 06 Jun 2020 16:30:21 GMT -->
 </html>

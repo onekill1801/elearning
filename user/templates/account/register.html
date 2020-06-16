@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="https://static.unica.vn/icon/favicon.ico"/>
+    <link rel="icon" type="image/png" href="{% static 'media/images/icon.jpg' %}"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
     <!--===============================================================================================-->
@@ -40,7 +40,7 @@
     <form method="POST" class="login100-form validate-form flex-sb flex-w" action="{% url 'register-view' %}">
         {% csrf_token %}
         <span class="login100-form-title p-b-10">
-            <img src="{% static 'images/logo.png' %}" />
+            <img src="{% static 'media/images_v2018/logo.png' %}" />
         </span>
         <div class="p-t-10 p-b-10 col-md-12" style="text-align: center;color: #555">
             <h3>ĐĂNG KÝ TÀI KHOẢN</h3>
