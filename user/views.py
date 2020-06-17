@@ -7,6 +7,10 @@ from courser.models import *
 from .forms import *
 # Create your views here.
 
+menuBar = {
+	'menu_subjects' : Subject.objects.all(),
+	'menu_tags' : Tag.objects.all()
+}
 #  Phan tren la demo
 def logout(request):
 	del request.session['id']
@@ -106,6 +110,7 @@ class CourseView(View):
 					# 'student_course' : Student_Course.objects.filter(student=user),
 					'courses' : Course.objects.filter(id__in=arr)
 				}
+				content.update(menuBar)			
 				return render(request, 'student/courseS.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -114,6 +119,7 @@ class CourseView(View):
 					'type' : request.session['type'],
 					'courses' : Course.objects.filter(own_teacher=request.session['id'])
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/courseT.html', content)
 		except Exception as e:
 			return render(request, '404.html') 
@@ -130,6 +136,7 @@ class ProfileView(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'student/profileS.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -137,6 +144,7 @@ class ProfileView(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/profileT.html', content)
 		except Exception as e:
 			return render(request, '404.html')
@@ -196,6 +204,7 @@ class ChangePassView(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'account/change_password.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -203,6 +212,7 @@ class ChangePassView(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'account/change_password.html', content)
 		except Exception as e:
 			return render(request, '404.html')
@@ -222,6 +232,7 @@ class ChangePassView(View):
 						content.update({'messge': 'Change pass success!!!'})
 					else:
 						content.update({'messge': 'Change pass fail!!!'})
+					content.update(menuBar)
 				return render(request, 'account/change_password.html', content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -237,6 +248,7 @@ class ChangePassView(View):
 						content.update({'messge': 'Change pass success!!!'})
 					else:
 						content.update({'messge': 'Change pass fail!!!'})
+					content.update(menuBar)
 				return render(request, 'account/change_password.html', content)
 		except Exception as e:
 			return render(request, '404.html')

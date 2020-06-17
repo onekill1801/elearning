@@ -5,19 +5,27 @@ from .forms import *
 from .models import *
 from datetime import datetime
 
+menuBar = {
+	'menu_subjects' : Subject.objects.all(),
+	'menu_tags' : Tag.objects.all()
+}
+
 def demo(request):
+	# import pdb; pdb.set_trace()
 	content = {
+		'user' : Teacher.objects.filter(id=request.session['id'])[0],
 		'subjects' : Subject.objects.all(),
 		'tags' : Tag.objects.all(),
-		'courses' : Course.objects.all()
+		'courses' : Course.objects.all(),
+		'count' : Course.objects.all().count()
 	}
+	content.update(menuBar)
 	return render(request, 'guest/list_course.html', content)
 def demo1(request):
 	return render(request, 'courserview/demo.html')
 # Ham don xu ly get req cua teacher
 def delete_course(request, c_id):
 	try:
-		import pdb; pdb.set_trace()
 		if request.session['type'] == '0':
 			t = Teacher.objects.filter(id=request.session['id'])[0]
 			cour = Course.objects.filter(id=c_id)[0]
@@ -55,12 +63,12 @@ def edit_module(request, m_id):
 				content.update({'lv0': '0'})
 			else:
 				content.update({'lv1': '0'})
+			content.update(menuBar)
 			return render(request, 'teacher/createCourseFull.html',content)
 	except Exception as e:
 		return render(request, '404.html') 
 
 def update_module(request, m_id):
-	import pdb; pdb.set_trace()
 	lv_module = Module.objects.filter(id=m_id)[0]
 	cour_id = lv_module.course.id
 	lv_module.title = request.POST.get('module_lv0', str(request.POST.get('par_module')) + str(datetime.now()))
@@ -80,6 +88,7 @@ class C_Subject(View):
 					'user' : user,
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/createSubject.html',content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -89,6 +98,7 @@ class C_Subject(View):
 					'tags' : Tag.objects.all(),
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/createSubject.html',content)
 		except Exception as e:
 			return render(request, '404.html') 
@@ -130,12 +140,12 @@ class C_Course(View):
 					'tags' : Tag.objects.all(),
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/createCourse.html',content)
 		except Exception as e:
 			return render(request, '404.html') 
 	def post(self ,request):
 		try:
-			# import pdb; pdb.set_trace()
 			# Tao 1 cai form o day
 			cour = Course()
 			cour.tag = Tag.objects.filter(id=request.POST.get('tag'))[0]
@@ -160,12 +170,12 @@ class C_CourseFull(View):
 					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'teacher/createCourseFull.html',content)
 		except Exception as e:
 			return render(request, '404.html') 
 
 	def post(self ,request, c_id):
-		# import pdb; pdb.set_trace()
 		if request.POST.get('description'):
 			course = Course.objects.filter(id=c_id)[0]
 			course.description = request.POST.get('description')
@@ -210,12 +220,14 @@ class S_CourseFull(View):
 					content.update({'is_enroll': '0'})
 				else:
 					content.update({'is_enroll': '1'})
+				content.update(menuBar)
 				return render(request, 'student/sCourse.html',content)
 		except Exception as e:
 			content = {
 				'course' : Course.objects.filter(id=c_id)[0],
 				'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0])
 			}
+			content.update(menuBar)
 			return render(request, 'guest/showCourse.html',content)
 		
 	def post(self, request, c_id):
@@ -231,9 +243,10 @@ class Guest_Course(View):
 					'type' : request.session['type'],
 					'subjects' : Subject.objects.all(),
 					'tags' : Tag.objects.all(),
-					'courses' : Course.objects.all()
-
+					'courses' : Course.objects.all(),
+					'count' : Course.objects.all().count()
 				}
+				content.update(menuBar)
 				return render(request, 'guest/list_course.html',content)
 			else:
 				user = Teacher.objects.filter(id=request.session['id'])[0]
@@ -242,16 +255,19 @@ class Guest_Course(View):
 					'subjects' : Subject.objects.all(),
 					'tags' : Tag.objects.all(),
 					'type' : request.session['type'],
-					'courses' : Course.objects.all()
-
+					'courses' : Course.objects.all(),
+					'count' : Course.objects.all().count()
 				}
+				content.update(menuBar)
 				return render(request, 'guest/list_course.html',content)
 		except Exception as e:
 			content = {
 				'subjects' : Subject.objects.all(),
 				'tags' : Tag.objects.all(),
-				'courses' : Course.objects.all()
+				'courses' : Course.objects.all(),
+				'count' : Course.objects.all().count()
 			}
+			content.update(menuBar)
 			return render(request, 'guest/list_course.html', content)
 		
 	def post(self, request, c_id):
@@ -294,6 +310,7 @@ class HomeView(View):
 					'subjects' : Subject.objects.all(),
 					'tags' : Tag.objects.all()
 				}
+				content.update(menuBar)
 				# return render(request, 'loginview/course.html', content)
 				return render(request, 'guest/home.html',content)
 			else:
@@ -304,12 +321,14 @@ class HomeView(View):
 					'tags' : Tag.objects.all(),
 					'type' : request.session['type']
 				}
+				content.update(menuBar)
 				return render(request, 'guest/home.html',content)
 		except Exception as e:
 			content = {
 				'subjects' : Subject.objects.all(),
 				'tags' : Tag.objects.all()
 			}
+			content.update(menuBar)
 			return render(request, 'guest/home.html',  content)
 		# return HttpResponse('Home View')
 

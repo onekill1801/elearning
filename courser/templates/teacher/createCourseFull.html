@@ -51,7 +51,7 @@
                <div class="u-detail-block-left">
                   <div class="u-video">
                      <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item img-responsive" src="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
+                        <iframe class="embed-responsive-item img-responsive" src="{{course.video_ins}}" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
                         </iframe>
                      </div>
                   </div>
@@ -130,10 +130,10 @@
                                     <div class="form-group field-muser-address">
                                        {% if lv1 %}
                                        <label>Sửa link bài học  </label>
-                                       <input type="text" class="form-control" name="url" value="{{lv_module.url}}">
+                                       <input type="text" class="form-control" name="url" value="{{lv_module.url}}" allowfullscreen></iframe>">
                                        {% else %}
                                        <label>Thêm link video bài học  </label>
-                                       <input type="text" class="form-control" name="url" value="">
+                                       <input type="text" class="form-control" name="url" value="" placeholder="VD: https://www.youtube.com/embed/OGv9RgWSzOY?list=RDUCtriLUQ_ZI" >
                                        {% endif %}
                                        <p class="help-block help-block-error"></p>
                                     </div>

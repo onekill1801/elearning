@@ -11,9 +11,9 @@
                   {% endif %}
                {% else %}
                   {% if  user.fullname %}
-                     Giang vien : {{ user.fullname }}
+                     Giảng viên : {{ user.fullname }}
                   {% else %}
-                     Giang vien                                 
+                     Giảng viên                                
                   {% endif %}  
                {% endif %}                                           
             </p>
@@ -32,9 +32,9 @@
                      <a href="{% url 'profile-view' %}" class=""><i class="fa fa-user" aria-hidden="true"></i> Hồ sơ cá nhân</a></li>
                   {% if request.session.type == '0' %}
                      <li class="">
-                     <a href="{% url 'c_subject' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Chu de</a></li>
+                     <a href="{% url 'c_subject' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tạo chủ đề</a></li>
                   <li class="">
-                     <a href="{% url 'c_course' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tao Khoa Hoc</a></li>
+                     <a href="{% url 'c_course' %}" class=""><i class="fa fa-book" aria-hidden="true"></i> Tạo khóa học</a></li>
                   {% endif %}
                   <li class="btn-group pull-right">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Thêm  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></a>
