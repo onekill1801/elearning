@@ -143,29 +143,32 @@
                      <div class="u-sm-left">
                         <div class="block-price">
                         </div>
+
                         <div class="block-btn">
-                  {% if type %}
+                  {% if type == 1 %}
                      {% if is_enroll == '0' %}
                      <a course_id="" href="{% url 'enroll_view' course.id request.session.id %}" class="btn-buy-course">Đăng ký học</a>
                      {% else %}
-                     <a course_id="" href="{% url 'enroll_view' course.id request.session.id %}" class="btn-buy-course">Huy Đăng ký học</a>
+                     <a course_id="" href="{% url 'enroll_view' course.id request.session.id %}" class="btn-buy-course">Hủy đăng ký học</a>
                      {% endif %}
+                  {% elif type == 0 %}
+                     <a course_id="" href="" class="btn-buy-course">Giang vien</a>
                   {% else %}
-                  <a course_id="" href="{% url 'login-view' %}" class="btn-buy-course">Đăng ký học</a>
+                     <a course_id="" href="{% url 'login-view' %}" class="btn-buy-course">Đăng ký học</a>
                   {% endif %}
                         </div>
                      </div>
                      <div class="u-sm-right">
                         <div class="block-ulti">
                            <ul style="margin-left: 0">
-                              <li>
+                        <!--      <li>
                                  <i class="fa fa-clock-o" aria-hidden="true"></i> Thời lượng:
-                                 <p>02 giờ 34 phút</p>
+                                 <p>{{ course.learn_times }} phút</p>
                               </li>
                               <li>
                                  <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
-                                 <p>16 bài giảng</p>
-                              </li>
+                                 <p>{{ course.module_nums }} bài giảng</p>
+                              </li> -->
                            </ul>
                            <div class="clearfix"></div>
                         </div>

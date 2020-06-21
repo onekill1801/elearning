@@ -11,18 +11,6 @@ menuBar = {
 	'menu_tags' : Tag.objects.all()
 }
 
-def demo(request):
-	content = {
-		'user' : Teacher.objects.filter(id=request.session['id'])[0],
-		'subjects' : Subject.objects.all(),
-		'tags' : Tag.objects.all(),
-		'courses' : Course.objects.all(),
-		'count' : Course.objects.all().count()
-	}
-	content.update(menuBar)
-	return render(request, 'guest/list_course.html', content)
-def demo1(request):
-	return render(request, 'courserview/demo.html')
 # Phan loai danh muc menu
 def search(request):
 	k = request.GET.get('key')
@@ -524,10 +512,22 @@ class S_CourseFull(View):
 					content.update({'is_enroll': '1'})
 				content.update(menuBar)
 				return render(request, 'student/sCourse.html',content)
+			else:
+				user = Teacher.objects.filter(id=request.session['id'])[0]
+				content = {
+					'user' : user,
+					'type' : request.session['type'],
+					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
+					'course' : Course.objects.filter(id=c_id)[0],
+					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate))
+				}
+				content.update(menuBar)
+				return render(request, 'guest/showCourse.html',content)
 		except Exception as e:
 			content = {
 				'course' : Course.objects.filter(id=c_id)[0],
-				'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0])
+				'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
+				'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate))
 			}
 			content.update(menuBar)
 			return render(request, 'guest/showCourse.html',content)

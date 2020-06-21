@@ -2,9 +2,6 @@ from django.urls import path, include
 from courser.views import *
 
 urlpatterns = [
-    path('demo/', demo , name='demo-view'),
-    path('demo1/', demo1 , name='demo1-view'),
-    # Dung demo
     path('home/', HomeView.as_view(), name='home-view'),
 
 #   Phan ung voi giao dien moi
