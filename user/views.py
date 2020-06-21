@@ -30,16 +30,16 @@ class LoginView(View):
 			if userS:
 				id_S = Student.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passS = Student.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
-				if passS == request.POST.get('pass_word'):
-				# if passS == make_password(request.POST.get('pass_word')):
+				# if passS == request.POST.get('pass_word'):
+				if passS == make_password(request.POST.get('pass_word')):
 					request.session['id'] = id_S
 					request.session['type'] = '1'
 					return redirect('/')
 			elif userT:
 				id_T = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passT = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
-				if passT == request.POST.get('pass_word'):
-				# if passT == make_password(request.POST.get('pass_word')):
+				# if passT == request.POST.get('pass_word'):
+				if passT == make_password(request.POST.get('pass_word')):
 					request.session['id'] = id_T
 					request.session['type'] = '0'
 					return redirect('/')
@@ -64,8 +64,8 @@ class RegisterView(View):
 						if not user_email:
 							userTeacher = Teacher()
 							userTeacher.user_name = request.POST.get('user_name', '')
-							userTeacher.pass_word = request.POST.get('password1', '')
-							# userTeacher.pass_word = make_password(request.POST.get('password1', ''))
+							# userTeacher.pass_word = request.POST.get('password1', '')
+							userTeacher.pass_word = make_password(request.POST.get('password1', ''))
 							userTeacher.email = request.POST.get('email', '')
 							userTeacher.save()
 							context = {'messge': 'Account Sussess'}
@@ -80,8 +80,8 @@ class RegisterView(View):
 						if not user_email:
 							userStudent = Student()
 							userStudent.user_name = request.POST.get('user_name', '')
-							userStudent.pass_word = request.POST.get('password1', '')
-							# userStudent.pass_word = make_password(request.POST.get('password1', ''))
+							# userStudent.pass_word = request.POST.get('password1', '')
+							userStudent.pass_word = make_password(request.POST.get('password1', ''))
 							userStudent.email = request.POST.get('email', '')
 							userStudent.save()
 							context = {'messge': 'Account Sussess'}
@@ -226,8 +226,8 @@ class ChangePassView(View):
 				}
 				if user.pass_word == request.POST.get('oldpassword'):
 					if request.POST.get('password') == request.POST.get('repassword'):
-						user.pass_word = request.POST.get('password')
-						# user.pass_word = make_password(request.POST.get('user_name'))
+						# user.pass_word = request.POST.get('password')
+						user.pass_word = make_password(request.POST.get('user_name'))
 						user.save()
 						content.update({'messge': 'Change pass success!!!'})
 					else:
@@ -242,8 +242,8 @@ class ChangePassView(View):
 				}
 				if user.pass_word == request.POST.get('oldpassword'):
 					if request.POST.get('password') == request.POST.get('repassword'):
-						user.pass_word = request.POST.get('password')
-						# user.pass_word = make_password(request.POST.get('user_name'))
+						# user.pass_word = request.POST.get('password')
+						user.pass_word = make_password(request.POST.get('user_name'))
 						user.save()
 						content.update({'messge': 'Change pass success!!!'})
 					else:
