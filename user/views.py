@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from django.http import HttpResponse
-from django.contrib.auth.hashers import make_password
 from user.models import *
 from courser.models import *
 from .forms import *
+import hashlib
+
 # Create your views here.
+def make_password(password):
+	return hashlib.md5(str(password).encode('utf-8')).hexdigest()
 
 menuBar = {
 	'menu_subjects' : Subject.objects.all(),
@@ -23,6 +26,7 @@ class LoginView(View):
 		return render(request, 'account/login.html')
 		
 	def post(self, request):
+		# import pdb; pdb.set_trace()
 		form = LoginForm(request.POST)
 		if form.is_valid():
 			userT = Teacher.objects.filter(user_name=request.POST.get('user_name'))
@@ -35,6 +39,9 @@ class LoginView(View):
 					request.session['id'] = id_S
 					request.session['type'] = '1'
 					return redirect('/')
+				else:
+					content = {'messge_error' : 'User or pass wrong!!!'}
+					return render(request, 'account/login.html', content)
 			elif userT:
 				id_T = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].id
 				passT = Teacher.objects.filter(user_name=request.POST.get('user_name'))[0].pass_word
@@ -43,6 +50,9 @@ class LoginView(View):
 					request.session['id'] = id_T
 					request.session['type'] = '0'
 					return redirect('/')
+				else:
+					content = {'messge_error' : 'User or pass wrong!!!'}
+					return render(request, 'account/login.html', content)
 			else:
 				content = {'messge_error' : 'User or pass wrong!!!'}
 				return render(request, 'account/login.html', content)
@@ -68,7 +78,7 @@ class RegisterView(View):
 							userTeacher.pass_word = make_password(request.POST.get('password1', ''))
 							userTeacher.email = request.POST.get('email', '')
 							userTeacher.save()
-							context = {'messge': 'Account Sussess'}
+							context = {'messge': 'Account Success'}
 						else:
 							context = {'messge_error_email': 'Email da ton tai'}
 					else:
@@ -84,7 +94,7 @@ class RegisterView(View):
 							userStudent.pass_word = make_password(request.POST.get('password1', ''))
 							userStudent.email = request.POST.get('email', '')
 							userStudent.save()
-							context = {'messge': 'Account Sussess'}
+							context = {'messge': 'Account Success'}
 						else:
 							context = {'messge_error_email': 'Email da ton tai'}
 					else:

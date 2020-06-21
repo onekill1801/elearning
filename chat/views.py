@@ -3,12 +3,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http import JsonResponse
 
 # Create your views here.
-def chat(request):
+def addComment(request):
 	# return HttpResponse('Save Success!!!')
 	# return 'helleo'
 	return render(request, 'chat.html')
 
-def ajax_chat(request):
+def delComment(request):
 	import pdb; pdb.set_trace()
 	username = request.GET.get('chat', None)
 	# username = request.POST.get('chat', None)

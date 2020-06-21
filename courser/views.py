@@ -502,7 +502,8 @@ class S_CourseFull(View):
 					'type' : request.session['type'],
 					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 					'course' : Course.objects.filter(id=c_id)[0],
-					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate))
+					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
+					'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 				}
 				c_own = Course.objects.filter(id=c_id)[0]
 				s_check = Student_Course.objects.filter(course=c_own).filter(student=user)
@@ -519,7 +520,8 @@ class S_CourseFull(View):
 					'type' : request.session['type'],
 					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 					'course' : Course.objects.filter(id=c_id)[0],
-					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate))
+					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
+					'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 				}
 				content.update(menuBar)
 				return render(request, 'guest/showCourse.html',content)
@@ -527,7 +529,8 @@ class S_CourseFull(View):
 			content = {
 				'course' : Course.objects.filter(id=c_id)[0],
 				'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
-				'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate))
+				'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
+				'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 			}
 			content.update(menuBar)
 			return render(request, 'guest/showCourse.html',content)
