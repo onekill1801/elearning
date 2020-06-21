@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.base import View
 from .forms import *
 from .models import *
+from chat.models import *
 from datetime import datetime
 from django.http import JsonResponse
 
