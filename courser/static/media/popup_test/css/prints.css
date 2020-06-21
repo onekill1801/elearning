@@ -1,0 +1,224 @@
+
+
+.pr-maincol {
+    width: 80%;
+}
+.pr-attempt .que {
+    padding: 0 0;
+}
+
+.print-page {
+    background: rgb(204,204,204);
+}
+.paper {
+    background: white;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0;
+    /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+}
+.paper-a4{
+    width: 21cm;
+    height: 29.6cm;
+}
+.print-page-hide{
+    background: white;
+    width: 21cm;
+    margin: 0 auto;
+    padding: 10px;
+}
+.print-page-hide .paper {
+    height: auto!important;
+}
+.print-page-hide .generalfeedback{
+    display: block;
+}
+.print-page-hide .generalfeedback, .print-page .generalfeedback {
+    padding-left: 4%;
+    margin: 0;
+}
+.print-page-hide.pr-attempt .btn-show-solution {
+    margin-top: 0;
+}
+.print-page.pr-attempt .paper .que{
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+.print-page.pr-attempt.font-size-11 .paper .que {
+    font-size: 11px;
+}
+.print-page.pr-attempt.font-size-12 .paper .que {
+    font-size: 12px;
+}
+.print-page.pr-attempt.font-size-13 .paper .que {
+    font-size: 13px;
+}
+.print-page.pr-attempt.font-size-14 .paper .que {
+    font-size: 14px;
+}
+.print-page.pr-attempt.font-size-15 .paper .que {
+    font-size: 15px;
+}
+.print-page.pr-attempt.font-size-16 .paper .que {
+    font-size: 16px;
+}
+.print-page-hide.pr-attempt, .print-page.pr-attempt,
+.print-page.pr-attempt .generalfeedback{
+    font-family: "Times New Roman", Times, serif;
+}
+.pr-attempt .katex-display {
+    display: inline-block;
+    margin: 0;
+}
+.pr-attempt .mjx-chtml {
+    font-size: 100% !important;
+}
+.pr-attempt .que .answer {
+    display: block;
+}
+.pr-attempt tbody {
+    display: block;
+}
+.pr-attempt .answer tr {
+    display: inline-block;
+    width: 49%;
+}
+.pr-attempt .answer >span{
+    display: block;
+    width: 50%;
+    float: left;
+    clear: none;
+}
+.pr-attempt .answer.four-col tr {
+    width: 24%;
+}
+.pr-attempt .answer.four-col > span{
+    width: 25%;
+}
+.answer .iradio_minimal-blue.disabled {
+    margin-right: 5px;
+}
+.test-page-title:before {
+    display: none;
+}
+.update-info-stick{
+    display: none !important;
+}
+page .generalfeedback *,page .generalfeedback{
+    font-family: "Roboto",Tahoma,sans-serif;
+}
+
+.hdp-page img {
+    max-width: 100%;
+}
+
+.paper-watermark {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.paper-content{
+    padding: 0.5cm 1cm 0;
+    position: relative;
+    z-index: 1;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 0;
+}
+
+#dpi {
+    height: 1cm;
+    left: -100%;
+    position: absolute;
+    top: -100%;
+    width: 1cm;
+}
+
+.prototype-page {
+    width: 30cm;
+    height: 50cm;
+    left: -100%;
+    position: absolute;
+    top: -100%;
+
+}
+
+.print-wrapp {
+    position: fixed;
+    top: 130px;
+    right: 160px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.print-wrapp a {
+    display: block;
+    font-size: 24px;
+}
+
+.test-page-title {
+    margin: 0;
+}
+
+.que .qtext {
+    margin-bottom: 5px;
+}
+
+.que .ablock {
+    margin: 0;
+}
+
+.pr-attempt .que {
+    margin: 5px 0 10px;
+    padding: 0;
+    font-size: 14px;
+}
+
+.que .answer .c0, .que .answer .c1 {
+    padding: 0;
+}
+
+.pr-attempt .que .content {
+    line-height: 1.2;
+}
+
+.answer-row {
+    float: left;
+    display: inline-block;
+    width: 50%;
+}
+.content .test-page .body{
+    margin: 0 auto;
+}
+.paper-footer {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    height: 30px;
+}
+.number_pages{
+    float: right;
+}
+
+.prototype-page {
+    display: none;
+}
+
+.gfb-show .btn-show-solution {
+    display: inline-block;
+}
+.gfb-show .generalfeedback {
+    display: block!important;
+}
+.gfb-hide .btn-show-solution,
+.gfb-hide .generalfeedback {
+    display: none!important;
+}

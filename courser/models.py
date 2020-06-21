@@ -71,6 +71,8 @@ class Module(models.Model):
     description = models.TextField(blank=True)
     done = models.IntegerField(default=0)  
     url = models.CharField(max_length=500)
+    type_module = models.IntegerField(default=0)
+    point = models.CharField(max_length=500, default='Chưa kiểm tra')
 
     def __str__(self):
         return self.title
@@ -127,3 +129,22 @@ class Student_Course(models.Model):
                                on_delete=models.CASCADE)
     rate = models.IntegerField(default=0, verbose_name="rate")
     study_progress = models.CharField(max_length=500)
+
+class Quests(models.Model):
+    teacher = models.ForeignKey(Teacher,
+                                related_name='quest',
+                                on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,
+                               related_name='quest',
+                               on_delete=models.CASCADE)
+    detail = models.CharField(max_length=500)
+    levelOfDifficult = models.IntegerField(default=0) 
+    id_answer = models.IntegerField(default=0)
+
+class Answers(models.Model):
+    quest = models.ForeignKey(Quests,
+                                related_name='answer',
+                                on_delete=models.CASCADE)
+    answer = models.CharField(max_length=200)
+    type_answer = models.IntegerField(default=0)
+

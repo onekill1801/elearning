@@ -1,1 +1,150 @@
-createTest.html
+{% extends "base.html" %}
+{% block content %}
+<div id="main wrap-main" style="margin-top: 75px;">
+   <div class="container-fluid dashboard">
+      <div class="row">
+         <div class="col-sm-3 col-md-2 col-xs-12" style="padding-left: 0px !important; padding-bottom: 0px !important;">
+            <div class="content">
+                <div class="panel-group" id="accordion1">
+                   <div class="panel panel-default">
+                      <form action="{% url 'question_m_view' c_id %}" method="post" enctype="multipart/form-data" id="table_add">
+                      	{% csrf_token %}
+                         <div class="form-group">
+                            <div class="form-group field-muser-address">
+                               <br>
+                               <label>Tạo câu hỏi</label>
+                               <input type="text"  class="form-control" name="quest_name" value="">
+                               <p class="help-block help-block-error"></p>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <div class="form-group field-muser-address">
+                               <br>
+                               <label>Tạo đáp án</label> <br>
+                               Đáp án đúng <input type="text"  class="form-control" name="answer_0" value="">
+                               Đáp án sai 1<input type="text"  class="form-control" name="answer_1" value="">
+                               Đáp án sai 2<input type="text"  class="form-control" name="answer_2" value="">
+                               Đáp án sai 3<input type="text"  class="form-control" name="answer_3" value="">
+                               <p class="help-block help-block-error"></p>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <button class="btn btn-success"><i class="fa fa-save"></i> Thêm mới </button>
+                         </div>
+                      </form>
+                      <form action="{% url 'update_quest' %}" method="post" enctype="multipart/form-data" id="table_edit" style="display: none;">
+                      	{% csrf_token %}
+                      	<input type="hidden" name="quest_id" id="quest_id_input" value="" >
+                         <div class="form-group">
+                            <div class="form-group field-muser-address">
+                               <br>
+                               <label>Sửa câu hỏi</label>
+                               <input type="text"  class="form-control" name="quest_name" id="quest_name_id" value="">
+                               <p class="help-block help-block-error"></p>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <div class="form-group field-muser-address">
+                               <br>
+                               <label>Sửa đáp án</label> <br>
+                               Đáp án đúng <input type="text"  class="form-control" name="answer_0" id="answer_0_id" value="">
+                               Đáp án sai 1<input type="text"  class="form-control" name="answer_1" id="answer_1_id" value="">
+                               Đáp án sai 2<input type="text"  class="form-control" name="answer_2" id="answer_2_id" value="">
+                               Đáp án sai 3<input type="text"  class="form-control" name="answer_3" id="answer_3_id" value="">
+                               <p class="help-block help-block-error"></p>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <button class="btn btn-success"><i class="fa fa-save"></i> Cập nhật </button>
+                            <button class="btn" onclick="off_on_table()"> <i class="fa fa-save"></i> Hủy bỏ </button>
+                         </div>
+                      </form>
+                   </div>
+                </div>
+             </div>
+         </div>
+         <div class="col-sm-9 col-md-10">
+            <div id="main-content">
+               <ol class="breadcrumb">
+               </ol>
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <span style="font-size: 18px; font-weight: bold;"><i class="fa fa-lock" aria-hidden="true"></i>Ngân hàng câu hỏi</span>
+                  </div>
+                  <div class="panel-body">
+                     <div class="row">
+                     	<div class="col-md-12 ">
+                     		<table class="table">
+							  <thead class="thead-dark">
+							    <tr>
+							      <th scope="col">Câu hỏi</th>
+							      <th scope="col">Đáp án đúng</th>
+							      <th scope="col">Đáp án sai 1</th>
+							      <th scope="col">Đáp án sai 2</th>
+							      <th scope="col">Đáp án sai 3</th>
+							      <th scope="col">Điều chỉnh</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							  	{% for quest in quests %}
+							  	<tr>
+							  		<td>{{ quest.detail }}</td>
+							  		{% for answer in answers %}
+							  			<td>{{ answer.answer }}</td>
+							  		{% endfor %}
+							  		<td>
+							      	<div class="form-group">
+			                            <button class="btn btn-success" onclick="on_off_table({{quest.id}})"> Sửa </button>
+			                            <a href="{% url 'del_q_view' quest.id %}"><button class="btn btn-success"> Xóa </button></a>
+			                         </div>
+							     </tr>
+							  	{% endfor %}
+							  </tbody>
+							</table>
+							<script type="text/javascript">
+								function on_off_table(q_id) {
+									$.ajax({
+							            url : "{% url 'ajax_edit_quest' %}",
+							            type : 'GET',
+							            data : {
+							               "q_id": q_id
+							            },
+							            success : function (response) {
+								            $('#table_add').css('display','none');
+											$('#table_edit').css('display','block');
+											document.getElementById("quest_id_input").value = q_id;
+											document.getElementById("quest_name_id").value = response['quest'][0].detail;
+											debugger;
+											var i;
+											var ind = 1;
+											for (i = 0; i < response['anss'].length; i++) {
+												if (response['anss'][i].type_answer != 0){
+													document.getElementById("answer_0_id").value = response['anss'][i].answer;
+												}
+												else {
+													var s = "answer_"+ ind + "_id";
+													ind++;
+													document.getElementById(s).value = response['anss'][i].answer;
+												}
+											}
+							            },
+							            error: function (response) {
+							                alert('Ajax Error');
+							            }
+							         });
+								}
+								function off_on_table(){
+									$('#table_add').css('display','block');
+									$('#table_edit').css('display','none');
+								}
+							</script>
+                     	</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock content %}

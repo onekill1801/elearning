@@ -17,7 +17,7 @@
                <div class="u-cate-list">
                   <p style="font-size: 16px;font-weight: bold;border-bottom: 1px solid #d7d7d7;margin-bottom: 10px;padding-bottom: 5px;">Danh mục khóa học</p>
                   <ul>
-	                {% for s in subjects %}
+	                {% for s in menu_subjects %}
    						<li>
    							<a title="{{s.title}}" aria-hidden="true" href=""></i> {{s.title}}</a>
    						</li>
@@ -55,7 +55,9 @@
                <section>
                   <div class="u-hot-cate" style="border: none;padding: 0px 0px;">
                      <ul>
-                        <li><a href="../tag/facebook-marketing.html"><span class="label label-primary">Facebook Marketing</span></a></li>
+                        {% for tag_i in tags %}
+                        <li><a href="{% url 'list_course_tag' tag_i.id %}"><span class="label label-primary">{{tag_i.tag}}</span></a></li>
+                        {% endfor %}
                      </ul>
                   </div>
                </section>
@@ -77,18 +79,20 @@
                                  </div>
                                  <div class="rate-course" style="display: inline-block;" itemscope >
                                     <span class="star-rate">
-                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
-                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
-                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
-                                    <i class="fa fa-star co-or" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o co-or" aria-hidden="true"></i>
+                                    {% for x in '01234' %}
+                                       {% if x < c.rate|slugify %}
+                                         <i class="fa fa-star co-or" aria-hidden="true"></i>
+                                       {% else %}
+                                         <i class="fa fa-star-o co-or" aria-hidden="true"></i>
+                                       {% endif %}
+                                    {% endfor %}
                                     </span>
                                     <span class="n-rate">(<span >{{c.rate_student}}</span>)</span>                
                                  </div>
                               </div>
                               <div class="price-course ">
-                                 <span class="price-a" value="{{c.value_new}}">{{c.value_new}}<sup>đ</sup></span>
-                                 <span class="price-b">{{c.value_old}}<sup>đ</sup></span>
+                                 <span class="price-a" value="{{c.value_new}}"><sup></sup></span>
+                                 <span class="price-b"><sup></sup></span>
                               </div>
                            </a>
                            <div id="popover-content" class="pop-course hide">
@@ -96,19 +100,17 @@
                               <div class="cate-course"></div>
                               <div class="time-course">
                                  <ul>
-                                    <li><i class="fa fa-list-alt" aria-hidden="true"></i> 64 bài giảng</li>
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> 06 giờ 22 phút</li>
+                                    <li><i class="fa fa-list-alt" aria-hidden="true"></i> {{c.module_nums}} bài giảng</li>
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> {{c.learn_times}}  phút</li>
                                  </ul>
                               </div>
                               <div class="avatar-gv">
-                                 <!--                <img src="--><?//= isset($teachers->Image) ? $teachers->Image : '' ?><!--" alt="">-->
-                                 <span><b>Hồ Ngọc Cương</b></span>
+                                 <span><b>{{c.own_teacher.fullname}}</b></span>
                               </div>
-                              <div class="des-gv-pop">Freelancer Facebook Marketing</div>
+                              <div class="des-gv-pop">{{c.tag.tag}}</div>
                               <div class="des-course">
-                                 Trọn bộ khoá học facebook marketing online từ a-z hướng dẫn chuyên sâu về quảng cáo facebook giúp bạn có các chiến lược facebook marketing hoàn hảo - tự chạy quảng cáo chuyên nghiệp.            
+                                 {{c.description}}           
                               </div>
-                              <a onclick="addcart(this)" data-id="hWDi7CFNGizLc7IN7AhGcA%3D%3D" class="btn-add-cart" href="javascript:void(0)">THÊM VÀO GIỎ HÀNG</a>
                            </div>
                         </div>
                      </li>
@@ -118,13 +120,6 @@
             </div>
             <div class="u-number-page">
                <ul class="pagination">
-                  <li class="prev disabled"><span>&laquo;</span></li>
-                  <li class="active"><a href="marketing.html?page=1" data-page="0">1</a></li>
-                  <li><a href="marketing4658.html?page=2" data-page="1">2</a></li>
-                  <li><a href="marketing9ba9.html?page=3" data-page="2">3</a></li>
-                  <li><a href="marketingfdb0.html?page=4" data-page="3">4</a></li>
-                  <li><a href="marketingaf4d.html?page=5" data-page="4">5</a></li>
-                  <li class="next"><a href="marketing4658.html?page=2" data-page="1">&raquo;</a></li>
                </ul>
             </div>
             

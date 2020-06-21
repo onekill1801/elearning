@@ -47,7 +47,7 @@
                                                       <div class="rate-combo">
                                                         <div class="row">
                                                           <div class="col-sm-4 ">
-                                                            Đánh giá khoa hoc:
+                                                            Đánh giá khóa học:
                                                           </div>
                                                            <form action="{% url 'rate_view' c.id %}" method="POST">
                                                             {% csrf_token %}
@@ -66,9 +66,6 @@
                                                       </div>
                                                    </div>
                                                    <div class="price-combo">
-                                                      <div class="price-combo-a">{{c.value_old}}<sup>đ</sup></div>
-                                                      <div class="price-combo-b">{{c.value_new}}<sup>đ</sup></div>
-                                                      <div class="price-combo-c">(-25%)</div>
                                                    </div>
                                                 </div>
                                              </li>

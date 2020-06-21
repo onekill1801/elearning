@@ -1,0 +1,18 @@
+.print-page,.print-page-hide.pr-attempt {
+        /*display: none;*/
+        opacity: 0;
+        visibility: hidden;
+        height: 1px;
+        overflow: hidden;
+}
+
+page[size="A4"] {
+        padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .print-wrapp {
+        display: none !important;
+    }
+}

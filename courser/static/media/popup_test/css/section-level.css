@@ -1,0 +1,377 @@
+.sl-lvbar {
+    list-style: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.sl-lvbar li {
+    display: inline-block;
+    float: left;
+    width: 141px;
+    position: relative;
+}
+
+.sl-lvbar.slvideo li {
+    width: 109px;
+}
+
+.sl-lvbar li:first-child {
+    width: 112px;
+}
+
+.sl-lvbar.slvideo li:first-child {
+    width: 112px;
+}
+
+.sl-lvbar li:first-child span {
+    background: #a6a6a6;
+    color: white;
+}
+
+.sl-lvbar li a, .sl-lvbar li span {
+    background: #e6e6e6;
+    width: 100%;
+    height: 40px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+    border-right: 1px solid #cccccc;
+    display: inline-block;
+}
+
+.sl-lvbar.slvideo li a, .sl-lvbar.slvideo li span {
+    height: 33px;
+    line-height: 33px;
+    font-size: 13px;
+}
+
+.sl-lvbar li:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.sl-lvbar.slvideo li:before {
+    top: 8px;
+}
+
+.sl-lvbar ul li:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background: url("../images/level/lock.png") no-repeat;
+    width: 18px;
+    height: 19px;
+    top: 12px;
+    right: 10px;
+}
+
+.sl-lvbar.slvideo ul li:after {
+    background: url("../images/level/locks.png") no-repeat;
+    width: 14px;
+    height: 15px;
+    top: 10px;
+    right: 5px;
+}
+
+.sl-lvbar ul li.active:after {
+    background: url("../images/level/open.png") no-repeat;
+    width: 18px;
+    height: 19px;
+}
+
+.sl-lvbar ul li.active:after {
+    background: url("../images/level/opens.png") no-repeat;
+    width: 14px;
+    height: 15px;
+}
+
+.sl-lvbar li:nth-child(1):after {
+    display: none;
+}
+
+.sl-lvbar li.list-sl-lvbar li:nth-child(1):before {
+    background: url("../images/level/level1.png") no-repeat;
+    width: 20px;
+    height: 21px;
+}
+
+.sl-lvbar li.list-sl-lvbar li:nth-child(2):before {
+    background: url("../images/level/level2.png") no-repeat;
+    width: 17px;
+    height: 25px;
+}
+
+.sl-lvbar li.list-sl-lvbar li:nth-child(3):before {
+    background: url("../images/level/level3.png") no-repeat;
+    width: 17px;
+    height: 25px;
+}
+
+.sl-lvbar li.list-sl-lvbar li:nth-child(4):before {
+    background: url("../images/level/level4.png") no-repeat;
+    width: 16px;
+    height: 25px;
+}
+
+.sl-lvbar.slvideo li:nth-child(2):before {
+    background: url("../images/level/level1s.png") no-repeat;
+    width: 16px;
+    height: 17px;
+    left: 5px;
+}
+
+.sl-lvbar.slvideo li:nth-child(3):before {
+    background: url("../images/level/level2s.png") no-repeat;
+    width: 14px;
+    height: 20px;
+}
+
+.sl-lvbar.slvideo li:nth-child(4):before {
+    background: url("../images/level/level3s.png") no-repeat;
+    width: 14px;
+    height: 18px;
+}
+
+.sl-lvbar.slvideo li:nth-child(5):before {
+    background: url("../images/level/level4s.png") no-repeat;
+    width: 13px;
+    height: 20px;
+}
+
+#sectionLevelModal .modal-dialog {
+    width: 720px;
+}
+
+#sectionLevelModal .modal-content {
+    border-radius: 10px;
+}
+
+#sectionLevelModal .modal-body {
+    border-top: none;
+    text-align: center;
+}
+
+#sectionLevelModal .inner-body {
+    padding: 0 60px 15px 60px;
+}
+
+#sectionLevelModal .inner-body:before {
+    content: '';
+    position: relative;
+    background: url("../images/level/medal.png") no-repeat;
+    width: 170px;
+    height: 175px;
+    display: block;
+    margin: 0 auto;
+    margin-top: -65px;
+}
+
+#sectionLevelModal h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f3f3f;
+    margin-top: 25px;
+}
+
+#sectionLevelModal h3 span {
+    color: #ff5a00;
+}
+
+#sectionLevelModal h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1570b0;
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+#sectionLevelModal .msg-wrap {
+    margin-bottom: 30px;
+}
+
+#sectionLevelModal .msg {
+    font-size: 18px;
+    color: #404040;
+    margin-bottom: 8px;
+    padding: 0 20px;
+}
+
+#sectionLevelModal .msg:before {
+    content: '';
+    position: absolute;
+    left: 78px;
+    background: url("../images/level/arrow-orange.png") no-repeat;
+    width: 14px;
+    height: 17px;
+    display: inline-block;
+}
+
+.sl-btnround {
+    width: 138px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 20px;
+    background: #404041;
+    color: white;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+.sl-btnround:hover {
+    color: white;
+}
+
+.sl-btnround i.fa {
+    position: relative;
+    font-family: FontAwesome;
+    left: -19px;
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    color: #404041;
+    line-height: 30px;
+}
+
+.btn-sl {
+    width: 138px;
+    height: 43px;
+    display: inline-block;
+    line-height: 45px;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    background: #2a70b8;
+    position: relative;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.btn-sl.btns2 {
+    width: 205px;
+}
+
+.btn-sl:hover, .btn-sl:focus {
+    color: white;
+}
+
+.btn-sl.sl-orange{
+    background: #ff7a03;
+}
+
+.sl-ignoreCheck {
+    margin-right: 20px;
+    padding-left: 35px;
+}
+
+.btn-sl:after {
+    font-family: 'FontAwesome';
+    font-size: 22px;
+    position: absolute;
+    right: 15px;
+}
+
+.sl-startCheck.btn-sl:after {
+    content: '\f061';
+}
+
+.sl-ignoreCheck.btn-sl:after {
+    content: '\f00d';
+}
+
+#sectionCheckedModal .modal-dialog {
+    width: 705px;
+}
+
+#sectionCheckedModal .inner-body {
+    padding: 15px 30px 10px 30px;
+}
+
+#sectionCheckedModal h3 {
+    margin: 0 0 40px 0;
+}
+
+.slRepeat {
+    margin-right: 15px;
+    padding-left: 40px;
+}
+
+.slRepeat.btn-sl:after {
+    content: '\f01e';
+    right: 30px;
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    font-size: 20px;
+}
+
+.slNextLevel.btn-sl:after {
+    content: '\f061';
+}
+
+#registerPackageModal button.close {
+    color: white;
+    opacity: 1;
+}
+
+#registerPackageModal .modal-title {
+    font-weight: bold;
+}
+
+#registerPackageModal .modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+#registerPackageModal .rp-message {
+    font-size: 16px;
+    margin: 0 auto 30px auto;
+}
+
+#registerPackageModal .rp-btn a:hover, #registerPackageModal .rp-btn a:focus {
+    color: white;
+}
+
+.sl-lvbar .list-sl-lvbar li:nth-child(1):after {
+    display: block;
+}
+
+.list-sl-lvbar ul{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    padding-left: 0;
+}
+.list-sl-lvbar ul li,.list-sl-lvbar ul li:first-child{
+    width: 100%;
+}
+.list-sl-lvbar{
+    width:  calc(100% - 112px) !important;
+}
+@media only screen and (max-width: 975px) {
+    .list-sl-lvbar{
+        width:  calc(100% - 100px) !important;
+    }
+    .sl-lvbar li:first-child,.sl-lvbar.slvideo li:first-child{
+        width: 100px !important;
+    }
+}
+@media only screen and (max-width: 925px) {
+    .sl-lvbar li:after{
+        background-size: 100%;
+        top: 15px;
+        width: 13px;
+        height: 14px;
+    }
+    .sl-lvbar li a{
+        text-indent: -99999px;
+    }
+}

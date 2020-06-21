@@ -7,7 +7,6 @@
          <div class="container">
             <div class="breadcumb-detail-course">
                <a href="{% url 'home-view' %}" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
-               <a href="course/marketing.html">Marketing</a> <i class="fa fa-angle-double-right"></i>
                {{course.title}}        
             </div>
             <div class="u-detail-block-title">
@@ -48,11 +47,11 @@
          <div class="container">
             <div class="row">
                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                  <input type="text"  class="form-control" name="video_ins" value="{{course.video_ins}}">
+                  <input type="hidden"  class="form-control" name="video_ins" value="{{course.video_ins}}">
                   <div class="u-detail-block-left">
                      <div class="u-video">
                         <div class="embed-responsive embed-responsive-16by9">
-                           <iframe class="embed-responsive-item img-responsive" src="https://www.youtube.com/embed/67yTJR9fnlY?rel=0&amp;showinfo=0" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
+                           <iframe class="embed-responsive-item img-responsive" src="{{course.video_ins}}" width="100%" height="auto" scrolling="no" frameborder="0" allowfullscreen="">
                            </iframe>
                         </div>
                      </div>
@@ -75,55 +74,66 @@
                         {{course.overview}}
                      </div>
                      <div class="u-list-course" id="u-list-course">
-                        <h2>Danh Sach Nội dung khóa học</h2>
+                        <h2>Danh sách nội dung khóa học</h2>
                         <div class="content">
                            <div class="panel-group" id="accordion">
                               <div class="panel panel-default">
                                  <!-- phần -->
-                                 {% for m in modules %}
-                                 {% if  m.module_level == 0 %}
-                                 <div class="panel-heading">
+            {% for m in modules %}
+               {% if  m.module_level == 0 %}
+                  <div class="panel-heading">
+                     <div class="row">
+                        <div class="col-md-8">
+                           <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{m.id}}" class="" aria-expanded="true">
+                              <i class="fa fa-minus-square" aria-hidden="true"></i>
+                              {{ m.title }}
+                              </a>
+                           </h4>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                     </div>
+                  </div>
+                        <div id="#collapse{{m.id}}" class="panel-collapse collapse in " aria-expanded="true">
+                  {% for n in modules %}
+                     {% if n.module_level == m.id %}
+                           <div class="panel-body">
+                              <div class="col">
+                                 <div class="container-fluid">
                                     <div class="row">
-                                       <div class="col-md-12">
-                                          <h4 class="panel-title">
-                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{m.id}}" class="" aria-expanded="true">
-                                             <i class="fa fa-minus-square" aria-hidden="true"></i>
-                                             {{ m.title }}
+                                       <div class="col-xs-5 col-md-8">
+                                          <div class="title">
+                                             <a>
+                                             <i class="fa fa-play-circle" aria-hidden="true"></i>
+                                             {{n.description}}
                                              </a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 {% else %}
-                                 <div id="#collapse{{m.id}}" class="panel-collapse collapse in " aria-expanded="true">
-                                    <div class="panel-body">
-                                       <div class="col">
-                                          <div class="container-fluid">
-                                             <div class="row">
-                                                <div class="col-xs-5 col-md-8">
-                                                   <div class="title">
-                                                      <a>
-                                                      <i class="fa fa-play-circle" aria-hidden="true"></i>
-                                                      {{m.description}}
-                                                      </a>
-                                                   </div>
-                                                </div>
-                                                <div class="col-xs-4 col-md-2">
-                                                   <div class="link">
-                                                      &nbsp;
-                                                      <a class="btn-preview" href="javascript:void(0)" onclick="show_video('https://www.youtube.com/embed/7ZWRO7QGja4');">Vào học</a>
-                                                   </div>
-                                                </div>
-                                                <div class="col-xs-3 col-md-2">
-                                                   <div class="time">00:04:15</div>
-                                                </div>
-                                             </div>
                                           </div>
                                        </div>
+                                       <div class="col-xs-5 col-md-2">
+                                          <div class="link">
+                                             &nbsp;
+                                             {% if n.type_module == 0 %}
+                                                <a class="btn-preview" href="javascript:void(0)" onclick="show_video('{{n.url}}');">Vào học</a>
+                                             {% else %}
+                                                <a class="btn-preview" href="javascript:void(0)" onclick="show_test({{course.id}}, {{n.id}});">Kiểm tra</a>
+                                             {% endif %}
+                                          </div>
+                                       </div>
+                                       <div class="col-xs-2 col-md-2">
+                                          {% if n.type_module != 0 %}
+                                             <div class="time">{{n.point}}</div>
+                                          {% endif %}
+                                       </div>
                                     </div>
                                  </div>
-                                 {% endif %}
-                                 {% endfor %}
+                              </div>
+                           </div>
+                     {% endif %}
+                  {% endfor %}
+                        </div>
+               {% endif %}
+            {% endfor %}
                               </div>
                            </div>
                         </div>
@@ -138,9 +148,7 @@
                      <div class="block-buy">
                         <div class="u-sm-left">
                            <div class="block-price">
-                              <span class="big-price">199,000<sup>đ</sup></span><span class="small-price">600,000<sup>đ</sup></span><span class="discount-price" data-percent="67">-67%</span>
                            </div>
-                           <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
                            <div class="block-btn">
                      {% if type %}
                         {% if is_enroll == '0' %}
@@ -149,11 +157,9 @@
                         <a course_id="" href="{% url 'enroll_view' course.id request.session.id %}" class="btn-buy-course">Hủy đăng ký học</a>
                         {% endif %}
                      {% else %}
-                     <a course_id="" href="{% url 'login-view' %}" class="btn-buy-course">Đăng ký học</a>
+                        <a course_id="" href="{% url 'login-view' %}" class="btn-buy-course">Đăng ký học</a>
                      {% endif %}
-                              <a data-id="" href="javascript:void(0)" onclick="addcart(this)" class="btn-cart-course btn-add_cart">
-                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
-                              <p>Hoàn tiền trong 7 ngày nếu không hài lòng</p>
+                              <p></p>
                            </div>
                         </div>
                         <div class="u-sm-right">
@@ -161,15 +167,12 @@
                               <ul style="margin-left: 0">
                                  <li>
                                     <i class="fa fa-clock-o" aria-hidden="true"></i> Thời lượng:
-                                    <p>02 giờ 34 phút</p>
+                                    <p>{{course.learn_times}} phút</p>
                                  </li>
                                  <li>
                                     <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
-                                    <p>16 bài giảng</p>
+                                    <p>{{course.module_nums}}  bài giảng</p>
                                  </li>
-                                 <li><i class="fa fa-history" aria-hidden="true"></i> Sở hữu khóa học trọn đời</li>
-                                 <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
-                                 <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
                               </ul>
                               
                               <div class="clearfix"></div>
@@ -188,57 +191,103 @@
 {% block tag_video %}
    <div class="" id="backgroup-image"></div>
 
-   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;" id="video_table"  onclick="do_click()">
+   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;" id="video_table">
+      
        <div class="modal-dialog modal-lg" style="margin-top:80px;" >
-           <div class="modal-content"  onmouseout="out_mouse()">
-               <div class="content_preview"></div>
+         <div><button onclick="hidePopup()" style="margin-left: 849px;height: 22px;" ><i class="fa fa-sign-out" aria-hidden="true"></i></button></div>
+           <div class="modal-content">
+
+               <div class="content_preview" style='width="900"; height="500";' id="video_tag"></div>
            </div>
        </div>
    </div>
+
+   <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;" id="test_table"  >
+       <div class="modal-dialog modal-lg" style="margin-top:80px;" >
+           <div class="modal-content" >
+               <div class="content_preview" style='width="900"; height="500";' >
+                  <div><button onclick="hidePopupTest()" style="margin-left: 849px;height: 22px;" ><i class="fa fa-sign-out" aria-hidden="true"></i></button></div>
+                  <div class="">
+                     <div class="pr-test-logo">
+                      <div class="pr-logo">
+                         <img src="">
+                      </div>
+                     </div>
+                     <div class="pr-a-title">
+                      <h1 style="padding-top: 15px;">Bài tập tự luyện</h1>
+                      <h2 class="test-page-title">Luyện tập kiến thức</h2>
+                     </div>
+                     <input type="hidden" id="changepage" name="changepage" value="false">
+                     <form action="{% url 'mark_Couse' %}" method="POST" >
+                        {% csrf_token %}
+                        <div id="form_test"></div>
+                        <div class="container"><button type="submit">Nộp bài</button></div>
+                     </form>
+                  </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   
 {% endblock tag_video %}
 
 {% block javascript_course %}
    <script>
       function show_video(url) {
-         // debugger;
-         url = "https://www.youtube.com/embed/7ZWRO7QGja4";
-         $('#backgroup-image').addClass("modal-backdrop fade in");
-         $('body').css("padding-right: 17px");
-         $('body').addClass('modal-open');
-         $('#video_table').addClass("modal fade bs-example-modal-lg in");
-         $('#video_table').css('display','block');
-         // $('#video_table').style.display = 'block';
-         data = '<iframe width="900" height="500" src="'+url+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-         $('.content_preview').empty().append(data);
-      }
-      function show_test(url) {
-         // debugger;
          // url = "https://www.youtube.com/embed/7ZWRO7QGja4";
-
          $('#backgroup-image').addClass("modal-backdrop fade in");
          $('body').css("padding-right: 17px");
          $('body').addClass('modal-open');
          $('#video_table').addClass("modal fade bs-example-modal-lg in");
          $('#video_table').css('display','block');
-         // $('#video_table').style.display = 'block';
-         data = '<h1>Bai Kiem Tra</h1><h1>NopBai</h1>';
-         $('.content_preview').empty().append(data);
+         data = '<iframe width="900" height="500" src="'+url+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+         $('#video_tag').empty().append(data);
       }
-      var index = 0;
-      function out_mouse() {
-         index = 0;
+      function hidePopup() {
+         $('#backgroup-image').removeClass();
+         $('body').removeAttr( 'style' );
+         $('body').removeClass();
+         $('#video_table').removeClass();
+         $('#video_table').addClass("modal fade bs-example-modal-lg");
+         $('#video_table').css('display','none');
+         $('.content_preview').empty()
       }
-      function do_click() {
-         index ++;
-         if (index == 2) {
-            $('#backgroup-image').removeClass();
-            $('body').removeAttr( 'style' );
-            $('body').removeClass();
-            $('#video_table').removeClass();
-            $('#video_table').addClass("modal fade bs-example-modal-lg");
-            $('#video_table').css('display','none');
-            $('.content_preview').empty()
-         }
+
+      function show_test(c_id, m_id) {
+         $.ajax({
+            url : "{% url 'ajax_test' %}",
+            type : 'GET',
+            data : {
+               "c_id": c_id,
+               'm_id': m_id
+            },
+            success : function (response) {
+               data = response['x1'];
+               show_xxx(data);
+            },
+            error: function (response) {
+                alert('error ajax');
+            }
+         });
+      }
+      function show_xxx(res_data) {
+         $('#backgroup-image').addClass("modal-backdrop fade in");
+         $('body').css("padding-right: 17px");
+         $('body').addClass('modal-open');
+         $('#test_table').addClass("modal fade bs-example-modal-lg in");
+         $('#test_table').css('display','block');
+         data = res_data;
+         $('#form_test').empty().append(data);
+      }
+
+      function hidePopupTest() {
+         $('#backgroup-image').removeClass();
+         $('body').removeAttr( 'style' );
+         $('body').removeClass();
+         $('#test_table').removeClass();
+         $('#test_table').addClass("modal fade bs-example-modal-lg");
+         $('#test_table').css('display','none');
+         $('#form_test').empty()
       }
    </script>
 {% endblock javascript_course %}

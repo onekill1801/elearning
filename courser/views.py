@@ -4,6 +4,7 @@ from django.views.generic.base import View
 from .forms import *
 from .models import *
 from datetime import datetime
+from django.http import JsonResponse
 
 menuBar = {
 	'menu_subjects' : Subject.objects.all(),
@@ -11,7 +12,6 @@ menuBar = {
 }
 
 def demo(request):
-	# import pdb; pdb.set_trace()
 	content = {
 		'user' : Teacher.objects.filter(id=request.session['id'])[0],
 		'subjects' : Subject.objects.all(),
@@ -23,6 +23,229 @@ def demo(request):
 	return render(request, 'guest/list_course.html', content)
 def demo1(request):
 	return render(request, 'courserview/demo.html')
+# Phan loai danh muc menu
+def search(request):
+	k = request.GET.get('key')
+	try:
+		if request.session['type'] == '1':
+			user = Student.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(title__contains=k),
+				'count' : Course.objects.filter(title__contains=k).count()
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+		else:
+			user = Teacher.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(title__contains=k),
+				'count' : Course.objects.filter(title__contains=k).count()
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+	except Exception as e:
+		content = {
+			'courses' : Course.objects.filter(title__contains=k),
+			'count' : Course.objects.filter(title__contains=k).count()
+		}
+		content.update(menuBar)
+		return render(request, 'guest/list_course.html',content)
+
+def listCourseSubject(request, subject_id):
+	try:
+		sub = Subject.objects.filter(id=subject_id)[0]
+		tags = Tag.objects.filter(subject=sub)
+		if request.session['type'] == '1':
+			user = Student.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(tag__in=tags),
+				'count' : Course.objects.filter(tag__in=tags).count(),
+				'tags' : tags
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+		else:
+			user = Teacher.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(tag__in=tags),
+				'count' : Course.objects.filter(tag__in=tags).count(),
+				'tags' : tags
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+	except Exception as e:
+		sub = Subject.objects.filter(id=subject_id)[0]
+		tags = Tag.objects.filter(subject=sub)
+		content = {
+			'courses' : Course.objects.filter(tag__in=tags),
+			'count' : Course.objects.filter(tag__in=tags).count(),
+			'tags' : tags
+		}
+		content.update(menuBar)
+		return render(request, 'guest/list_course.html',content)
+
+def listCourseTag(request, tag_id):
+	try:
+		tag = Tag.objects.filter(id=tag_id)[0]
+		if request.session['type'] == '1':
+			user = Student.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(tag=tag),
+				'count' : Course.objects.filter(tag=tag).count(),
+				'tags' : Tag.objects.filter(id=tag_id)
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+		else:
+			user = Teacher.objects.filter(id=request.session['id'])[0]
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'courses' : Course.objects.filter(tag=tag),
+				'count' : Course.objects.filter(tag=tag).count(),
+				'tags' : Tag.objects.filter(id=tag_id)
+			}
+			content.update(menuBar)
+			return render(request, 'guest/list_course.html',content)
+	except Exception as e:
+		tag = Tag.objects.filter(id=tag_id)[0]
+		content = {
+			'courses' : Course.objects.filter(tag=tag),
+			'count' : Course.objects.filter(tag=tag).count(),
+			'tags' : Tag.objects.filter(id=tag_id)
+		}
+		content.update(menuBar)
+		return render(request, 'guest/list_course.html',content)
+# Ham don xu ly get req cua student
+# Tao bai kiem tra
+def getTest(request):
+	formHeader = """
+	
+		<input type="hidden" name="m_id" value="{}">
+		<input type="hidden" name="list_quests" value="{}">
+	"""
+	formBody = """
+	<div class="que multichoice clearfix">
+	    <div class="info">
+	        <span class="firstletter">{}</span>
+	    </div>
+	    <div class="content">
+	        <div class="qtext">
+	            <div style="text-align: justify;">{}</div>
+	        </div>
+	        <div class="ablock clearfix">
+	            <div class="prompt">
+	            </div>
+	            <table class="answer">
+	                <tbody>
+	                    <tr class="r0">
+	                        <td class="c0 control ">
+	                            <input " name="{}" type="radio" value="{}" >            
+	                        </td>
+	                        <td class="c1 text ">
+	                            <label  style="padding-top: 2px;" >
+	                            <span class="under_an">A</span>. {}.<br></label>
+	                        </td>
+	                    </tr>
+	                    <tr class="r1">
+	                        <td class="c0 control ">
+	                            <input " name="{}" type="radio" value="{}" >          
+	                        </td>
+	                        <td class="c1 text ">
+	                            <label  style="padding-top: 2px;" >
+	                            <span class="under_an">B</span>. {}.</label>
+	                        </td>
+	                    </tr>
+	                    <tr class="r0">
+	                        <td class="c0 control ">
+	                            <input " name="{}" type="radio" value="{}" >            
+	                        </td>
+	                        <td class="c1 text ">
+	                            <label  style="padding-top: 2px;" >
+	                            <span class="under_an">C</span>. {}.</label>
+	                        </td>
+	                    </tr>
+	                    <tr class="r1">
+	                        <td class="c0 control ">
+	                            <input " name="{}" type="radio" value="{}" >            
+	                        </td>
+	                        <td class="c1 text ">
+	                            <label  style="padding-top: 2px;"  >
+	                            <span class="under_an">D</span>. {}.<br></label>
+	                        </td>
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	</div>
+	<br>
+	"""
+		
+	formFooter  =  """
+		 """
+	s = ''
+	l_q = ''
+	if request.is_ajax and request.method == "GET":
+		c_id = request.GET.get('c_id')
+		m_id = request.GET.get('m_id')
+		course=Course.objects.filter(id=c_id)[0]
+		index = 1
+		for quest in Quests.objects.filter(course=course):
+			listAnsID = []
+			dict_ans = {}
+			for ans in Answers.objects.filter(quest=quest):
+				listAnsID.append(ans.id)
+				dict_ans[ans.id] = ans.answer
+			listAnsID = sorted(listAnsID,reverse=True)
+			s += formBody.format(
+					index,quest.detail, 'q'+str(quest.id),listAnsID[0],dict_ans[listAnsID[0]],
+										'q'+str(quest.id),listAnsID[1],dict_ans[listAnsID[1]],
+										'q'+str(quest.id),listAnsID[2],dict_ans[listAnsID[2]],
+										'q'+str(quest.id),listAnsID[3],dict_ans[listAnsID[3]]
+				)
+			index = index + 1
+			l_q += str(quest.id) + ','
+		formHeader = formHeader.format(m_id,l_q[:-1])
+		content = {
+			"x1": formHeader + s +formFooter
+		}
+		return JsonResponse(content, status = 200)
+	else:
+		return JsonResponse({"error": form.errors}, status=400)
+
+# Cham bai kiem tra
+def markCouse(request):
+	l = request.POST.get('list_quests')
+	l_quests = l.split(',')
+	mark = 0
+	for q_id in l_quests:
+		quest = Quests.objects.filter(id=q_id)[0]
+		c_id = quest.course.id
+		if quest.id_answer == int(request.POST.get('q'+str(q_id))):
+			mark += 1
+	module = Module.objects.filter(id=request.POST.get('m_id'))[0]
+	module.point = str(mark) + '/' + str(len(l_quests))
+	module.save()
+	content = {
+		'user' : Student.objects.filter(id=request.session['id'])[0],
+		'result' : str(mark) + '/' + str(len(l_quests)),
+		'c_id' : c_id
+	}
+	content.update(menuBar)
+	return render(request, 'teacher/testResults.html',content)
+	# return HttpResponse("<h1>This is your point: " + str(mark))
+
 # Ham don xu ly get req cua teacher
 def delete_course(request, c_id):
 	try:
@@ -77,7 +300,85 @@ def update_module(request, m_id):
 		lv_module.module_level = request.POST.get('par_module', '')
 	lv_module.save()
 	return redirect('full_course', c_id=cour_id)
+
+# Quan ly ngan hang cau hoi.
+class QuestionManagement(View):
+	def get(self, request, c_id):
+		try:
+			user = Teacher.objects.filter(id=request.session['id'])[0]
+			course=Course.objects.filter(id=c_id)[0]
+			q = Quests.objects.filter(course=course)
+			if q:
+				q_1 = q[0].id
+			else:
+				q_1 = None
+			content = {
+				'user' : user,
+				'type' : request.session['type'],
+				'c_id' : c_id,
+				'quests' : q,
+				'answers' : Answers.objects.filter(quest=q_1)
+			}
+			content.update(menuBar)
+			return render(request, 'teacher/createTest.html',content)
+		except Exception as e:
+			return render(request, '404.html')
+
+	def post(self, request, c_id):
+		course = Course.objects.filter(id=c_id)[0]
+		quest  = Quests()
+		quest.teacher = Teacher.objects.filter(id=request.session['id'])[0]
+		quest.course = course
+		quest.detail = request.POST.get('quest_name')
+		quest.save()
+		for x in range(0,4):
+			answer_temp = Answers()
+			answer_temp.quest = quest
+			s = 'answer_' + str(x)
+			answer_temp.answer = request.POST.get(s)
+			if s == 'answer_0':
+				answer_temp.type_answer = 1
+			answer_temp.save()
+			if s == 'answer_0':
+				quest.id_answer = answer_temp.id
+		quest.save()
+		return redirect('question_m_view', c_id=c_id )
+
+def delete_question(request, q_id):
+	q = Quests.objects.filter(id=q_id)[0]
+	c_id_old = q.course.id
+	q.delete()
+	return redirect('question_m_view' , c_id=c_id_old)
 	
+def ajax_edit_question(request):
+	if request.is_ajax and request.method == "GET":
+		q_id = request.GET.get('q_id')
+		q_2 = Quests.objects.filter(id=q_id)[0] 
+		q = Quests.objects.filter(id=q_id).values()
+		ans = Answers.objects.filter(quest=q_2).values()
+		content = {
+			'quest' : list(q),
+			'anss' : list(ans) 
+		}
+	return JsonResponse(content, status = 200)
+
+def update_question(request):
+	if request.POST.get('quest_id', None):
+		q_edit = Quests.objects.filter(id=request.POST.get('quest_id', None))[0]
+		q_edit.detail = request.POST.get('quest_name', None)
+		c_id_old = q_edit.course.id
+		q_edit.save()
+		index = 1
+		for a_edit in Answers.objects.filter(quest=q_edit):
+			if a_edit.type_answer != 0: 
+				a_edit.answer = request.POST.get('answer_0', None)
+			else: 
+				s = 'answer_' + str(index)
+				index = index + 1
+				a_edit.answer = request.POST.get(s, None)
+			a_edit.save()
+		return redirect('question_m_view' , c_id=c_id_old)
+
 # Xu ly voi views moi
 class C_Subject(View):
 	def get(self ,request):
@@ -197,6 +498,7 @@ class C_CourseFull(View):
 			module1.title = str(request.POST.get('par_module')) + str(datetime.now())
 			module1.module_level = request.POST.get('par_module')
 			module1.url = request.POST.get('url')
+			module1.type_module = request.POST.get('type_module')
 			module1.save()
 			return redirect('full_course', c_id=c_id )
 		else:

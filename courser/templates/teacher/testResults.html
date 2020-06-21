@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<main style="margin-top: 42px;">
+		<div class="container">
+			<h1>Kết quả bài kiểm tra</h1>
+			<div>Kết quả của bạn: {{result}}</div>
+			<button><a href="{% url 'show_course' c_id%}"> Quay lại</a></button>
+		</div>
+	</main>
+{% endblock content %}

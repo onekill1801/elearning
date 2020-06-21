@@ -9,7 +9,6 @@
 
          <div class="breadcumb-detail-course">
             <a href="{% url 'home-view' %}" >Trang chủ</a> <i class="fa fa-angle-double-right"></i>
-            <a href="course/marketing.html">Marketing</a> <i class="fa fa-angle-double-right"></i>
             {{course.title}}        
          </div>
          <div class="u-detail-block-title">
@@ -79,6 +78,9 @@
 </form>
                   <div class="u-list-course" id="u-list-course">
                      <h2>Tạo Module</h2>
+                     <div class="form-group">
+                        <a href="{% url 'question_m_view' course.id %}"><button class="btn btn-success">Quản lý ngân hàng câu hỏi </button></a>
+                     </div>
                      <div class="content">
                         <div class="panel-group" id="accordion1">
                            <div class="panel panel-default">
@@ -123,6 +125,16 @@
                                        <label>Tạo tên bài học  </label>
                                        <input type="text" class="form-control" name="module_lv1" value="">
                                        {% endif %}
+                                       <p class="help-block help-block-error"></p>
+                                    </div>
+                                 </div>
+                                 <div class="form-group">
+                                    <label></label>
+                                    <div class="form-group field-muser-gender required">
+                                       <select  class="form-control" name="type_module">
+                                          <option value="0" selected>Bài học</option>
+                                          <option value="1">Bài kiểm tra</option>
+                                       </select>
                                        <p class="help-block help-block-error"></p>
                                     </div>
                                  </div>
@@ -213,7 +225,7 @@
                                           </div>
                                        </div>
                                        <div class="col-xs-2 col-md-1">
-                                          <div class="time">00:00:00</div>
+                                          <div class="time"></div>
                                        </div>
                                     </div>
                                  </div>
@@ -238,11 +250,7 @@
                   <div class="block-buy">
                      <div class="u-sm-left">
                         <div class="block-price">
-                           <span class="big-price">199,000<sup>đ</sup></span>
-                           <span class="small-price">600,000<sup>đ</sup></span>
-                           <span class="discount-price" data-percent="67">-67%</span>
                         </div>
-                        <div class="time-uudai"><i class="fa fa-tachometer" aria-hidden="true"></i> Thời gian ưu đãi còn 1 ngày</div>
                      </div>
                      <div class="u-sm-right">
                         <div class="block-ulti">
@@ -255,9 +263,6 @@
                                  <i class="fa fa-play-circle" aria-hidden="true"></i> Giáo trình:
                                  <p>16 bài giảng</p>
                               </li>
-                              <li><i class="fa fa-history" aria-hidden="true"></i> Sở hữu khóa học trọn đời</li>
-                              <li><i class="fa fa-certificate" aria-hidden="true"></i> Cấp chứng nhận hoàn thành</li>
-                              <li><i class="fa fa-percent" aria-hidden="true"></i>Giảm thêm <b>10%</b> khi thanh toán online</li>
                            </ul>
                            <div class="clearfix"></div>
                         </div>

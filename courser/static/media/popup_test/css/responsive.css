@@ -1,0 +1,757 @@
+@media only screen and (max-width: 768px) {
+    /* hide mobile */
+    .pr-icon, .pr-menu-top .pr-sidebar, .nav1 li .n1-d, .nav1 a i, .pr-block-head .title:before,
+    .pr-test-logo, .prt-d, #pr-feedback-btn, .pr-menu-left, .date-filter .date, .pr-part3,
+    .csubject-m, .pr-other-title, .pr-test-question, .pr-test-other {
+        display: none;
+    }
+
+    /* show mobile */
+    .nav1 li .n1-m, .prt-m, .pr-quick-box, .pr-subject, .dfilter, .pr-view-more {
+        display: block;
+    }
+
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pr-heading {
+        margin-top: 30px;
+    }
+
+    .pr-heading h1 {
+        font-size: 26px;
+    }
+
+    .pr-heading h2 {
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .nav1 a {
+        font-size: 13px;
+    }
+
+    .pr-course-list li {
+        margin-bottom: 20px;
+    }
+
+    .pr-course-list li .pr-item {
+        margin-top: 0;
+        border-radius: 8px;
+        border-top: 5px solid #0a82c5;
+    }
+
+    .pr-course-list li.subject-27 .pr-item {
+        border-top: 5px solid #0a82c5;
+    }
+
+    .pr-course-list li.subject-29 .pr-item {
+        border-top: 5px solid #ffd641;
+    }
+
+    .pr-course-list li.subject-18 .pr-item {
+        border-top: 5px solid #48c1c3;
+    }
+
+    .pr-course-list li.subject-17 .pr-item {
+        border-top: 5px solid #87226e;
+    }
+
+    .pr-course-list li.subject-22 .pr-item {
+        border-top: 5px solid #27527e;
+    }
+
+    .pr-course-list li.subject-24 .pr-item {
+        border-top: 5px solid #b9d770;
+    }
+
+    .pr-course-list li.subject-23 .pr-item {
+        border-top: 5px solid #f29232;
+    }
+
+    .pr-course-list li.subject-16 .pr-item {
+        border-top: 5px solid #6f4106;
+    }
+
+    .pr-item-title {
+        margin: 10px 0 20px 0;
+        font-size: 22px;
+    }
+
+    .btn-start {
+        display: block;
+        margin: 0 auto 5px auto;
+        width: 132px;
+        height: 38px;
+        line-height: 38px;
+        font-size: 16px;
+    }
+
+    .pr-count {
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .pr-maincol {
+        width: 100%;
+    }
+
+    .nav1 a i {
+        font-size: 13px;
+    }
+
+    .pr-menu-left {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px 0;
+    }
+
+    .menu-hover {
+        padding: 0;
+    }
+
+    .menu-hover li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-hover a {
+        max-width: 80%;
+        display: block;
+        margin: 0 auto;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .content-wr.pr-test {
+        margin-top: 20px;
+    }
+
+    .pr-block-head .title {
+        width: 75%;
+        padding: 10px 0;
+        margin: 0 auto;
+        display: block;
+        font-size: 14px;
+    }
+
+    .pr-block-head .title span {
+        margin: 0;
+    }
+
+    .pr-block-head {
+        width: 90%;
+        margin: 0 auto;
+        border-bottom: 1px solid #e4e4e4;
+    }
+
+    .pr-block-head .button {
+        width: 25%;
+    }
+
+    .bootstrap-switch {
+        margin: 20% 0 0 0;
+    }
+
+    .pr-cta h2 {
+        font-size: 13px;
+        margin: 15px 0;
+    }
+
+    .page-title-summary {
+        height: auto;
+    }
+
+    .test-page-title-summary {
+        font-size: 13px;
+        margin: 15px auto;
+    }
+
+    .pr-exam-overview .test-page {
+        padding: 0;
+    }
+
+    .block-title {
+        margin: 15px auto;
+        width: 80%;
+    }
+
+    .block-title h1 {
+        font-size: 14px;
+    }
+
+    .quiz-overview {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .quiz-overview li {
+        font-size: 10.5px;
+    }
+
+    .quiz-overview li:first-child .qo-label {
+        background: url("../image/res/folder.png") no-repeat;
+        height: 15px;
+        display: inline-block;
+        line-height: 15px;
+    }
+
+    .qo-label {
+        background: url("../image/res/123.png") no-repeat;
+        height: 11px;
+        display: inline-block;
+        padding-left: 30px;
+        line-height: 16px;
+    }
+
+    .quiz-overview li:last-child .qo-label {
+        background: url("../image/res/clock.png") no-repeat;
+        height: 17px;
+        display: inline-block;
+        line-height: 16px;
+    }
+
+    .qo-des {
+        line-height: 15px;
+    }
+
+    .test-continue.btn-primary, .test-new.btn-primary {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .test-continue.btn-primary {
+        background: #f29232;
+    }
+
+    .test-new.btn-primary {
+        background-color: #2b7ab8;
+        border-color: #2b7ab8;
+    }
+
+    .pr-action {
+        width: 80%;
+        margin: 7px auto 0 auto;
+    }
+
+    .hr-line {
+        margin: 20px 0;
+    }
+
+    .go-back .pr-title {
+        font-size: 13px;
+        text-transform: none;
+    }
+
+    .go-back .pr-title a {
+        font-weight: bold;
+    }
+
+    .go-back .pr-title span {
+        font-size: 18px;
+        margin-right: 0;
+    }
+
+    .test-actions {
+        margin-right: 0;
+        width: 130px;
+    }
+
+    .pr-attempt-section .test-actions {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #countdown-container {
+        margin-right: 30px;
+    }
+
+    .pr-container .test-bt {
+        margin: 0;
+        font-size: 11px;
+        padding: 5px 20px;
+    }
+
+    .pr-attempt-exam .test-submit {
+        margin-bottom: 5px;
+    }
+
+    .pr-attempt-exam .test-bt-gray.test-bt {
+        padding: 5px 13px;
+    }
+
+    .test-page {
+        padding: 15px 10px;
+    }
+
+    .test-page-title {
+        font-size: 14px;
+        padding: 0 0 8px;
+    }
+
+    .pr-menu-container {
+        padding: 10px 0;
+    }
+
+    .prs-list-quiz li {
+        padding: 0 10px;
+    }
+
+    .prs-list-quiz li .quiz-title {
+        font-size: 13px;
+        padding-right: 5px;
+    }
+
+    .pr-attempt .que .content {
+        font-size: 11.5px;
+        width: 94%;
+    }
+
+    .test-page-title {
+        margin: 0 0 20px;
+    }
+
+    .pr-a-title .test-page-title {
+        font-size: 13px;
+    }
+
+    .pr-attempt .que .info {
+        font-size: 12px;
+        width: 6%;
+    }
+
+    .que .qtext {
+        margin-bottom: 15px;
+    }
+
+    .result-summary {
+        padding: 15px 0 0 0;
+    }
+
+    .pr-test-result {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .pr-tr-title h1 {
+        font-size: 16px;
+    }
+
+    .result-page .test-page-title {
+        font-size: 13px;
+    }
+
+    .pr-tr-left-block, .pr-tr-right-block {
+        width: 100%;
+    }
+
+    .pr-tr-left-block {
+        margin: 15px auto;
+    }
+
+    .pr-tr-right-block {
+        padding-left: 0;
+    }
+
+    #grade-chart {
+        width: 100%;
+    }
+
+    .pr-test-question {
+        padding: 0;
+    }
+
+    .pr-test-question .que .generalfeedback {
+        font-size: 11.5px;
+    }
+
+    .modal-dialog {
+        width: 96%;
+    }
+
+    .qfeedback-btn {
+        margin-right: 10px;
+    }
+
+    #pr-feedback {
+        width: 90%;
+        margin: 0 auto;
+        left: 0;
+    }
+
+    #pr-feedback label {
+        margin-top: 5px;
+    }
+
+    .scroll-top {
+        display: none !important;
+    }
+
+    .pr-quick-box {
+        position: fixed;
+        bottom: 0;
+        left: 8%;
+        width: 80%;
+        height: 40px;
+        text-align: center;
+        background: white;
+        border: 1px solid #e6e6e6;
+        box-shadow: 2px 2px 2px #f0f0f0;
+    }
+
+    .pr-quick-select {
+        display: inline-block;
+        width: 100%;
+        line-height: 40px;
+        color: #464646;
+    }
+
+    #questionModal .modal-dialog {
+        max-width: 90% !important;
+    }
+
+    #questionModal .modal-content {
+        border-radius: 0;
+    }
+
+    #questionModal .modal-header {
+        border-bottom: none;
+    }
+
+    #questionModal .modal-body {
+        padding: 0;
+    }
+
+    .qu-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        border: 1px solid #eaeaea;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    .qu-close a {
+        color: #464646;
+        display: inline-block;
+        padding-top: 3px;
+    }
+
+    .qu-wr .ab-top {
+        padding-top: 0;
+    }
+
+    .score-item {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px dotted #444444;
+    }
+
+    #pr-stats .pr-block-head {
+        border-bottom: none;
+    }
+
+    .pr-stats-body {
+        padding: 0;
+    }
+
+    .score-item h4 {
+        font-size: 15px;
+        margin: 10px auto 5px auto;
+    }
+
+    .score-item h1 {
+        margin-bottom: 12px;
+        font-size: 60px;
+    }
+
+    .num-item {
+        font-size: 12px;
+    }
+
+    .btn-prsection {
+        font-size: 10px;
+    }
+
+    .pr-stats-bot {
+        margin: 10px auto 20px auto;
+    }
+
+    .pr-part1 {
+        border-top: none;
+        padding-top: 0;
+        margin-bottom: 0;
+    }
+
+    .pr-part2 {
+        width: 76%;
+        margin: 0 auto;
+        padding: 0;
+        border: none;
+    }
+
+    .pr-pa1, .pr-pa2, .pr-pa3 {
+        border-right: none;
+        width: 100%;
+        text-align: left;
+    }
+
+    .pr-pa h4 {
+        font-size: 12px;
+        display: inline-block;
+        font-weight: normal;
+        width: 145px;
+    }
+
+    .pr-pa h1 {
+        font-size: 12px;
+        display: inline-block;
+        color: #444444;
+    }
+
+    .pr-pa h1 .unit {
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: 0;
+    }
+
+    .pr-part3 {
+        padding: 10px 0;
+    }
+
+    .pr-filter .circle {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .pr-filter-wr {
+        width: 100%;
+    }
+
+    .pr-filter {
+        width: 33.33%;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .pr-chart-bot {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary.btn-retest {
+        margin: 0 auto;
+    }
+
+    .choose-subject {
+        width: 46px;
+        height: 46px;
+        background: white;
+        border: 1px solid #e7e7e7;
+        text-align: center;
+    }
+
+    .choose-subject-btn {
+        background: url("../image/res/book.png") no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        padding: 0;
+        text-indent: -9999px;
+        margin-top: 7px;
+    }
+
+    .choose-subject-btn:before {
+        display: none;
+    }
+
+    .pr-test-other-fix .pr-course-list li .pr-item {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .btn-prexam {
+        font-size: 10px;
+    }
+
+    #subjectModal .modal-dialog {
+        max-width: 80% !important;
+    }
+
+    #subjectModal .modal-content {
+        border-radius: 0;
+    }
+
+    #subjectModal .modal-header {
+        border-bottom: none;
+    }
+
+    #subjectModal .modal-body {
+        padding: 0;
+    }
+
+    .su-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        border: 1px solid #eaeaea;
+        text-align: center;
+        border-radius: 50%;
+        z-index: 9999;
+    }
+
+    .su-close a {
+        color: #464646;
+        display: inline-block;
+        padding-top: 3px;
+    }
+
+    .pr-subject {
+        width: 46px;
+        height: 46px;
+        background: white;
+        border: 1px solid #e7e7e7;
+        text-align: center;
+    }
+
+    .pr-subject-btn {
+        background: url("../image/res/book.png") no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        padding: 0;
+        text-indent: -9999px;
+        margin-top: 7px;
+    }
+
+    #subjectModal .menu-hover a {
+        font-size: 13px;
+        max-width: 70%;
+    }
+
+    .dfilter {
+        position: absolute;
+        top: 80px;
+        right: 50px;
+        z-index: 21;
+    }
+
+    .dfilter .btn {
+        background: #7d7d7d;
+        font-size: 13px;
+        color: white;
+        font-weight: bold;
+        width: 83px;
+        height: 24px;
+        padding: 0;
+        line-height: 24px;
+        border-radius: 0;
+        border: none;
+    }
+
+    .dfilter .dropdown-menu {
+        min-width: 100%;
+        left: auto;
+        right: 0;
+        margin-top: 0;
+        border-radius: 0;
+    }
+
+    .dfilter .dropdown-menu > li > a {
+        font-size: 12px;
+        color: #464646;
+        font-weight: 300;
+    }
+
+    .dfilter .dropdown-menu>.active>a,
+    .dfilter .dropdown-menu>.active>a:focus,
+    .dfilter .dropdown-menu>.active>a:hover {
+        background: none;
+        color: #1e87e4;
+    }
+
+    .pr-test-other {
+        width: 90%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .pr-course-list.pr-course-list_modified li {
+        width: 22%;
+        padding: 0;
+        margin: 0 5px 10px 5px;
+    }
+
+    .pr-course-list.pr-course-list_modified li a {
+        font-size: 10px;
+        text-transform: uppercase;
+        height: 30px;
+        line-height: 32px;
+        border-top: 0 !important;
+        border-radius: 0;
+    }
+
+    .pr-course-list_modified.pr-course-list li.subject-17 .pr-item span {
+        display: none;
+    }
+
+    .pr-course-list_modified.pr-course-list li.subject-17 .pr-item:after {
+        content: 'GDCD';
+    }
+
+    .pr-vmore {
+        width: 258px;
+        height: 36px;
+        line-height: 36px;
+        display: block;
+        background: #2a70b8;
+        color: white;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .pr-vmore:hover, .pr-vmore:focus {
+        color: white;
+    }
+
+    .pr-qbox2 {
+        display: none;
+    }
+
+    a.test-continue.test-continue-ex.btn.btn-primary {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .nav1 a {
+        font-size: 12px;
+    }
+
+    #countdown-container {
+        margin-right: 0;
+    }
+
+    .pr-course-list.pr-course-list_modified li {
+        width: 21.5%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:992px) {
+    .pr-quick-box {
+        top: 67%;
+        left: 24%;
+        width: 50%;
+    }
+
+    #questionModal .modal-dialog {
+        max-width: 50% !important;
+    }
+}

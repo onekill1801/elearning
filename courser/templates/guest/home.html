@@ -11,14 +11,14 @@
               <ul class="menu">
                  {% for s in subjects %}
                      <li>
-                        <a href="">{{s.title}}{{s.title}}sssssss</a>
+                        <a href="{% url 'list_course_subject' s.id %}">{{s.title}}</a>
                         <div class="megadrop">
                            <div class="col">
                               <ul>
                                 {% for t in tags %}
-                                    {% if  t.subject.id == s.id%}
+                                    {% if  t.subject.id == s.id %}
                                         <li>
-                                            <a href="{% url 'list_course' %}">{{t.tag}}</a>
+                                            <a href="{% url 'list_course_tag' t.id %}">{{t.tag}}</a>
                                          </li>
                                     {% endif %}
                                 {% endfor %}
