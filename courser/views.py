@@ -3,7 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic.base import View
 from .forms import *
 from .models import *
-from chat.models import *
 from datetime import datetime
 from django.http import JsonResponse
 
@@ -504,7 +503,6 @@ class S_CourseFull(View):
 					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 					'course' : Course.objects.filter(id=c_id)[0],
 					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
-					'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 				}
 				c_own = Course.objects.filter(id=c_id)[0]
 				s_check = Student_Course.objects.filter(course=c_own).filter(student=user)
@@ -522,7 +520,6 @@ class S_CourseFull(View):
 					'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 					'course' : Course.objects.filter(id=c_id)[0],
 					'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
-					'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 				}
 				content.update(menuBar)
 				return render(request, 'guest/showCourse.html',content)
@@ -531,7 +528,6 @@ class S_CourseFull(View):
 				'course' : Course.objects.filter(id=c_id)[0],
 				'modules' : Module.objects.filter(course=Course.objects.filter(id=c_id)[0]),
 				'rate_course' : str(int(Course.objects.filter(id=c_id)[0].rate)),
-				'comments' : Chat.objects.filter(course=Course.objects.filter(id=c_id)[0])
 			}
 			content.update(menuBar)
 			return render(request, 'guest/showCourse.html',content)
